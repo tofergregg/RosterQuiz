@@ -15,6 +15,14 @@
 		D517D1CF1D04FC5600B6FDBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D517D1CD1D04FC5600B6FDBC /* LaunchScreen.storyboard */; };
 		D517D1DA1D04FC5700B6FDBC /* RosterQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1D91D04FC5700B6FDBC /* RosterQuizTests.swift */; };
 		D517D1E51D04FC5700B6FDBC /* RosterQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1E41D04FC5700B6FDBC /* RosterQuizUITests.swift */; };
+		D517D1F51D0506AF00B6FDBC /* Roster.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1F41D0506AF00B6FDBC /* Roster.swift */; };
+		D517D1F71D0506E700B6FDBC /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1F61D0506E700B6FDBC /* Student.swift */; };
+		D517D1F91D050BE400B6FDBC /* Add User Group Man Man-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D517D1F81D050BE400B6FDBC /* Add User Group Man Man-50.png */; };
+		D56895371D050FA100B9386D /* User Groups-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D56895361D050FA100B9386D /* User Groups-50.png */; };
+		D56895391D05115F00B9386D /* Why Us Female-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D56895381D05115F00B9386D /* Why Us Female-50.png */; };
+		D568953B1D05D76900B9386D /* AddRosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D568953A1D05D76900B9386D /* AddRosterController.swift */; };
+		D568953D1D05EF3C00B9386D /* ShowRosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D568953C1D05EF3C00B9386D /* ShowRosterController.swift */; };
+		D5BEBC701D064694003BA21D /* User-100.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BEBC6F1D064694003BA21D /* User-100.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,14 @@
 		D517D1E01D04FC5700B6FDBC /* RosterQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RosterQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D517D1E41D04FC5700B6FDBC /* RosterQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterQuizUITests.swift; sourceTree = "<group>"; };
 		D517D1E61D04FC5700B6FDBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D517D1F41D0506AF00B6FDBC /* Roster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Roster.swift; path = ../Roster.swift; sourceTree = "<group>"; };
+		D517D1F61D0506E700B6FDBC /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../Student.swift; sourceTree = "<group>"; };
+		D517D1F81D050BE400B6FDBC /* Add User Group Man Man-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User Group Man Man-50.png"; sourceTree = "<group>"; };
+		D56895361D050FA100B9386D /* User Groups-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User Groups-50.png"; sourceTree = "<group>"; };
+		D56895381D05115F00B9386D /* Why Us Female-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Why Us Female-50.png"; sourceTree = "<group>"; };
+		D568953A1D05D76900B9386D /* AddRosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRosterController.swift; sourceTree = "<group>"; };
+		D568953C1D05EF3C00B9386D /* ShowRosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRosterController.swift; sourceTree = "<group>"; };
+		D5BEBC6F1D064694003BA21D /* User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-100.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,11 +115,19 @@
 		D517D1C11D04FC5600B6FDBC /* RosterQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				D517D1F41D0506AF00B6FDBC /* Roster.swift */,
+				D517D1F61D0506E700B6FDBC /* Student.swift */,
 				D517D1C21D04FC5600B6FDBC /* AppDelegate.swift */,
 				D517D1C41D04FC5600B6FDBC /* FirstViewController.swift */,
 				D517D1C61D04FC5600B6FDBC /* SecondViewController.swift */,
+				D568953A1D05D76900B9386D /* AddRosterController.swift */,
+				D568953C1D05EF3C00B9386D /* ShowRosterController.swift */,
 				D517D1C81D04FC5600B6FDBC /* Main.storyboard */,
 				D517D1CB1D04FC5600B6FDBC /* Assets.xcassets */,
+				D517D1F81D050BE400B6FDBC /* Add User Group Man Man-50.png */,
+				D56895361D050FA100B9386D /* User Groups-50.png */,
+				D56895381D05115F00B9386D /* Why Us Female-50.png */,
+				D5BEBC6F1D064694003BA21D /* User-100.png */,
 				D517D1CD1D04FC5600B6FDBC /* LaunchScreen.storyboard */,
 				D517D1D01D04FC5600B6FDBC /* Info.plist */,
 			);
@@ -233,8 +257,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D517D1CF1D04FC5600B6FDBC /* LaunchScreen.storyboard in Resources */,
+				D56895371D050FA100B9386D /* User Groups-50.png in Resources */,
 				D517D1CC1D04FC5600B6FDBC /* Assets.xcassets in Resources */,
+				D56895391D05115F00B9386D /* Why Us Female-50.png in Resources */,
 				D517D1CA1D04FC5600B6FDBC /* Main.storyboard in Resources */,
+				D5BEBC701D064694003BA21D /* User-100.png in Resources */,
+				D517D1F91D050BE400B6FDBC /* Add User Group Man Man-50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D568953B1D05D76900B9386D /* AddRosterController.swift in Sources */,
 				D517D1C71D04FC5600B6FDBC /* SecondViewController.swift in Sources */,
 				D517D1C31D04FC5600B6FDBC /* AppDelegate.swift in Sources */,
+				D517D1F51D0506AF00B6FDBC /* Roster.swift in Sources */,
+				D568953D1D05EF3C00B9386D /* ShowRosterController.swift in Sources */,
+				D517D1F71D0506E700B6FDBC /* Student.swift in Sources */,
 				D517D1C51D04FC5600B6FDBC /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +518,7 @@
 				D517D1EB1D04FC5700B6FDBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D517D1EC1D04FC5700B6FDBC /* Build configuration list for PBXNativeTarget "RosterQuizTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +527,7 @@
 				D517D1EE1D04FC5700B6FDBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D517D1EF1D04FC5700B6FDBC /* Build configuration list for PBXNativeTarget "RosterQuizUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +536,7 @@
 				D517D1F11D04FC5700B6FDBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
