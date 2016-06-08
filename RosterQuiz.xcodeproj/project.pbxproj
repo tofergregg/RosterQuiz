@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0575F41B6CB8EC3E7E411E /* Pods_RosterQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4086CFCBCAE9B2AC937ACA43 /* Pods_RosterQuiz.framework */; };
 		D517D1C31D04FC5600B6FDBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1C21D04FC5600B6FDBC /* AppDelegate.swift */; };
 		D517D1C51D04FC5600B6FDBC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1C41D04FC5600B6FDBC /* FirstViewController.swift */; };
 		D517D1C71D04FC5600B6FDBC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1C61D04FC5600B6FDBC /* SecondViewController.swift */; };
@@ -42,7 +43,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D5BEBC7C1D065D09003BA21D /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4086CFCBCAE9B2AC937ACA43 /* Pods_RosterQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RosterQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F9D293EB90EB28A4325B8B /* Pods-RosterQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RosterQuiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz.debug.xcconfig"; sourceTree = "<group>"; };
 		D517D1BF1D04FC5600B6FDBC /* RosterQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RosterQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D517D1C21D04FC5600B6FDBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D517D1C41D04FC5600B6FDBC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +81,7 @@
 		D568953A1D05D76900B9386D /* AddRosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRosterController.swift; sourceTree = "<group>"; };
 		D568953C1D05EF3C00B9386D /* ShowRosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRosterController.swift; sourceTree = "<group>"; };
 		D5BEBC6F1D064694003BA21D /* User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-100.png"; sourceTree = "<group>"; };
+		E01858CD12DE73A3B9BE0F37 /* Pods-RosterQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RosterQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF0575F41B6CB8EC3E7E411E /* Pods_RosterQuiz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53D1046D0C241C1661B46CB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4086CFCBCAE9B2AC937ACA43 /* Pods_RosterQuiz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D517D1B61D04FC5600B6FDBC = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +125,8 @@
 				D517D1D81D04FC5700B6FDBC /* RosterQuizTests */,
 				D517D1E31D04FC5700B6FDBC /* RosterQuizUITests */,
 				D517D1C01D04FC5600B6FDBC /* Products */,
+				FF11F898049C89A1CFC28BA9 /* Pods */,
+				53D1046D0C241C1661B46CB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +180,15 @@
 			path = RosterQuizUITests;
 			sourceTree = "<group>";
 		};
+		FF11F898049C89A1CFC28BA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5F9D293EB90EB28A4325B8B /* Pods-RosterQuiz.debug.xcconfig */,
+				E01858CD12DE73A3B9BE0F37 /* Pods-RosterQuiz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +196,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D517D1E91D04FC5700B6FDBC /* Build configuration list for PBXNativeTarget "RosterQuiz" */;
 			buildPhases = (
+				10265E7B51923778A6A0A43C /* Check Pods Manifest.lock */,
 				D517D1BB1D04FC5600B6FDBC /* Sources */,
 				D517D1BC1D04FC5600B6FDBC /* Frameworks */,
 				D517D1BD1D04FC5600B6FDBC /* Resources */,
+				D5BEBC7C1D065D09003BA21D /* Copy Frameworks */,
+				C622EBDE30065AFD6A3BB5BA /* Embed Pods Frameworks */,
+				0465A80B309A10BBE9212E8F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -281,6 +322,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0465A80B309A10BBE9212E8F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		10265E7B51923778A6A0A43C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C622EBDE30065AFD6A3BB5BA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D517D1BB1D04FC5600B6FDBC /* Sources */ = {
@@ -433,9 +522,11 @@
 		};
 		D517D1EA1D04FC5700B6FDBC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5F9D293EB90EB28A4325B8B /* Pods-RosterQuiz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RosterQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoadrillosoftware.RosterQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -444,9 +535,11 @@
 		};
 		D517D1EB1D04FC5700B6FDBC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E01858CD12DE73A3B9BE0F37 /* Pods-RosterQuiz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RosterQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cocoadrillosoftware.RosterQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
