@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AeroGearOAuth2
+//import AeroGearOAuth2
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
+    /*
     func application(application: UIApplication,
                      openURL url: NSURL,
                              sourceApplication: String?,
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                           userInfo:[UIApplicationLaunchOptionsURLKey:url])
         NSNotificationCenter.defaultCenter().postNotification(notification)
         return true
-    }
+    }*/
 
 
 }

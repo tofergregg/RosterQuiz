@@ -16,8 +16,8 @@ class SecondViewController: UIViewController {
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
-    private let scopes = [kGTLAuthScopeDriveFile]
-    // private let scopes = [kGTLAuthScopeDriveMetadataReadonly]
+    private let scopes = [kGTLAuthScopeDriveReadonly]
+    //private let scopes = [kGTLAuthScopeDriveMetadataReadonly]
     
     
     private let service = GTLServiceDrive()
@@ -63,9 +63,12 @@ class SecondViewController: UIViewController {
     func fetchFiles() {
         output.text = "Getting files..."
         let query = GTLQueryDrive.queryForFilesList()
-        query.pageSize = 10
+        //query.pageSize = 10
         //query.fields = "nextPageToken, files(id, name)"
-        query.fields = "name = 'RosterQuiz_pics'"
+        //query.spaces = "drive"
+        //query.q = "name = 'RosterQuiz_pics'"
+        //query.q = "'0BxrnKK8LdJT0VGxVQXNiclhtWEU' in parents"
+        query.q = "'0BxrnKK8LdJT0QzJuTkhTb2hZNE0' in parents"
         service.executeQuery(
             query,
             delegate: self,
