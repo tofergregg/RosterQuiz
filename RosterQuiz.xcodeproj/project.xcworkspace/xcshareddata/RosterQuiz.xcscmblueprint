@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0C8AF9E7E5AFF561C6C4CF85A7C8ACC3A853551C" : 0,
+    "B48CBB23EC5F62742F582F5F8D8D549A75935603" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A267D197-F91E-4218-BCD0-1EFCEE32CBA8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0C8AF9E7E5AFF561C6C4CF85A7C8ACC3A853551C" : "RosterQuiz\/aerogear-ios-oauth2\/",
+    "B48CBB23EC5F62742F582F5F8D8D549A75935603" : "RosterQuiz\/aerogear-ios-http\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "RosterQuiz",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RosterQuiz.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aerogear\/aerogear-ios-oauth2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0C8AF9E7E5AFF561C6C4CF85A7C8ACC3A853551C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aerogear\/aerogear-ios-http.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B48CBB23EC5F62742F582F5F8D8D549A75935603"
+    }
+  ]
+}

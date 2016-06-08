@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Http.TaskDelegate.URLSession(NSURLSession, task : NSURLSessionTask, didCompleteWithError : NSError?) -&gt; ():Http.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.(share() -&gt; ()).(closure #1):SecondViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response as! String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
