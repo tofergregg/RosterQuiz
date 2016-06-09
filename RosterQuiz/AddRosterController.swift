@@ -61,7 +61,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         let query = GTLQueryDrive.queryForFilesList()
         query.pageSize = 1000 // max number in roster
         //query.fields = "nextPageToken, files(id, name)"
-        //query.spaces = "drive"
+        query.spaces = "drive"
         query.q = "name = '\(folderName)'"
         //query.q = "'0BxrnKK8LdJT0VGxVQXNiclhtWEU' in parents"
         //query.q = "'0BxrnKK8LdJT0QzJuTkhTb2hZNE0' in parents"

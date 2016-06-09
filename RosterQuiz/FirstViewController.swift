@@ -11,6 +11,7 @@ import UIKit
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var rosterTableView: UITableView!
+    @IBOutlet weak var addRosterButton: UIBarButtonItem!
     var rosters : [Roster] = []
     let textCellIdentifier = "TextCell"
     var selectedRow : Int = 0
