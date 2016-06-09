@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Veg-TR-ykn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Rosters-->
+        <!--Roster Quiz-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="RosterQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,29 +21,27 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzi-a8-LRd">
                                 <rect key="frame" x="280" y="503" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="VGB-k8-a7F"/>
-                                    <constraint firstAttribute="height" constant="40" id="fUl-Y9-xx9"/>
+                                    <constraint firstAttribute="height" constant="40" id="Hqh-vE-HVc"/>
+                                    <constraint firstAttribute="width" constant="40" id="rCa-x5-FjJ"/>
                                 </constraints>
                                 <state key="normal" image="Add User Group Man Man-50.png"/>
                                 <connections>
-                                    <segue destination="fXs-ug-dFF" kind="popoverPresentation" identifier="Adding Roster" popoverAnchorView="qzi-a8-LRd" id="cTf-Ej-Y2L">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="fXs-ug-dFF" kind="show" id="8IT-4Y-dlx"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MAq-d5-dex">
-                                <rect key="frame" x="0.0" y="28" width="600" height="472"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="436"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" textLabel="RkJ-nw-DAq" style="IBUITableViewCellStyleDefault" id="GN2-HN-bAo">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GN2-HN-bAo" id="WrI-LY-M71">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RkJ-nw-DAq">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,15 +55,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="qzi-a8-LRd" secondAttribute="bottom" constant="8" symbolic="YES" id="5Ud-lX-E6t"/>
-                            <constraint firstItem="MAq-d5-dex" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="E4I-ag-5IT"/>
-                            <constraint firstItem="MAq-d5-dex" firstAttribute="centerX" secondItem="qzi-a8-LRd" secondAttribute="centerX" id="PSa-ER-a4t"/>
-                            <constraint firstAttribute="trailing" secondItem="MAq-d5-dex" secondAttribute="trailing" id="gGi-5A-88y"/>
-                            <constraint firstItem="MAq-d5-dex" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="i09-fQ-QbR"/>
-                            <constraint firstItem="qzi-a8-LRd" firstAttribute="top" secondItem="MAq-d5-dex" secondAttribute="bottom" constant="3" id="ooY-WU-3cY"/>
+                            <constraint firstItem="MAq-d5-dex" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="FYI-Nw-gj6"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="qzi-a8-LRd" secondAttribute="bottom" constant="8" symbolic="YES" id="bGz-Vy-I8F"/>
+                            <constraint firstItem="MAq-d5-dex" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="64" id="dTI-bq-E13"/>
+                            <constraint firstItem="qzi-a8-LRd" firstAttribute="top" secondItem="MAq-d5-dex" secondAttribute="bottom" constant="3" id="h8m-As-33e"/>
+                            <constraint firstItem="MAq-d5-dex" firstAttribute="centerX" secondItem="qzi-a8-LRd" secondAttribute="centerX" id="ndl-c9-wSq"/>
+                            <constraint firstAttribute="trailing" secondItem="MAq-d5-dex" secondAttribute="trailing" id="o1k-gq-gVK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Rosters" image="User Groups-50.png" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" title="Roster Quiz" id="7Go-ku-H5J">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="qNX-DL-FD6"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="rosterTableView" destination="MAq-d5-dex" id="gBp-tw-1wL"/>
                         <segue destination="0zY-ma-Jgf" kind="show" identifier="Show Roster Segue" id="5DE-aw-Lvq"/>
@@ -73,11 +73,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="-333"/>
+            <point key="canvasLocation" x="1976" y="-507"/>
         </scene>
         <!--Add Roster-->
         <scene sceneID="0cB-sH-Ekx">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rpy-cP-fbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="addRoster" title="Add Roster" id="fXs-ug-dFF" customClass="AddRosterController" customModule="RosterQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7b-ih-vVb"/>
@@ -87,92 +88,145 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roster Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sW-e2-Agf">
-                                <rect key="frame" x="20" y="28" width="104" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paste Text in the form of:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KH5-RN-TfK">
-                                <rect key="frame" x="20" y="68" width="191" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last,First,Year,Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF9-2G-is3">
-                                <rect key="frame" x="67" y="97" width="239" height="21"/>
+                                <rect key="frame" x="20" y="226" width="239" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="239" id="Gg0-Wa-sCs"/>
-                                    <constraint firstAttribute="height" constant="21" id="rwM-6u-c7t"/>
+                                    <constraint firstAttribute="width" constant="239" id="ZFY-bu-aTS"/>
+                                    <constraint firstAttribute="height" constant="21" id="xkP-Mh-1eL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pFq-AR-L4O">
-                                <rect key="frame" x="132" y="24" width="448" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1ve-ww-mKP">
-                                <rect key="frame" x="20" y="155" width="560" height="335"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="feX-za-b38">
+                                <rect key="frame" x="19" y="59" width="563" height="159"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="159" id="Iup-3U-1Jb"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">RosterQuiz uses Google Drive to upload a roster. Please create a folder called "RosterQuiz_Rosters" in your Google Drive. Then create another folder for each roster you want to upload (e.g., "CS 106B Fall 2016"). Inside that folder, put a text file called "roster.csv" that has the following information for each student (year and gender optional):</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65U-of-ECb">
-                                <rect key="frame" x="34" y="513" width="76" height="30"/>
-                                <state key="normal" title="Add Roster"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vX8-EY-rWN">
+                                <rect key="frame" x="16" y="255" width="564" height="41"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Also in the folder, place a .jpg file for each student, named &quot;Last_First.jpg&quot;">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sOf-E7-RbG">
+                                <rect key="frame" x="20" y="371" width="560" height="176"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="First Cell" id="qP2-n0-V1H">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qP2-n0-V1H" id="j3L-KO-ydJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfY-Qz-Skp">
+                                <rect key="frame" x="20" y="304" width="305" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="C5g-rp-Rcc"/>
+                                    <constraint firstAttribute="width" constant="305" id="F07-lY-lgJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Click here to list your rosters in Google Drive"/>
                                 <connections>
-                                    <segue destination="aAA-bn-NUW" kind="unwind" unwindAction="returnFromAddRoster:" id="W0y-X4-5qE"/>
+                                    <action selector="loadRosterList:" destination="fXs-ug-dFF" eventType="touchUpInside" id="yKq-W1-5Za"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hIg-Kt-yun">
+                                <rect key="frame" x="295" y="279" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixh-75-Xr9">
-                                <rect key="frame" x="149" y="513" width="48" height="30"/>
+                                <rect key="frame" x="20" y="555" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelButton:" destination="Rpy-cP-fbb" eventType="touchUpInside" id="2gb-jE-PJK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Year and Gender Optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzX-gb-htt">
-                                <rect key="frame" x="20" y="126" width="208" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the roster to import:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96V-7c-OAf">
+                                <rect key="frame" x="20" y="342" width="206" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="NFb-qQ-gZh"/>
+                                    <constraint firstAttribute="width" constant="206" id="Pja-Zz-Sck"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5sW-e2-Agf" firstAttribute="top" secondItem="L7b-ih-vVb" secondAttribute="bottom" constant="8" symbolic="YES" id="0V5-GB-odt"/>
-                            <constraint firstItem="5sW-e2-Agf" firstAttribute="leading" secondItem="Kpf-WR-spV" secondAttribute="leadingMargin" id="23A-MN-yOa"/>
-                            <constraint firstItem="YzX-gb-htt" firstAttribute="leading" secondItem="1ve-ww-mKP" secondAttribute="leading" id="5n1-wK-gpo"/>
-                            <constraint firstItem="pFq-AR-L4O" firstAttribute="leading" secondItem="5sW-e2-Agf" secondAttribute="trailing" constant="8" symbolic="YES" id="Lmj-3w-T0D"/>
-                            <constraint firstItem="pFq-AR-L4O" firstAttribute="trailing" secondItem="Kpf-WR-spV" secondAttribute="trailingMargin" id="OtC-PU-ue3"/>
-                            <constraint firstItem="1ve-ww-mKP" firstAttribute="top" secondItem="YzX-gb-htt" secondAttribute="bottom" constant="8" symbolic="YES" id="XUh-HN-jSU"/>
-                            <constraint firstItem="65U-of-ECb" firstAttribute="top" secondItem="1ve-ww-mKP" secondAttribute="bottom" constant="23" id="Y2y-ru-ia6"/>
-                            <constraint firstItem="nF9-2G-is3" firstAttribute="top" secondItem="KH5-RN-TfK" secondAttribute="bottom" constant="8" symbolic="YES" id="d32-wk-MJ0"/>
-                            <constraint firstItem="65U-of-ECb" firstAttribute="baseline" secondItem="Ixh-75-Xr9" secondAttribute="baseline" id="inU-ni-tT5"/>
-                            <constraint firstItem="KH5-RN-TfK" firstAttribute="top" secondItem="pFq-AR-L4O" secondAttribute="bottom" constant="14" id="ksR-wV-leR"/>
-                            <constraint firstItem="nF9-2G-is3" firstAttribute="leading" secondItem="Kpf-WR-spV" secondAttribute="leadingMargin" constant="47" id="lnc-Kf-MCJ"/>
-                            <constraint firstItem="YzX-gb-htt" firstAttribute="top" secondItem="nF9-2G-is3" secondAttribute="bottom" constant="8" symbolic="YES" id="mNy-DP-KEB"/>
-                            <constraint firstItem="5sW-e2-Agf" firstAttribute="centerX" secondItem="65U-of-ECb" secondAttribute="centerX" id="ngR-e5-QTe"/>
-                            <constraint firstItem="5sW-e2-Agf" firstAttribute="centerY" secondItem="pFq-AR-L4O" secondAttribute="centerY" id="oNO-Dd-2vA"/>
-                            <constraint firstItem="5sW-e2-Agf" firstAttribute="leading" secondItem="KH5-RN-TfK" secondAttribute="leading" id="qAV-Aq-Wwn"/>
-                            <constraint firstItem="Ixh-75-Xr9" firstAttribute="leading" secondItem="65U-of-ECb" secondAttribute="trailing" constant="39" id="ulT-M0-9AE"/>
-                            <constraint firstItem="9e8-85-U6R" firstAttribute="top" secondItem="65U-of-ECb" secondAttribute="bottom" constant="57" id="wmY-jG-hey"/>
-                            <constraint firstItem="pFq-AR-L4O" firstAttribute="trailing" secondItem="1ve-ww-mKP" secondAttribute="trailing" id="wwf-pD-Jxe"/>
-                            <constraint firstItem="KH5-RN-TfK" firstAttribute="leading" secondItem="YzX-gb-htt" secondAttribute="leading" id="xvK-h6-vDR"/>
+                            <constraint firstItem="nF9-2G-is3" firstAttribute="leading" secondItem="Kpf-WR-spV" secondAttribute="leadingMargin" id="1Js-hn-gOb"/>
+                            <constraint firstItem="MfY-Qz-Skp" firstAttribute="top" secondItem="vX8-EY-rWN" secondAttribute="bottom" constant="8" symbolic="YES" id="6cl-Gi-PZq"/>
+                            <constraint firstItem="hIg-Kt-yun" firstAttribute="leading" secondItem="Kpf-WR-spV" secondAttribute="leading" constant="295" id="8fO-YX-l6g"/>
+                            <constraint firstItem="nF9-2G-is3" firstAttribute="leading" secondItem="MfY-Qz-Skp" secondAttribute="leading" id="IhJ-KR-61X"/>
+                            <constraint firstItem="feX-za-b38" firstAttribute="top" secondItem="Kpf-WR-spV" secondAttribute="topMargin" constant="59" id="Pgj-UH-QBa"/>
+                            <constraint firstItem="vX8-EY-rWN" firstAttribute="trailing" secondItem="sOf-E7-RbG" secondAttribute="trailing" id="RPI-hw-xnk"/>
+                            <constraint firstItem="MfY-Qz-Skp" firstAttribute="leading" secondItem="96V-7c-OAf" secondAttribute="leading" id="Rj9-R6-LAf"/>
+                            <constraint firstItem="nF9-2G-is3" firstAttribute="top" secondItem="feX-za-b38" secondAttribute="bottom" constant="8" symbolic="YES" id="WDs-OH-7N9"/>
+                            <constraint firstItem="hIg-Kt-yun" firstAttribute="top" secondItem="feX-za-b38" secondAttribute="bottom" constant="61" id="WO8-ni-Iua"/>
+                            <constraint firstItem="sOf-E7-RbG" firstAttribute="leading" secondItem="Ixh-75-Xr9" secondAttribute="leading" id="bbC-lT-rAA"/>
+                            <constraint firstItem="96V-7c-OAf" firstAttribute="top" secondItem="MfY-Qz-Skp" secondAttribute="bottom" constant="8" symbolic="YES" id="drM-Yw-vmB"/>
+                            <constraint firstItem="Ixh-75-Xr9" firstAttribute="top" secondItem="sOf-E7-RbG" secondAttribute="bottom" constant="8" symbolic="YES" id="e6S-52-aHP"/>
+                            <constraint firstItem="MfY-Qz-Skp" firstAttribute="top" secondItem="hIg-Kt-yun" secondAttribute="bottom" constant="5" id="ecL-A5-Uuf"/>
+                            <constraint firstItem="feX-za-b38" firstAttribute="leading" secondItem="Kpf-WR-spV" secondAttribute="leadingMargin" constant="-1" id="gcf-PU-8SE"/>
+                            <constraint firstItem="96V-7c-OAf" firstAttribute="leading" secondItem="sOf-E7-RbG" secondAttribute="leading" id="k4S-vS-gY8"/>
+                            <constraint firstItem="vX8-EY-rWN" firstAttribute="top" secondItem="nF9-2G-is3" secondAttribute="bottom" constant="8" symbolic="YES" id="kad-qL-K5o"/>
+                            <constraint firstItem="feX-za-b38" firstAttribute="centerX" secondItem="sOf-E7-RbG" secondAttribute="centerX" id="pZa-Pi-88D"/>
+                            <constraint firstItem="sOf-E7-RbG" firstAttribute="top" secondItem="96V-7c-OAf" secondAttribute="bottom" constant="8" symbolic="YES" id="vWF-HA-YPF"/>
+                            <constraint firstItem="vX8-EY-rWN" firstAttribute="leading" secondItem="Kpf-WR-spV" secondAttribute="leadingMargin" constant="-4" id="w6Q-Hn-MKl"/>
+                            <constraint firstItem="Ixh-75-Xr9" firstAttribute="top" secondItem="9e8-85-U6R" secondAttribute="bottom" constant="4" id="wka-9a-LsT"/>
+                            <constraint firstItem="vX8-EY-rWN" firstAttribute="trailing" secondItem="Kpf-WR-spV" secondAttribute="trailingMargin" id="yn8-LN-Ot5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Roster" id="Lw9-fr-ioN">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="CoN-vH-EVx"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="rosterNameText" destination="pFq-AR-L4O" id="wVI-aX-OQp"/>
-                        <outlet property="rosterText" destination="1ve-ww-mKP" id="mE4-V1-7H6"/>
+                        <outlet property="loadingFilesIndicator" destination="hIg-Kt-yun" id="BXu-8V-Gml"/>
+                        <outlet property="rosterListTable" destination="sOf-E7-RbG" id="35z-Td-rXm"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rpy-cP-fbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="aAA-bn-NUW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="-320"/>
+            <point key="canvasLocation" x="2688" y="-512"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Svf-dY-bgi">
+            <objects>
+                <navigationController id="Veg-TR-ykn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="User Groups-50.png" id="EfN-wu-F6O"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yEe-JQ-l6d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="VXx-4h-oKc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iqg-2D-67t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1097" y="-455"/>
         </scene>
         <!--Class Roster-->
         <scene sceneID="ha3-rr-FrD">
@@ -191,7 +245,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StudentCell" id="cFV-1L-I1D">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cFV-1L-I1D" id="Rt2-j0-3WU">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -231,69 +285,9 @@
             </objects>
             <point key="canvasLocation" x="1430" y="408"/>
         </scene>
-        <!--Quiz-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="RosterQuiz" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="195" y="279" width="209.5" height="41.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="192" y="329" width="215.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Quiz" image="Why Us Female-50.png" id="cPa-gy-q4n"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="750" y="360"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="yl2-sM-qoP">
-            <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
-                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Add User Group Man Man-50.png" width="50" height="50"/>
         <image name="User Groups-50.png" width="30" height="30"/>
-        <image name="Why Us Female-50.png" width="30" height="30"/>
     </resources>
 </document>

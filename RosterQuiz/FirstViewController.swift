@@ -32,8 +32,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Here you can receive the parameter(s) from secondVC
         let addRoster : AddRosterController = segue.sourceViewController as! AddRosterController
         let roster = Roster()
-        roster.name = addRoster.rosterNameText.text!
-        roster.csv_paste(addRoster.rosterText.text)
+        //roster.name = addRoster.rosterNameText.text!
+        //roster.csv_paste(addRoster.rosterText.text)
         rosters.append(roster)
         rosterTableView.reloadData()
     }
@@ -56,18 +56,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let row = indexPath.row
-        print("Row: \(row)")
-        
-        rosters[row].printRoster()
-        
-        selectedRow = row
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            
+            let row = indexPath.row
+            print("Row: \(row)")
+            
+            rosters[row].printRoster()
+            
+            selectedRow = row
 
-        performSegueWithIdentifier("Show Roster Segue", sender: self)
-
+            performSegueWithIdentifier("Show Roster Segue", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
