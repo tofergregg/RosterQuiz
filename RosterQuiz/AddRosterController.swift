@@ -18,7 +18,8 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     private let kKeychainItemName = "Drive API"
     private let kClientID = "795309004462-itm898hfu3gna8rnb1mjlv2jmaj8d6jd.apps.googleusercontent.com"
     private let folderName = "RosterQuiz_Rosters"
-    var rosterList : [String] = []
+    private var folderId = ""
+    var rosterList : [GTLDriveFile] = []
     let textCellIdentifier = "First Cell"
     
     // If modifying these scopes, delete your previously saved credentials by
@@ -82,13 +83,55 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         if let files = response.files where !files.isEmpty {
-            for file in files as! [GTLDriveFile] {
-                print("\(file.name) (\(file.identifier))")
-                rosterList.append(file.name)
+            if (files.count != 1) {
+                showAlert("Error", message:"It seems that you have more than one folder named \(folderName)")
             }
-            rosterListTable.reloadData()
+            else {
+                let file = files[0] as! GTLDriveFile
+                print("\(file.name) (\(file.identifier))")
+                //rosterList.append(file.name)
+                folderId = file.identifier
+                
+                // find all files
+                let query = GTLQueryDrive.queryForFilesList()
+                query.pageSize = 1000 // max number in roster
+                //query.fields = "nextPageToken, files(id, name)"
+                //query.spaces = "drive"
+                query.q = "'\(folderId)' in parents"
+                service.executeQuery(
+                    query,
+                    delegate: self,
+                    didFinishSelector: #selector(AddRosterController.findFilesFromTicket(_:finishedWithObject:error:))
+                )
+            }
         } else {
             showAlert("Error", message: "Could not find \(folderName) folder on your Google Drive!")
+        }
+        
+        //output.text = filesString
+    }
+    
+    // Parse results and display
+    func findFilesFromTicket(ticket : GTLServiceTicket,
+                              finishedWithObject response : GTLDriveFileList,
+                                                 error : NSError?) {
+        
+        if let error = error {
+            showAlert("Error", message: error.localizedDescription)
+            return
+        }
+        
+        if let files = response.files where !files.isEmpty {
+            rosterList.removeAll()
+            for file in files as! [GTLDriveFile] {
+                print("\(file.name) (\(file.identifier))\n")
+                rosterList.append(file)
+            }
+            rosterListTable.reloadData()
+            loadingFilesIndicator.stopAnimating()
+            
+        } else {
+            showAlert("Error", message: "Could not find any of the roster files on your Google Drive!")
         }
         
         //output.text = filesString
@@ -157,7 +200,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
         
         let row = indexPath.row
-        cell.textLabel?.text = rosterList[row]
+        cell.textLabel?.text = rosterList[row].name
         return cell
     }
     
