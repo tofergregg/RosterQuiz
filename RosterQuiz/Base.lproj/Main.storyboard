@@ -134,6 +134,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ojn-bn-TdK" kind="show" identifier="Show Students" id="BMp-eo-Xcv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -204,7 +207,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rpy-cP-fbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2688" y="-512"/>
+            <point key="canvasLocation" x="2691" y="-507"/>
+        </scene>
+        <!--Load Roster-->
+        <scene sceneID="7T2-bJ-AZF">
+            <objects>
+                <viewController storyboardIdentifier="addRosterCheckStudents" automaticallyAdjustsScrollViewInsets="NO" id="ojn-bn-TdK" customClass="LoadRosterFromGDrive" customModule="RosterQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e9R-Tc-wtR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sdm-Wl-cu0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U0P-8q-yUi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oR8-Pg-xfB">
+                                <rect key="frame" x="0.0" y="101" width="600" height="461"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="student cell" id="V6y-L8-OM7">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V6y-L8-OM7" id="Qja-Gs-I6Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEH-gg-ni2">
+                                <rect key="frame" x="149" y="570" width="302" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SEt-Jy-5Hi"/>
+                                    <constraint firstAttribute="width" constant="302" id="fZc-RP-hLW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Click here to load this roster into RosterQuiz"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The following students were found on the roster:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b0-rE-pSt">
+                                <rect key="frame" x="151" y="72" width="298" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="298" id="S5V-dq-kfh"/>
+                                    <constraint firstAttribute="height" constant="21" id="VZv-4I-OMI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="top" secondItem="6b0-rE-pSt" secondAttribute="bottom" constant="8" symbolic="YES" id="9y0-Ee-ipw"/>
+                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="leading" secondItem="U0P-8q-yUi" secondAttribute="leading" id="Be5-ZX-HEZ"/>
+                            <constraint firstItem="tEH-gg-ni2" firstAttribute="bottom" secondItem="Sdm-Wl-cu0" secondAttribute="top" id="JnO-Nf-gaK"/>
+                            <constraint firstItem="6b0-rE-pSt" firstAttribute="top" secondItem="e9R-Tc-wtR" secondAttribute="bottom" constant="8" symbolic="YES" id="OrY-1b-JkT"/>
+                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="centerX" secondItem="tEH-gg-ni2" secondAttribute="centerX" id="SZr-jh-MdX"/>
+                            <constraint firstAttribute="trailing" secondItem="oR8-Pg-xfB" secondAttribute="trailing" id="Xuh-p3-gWe"/>
+                            <constraint firstItem="tEH-gg-ni2" firstAttribute="top" secondItem="oR8-Pg-xfB" secondAttribute="bottom" constant="8" symbolic="YES" id="e9a-Xw-lOh"/>
+                            <constraint firstItem="6b0-rE-pSt" firstAttribute="centerX" secondItem="oR8-Pg-xfB" secondAttribute="centerX" id="zif-CK-ZBp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Load Roster" id="P0Z-8h-mW1"/>
+                    <connections>
+                        <outlet property="rosterTable" destination="oR8-Pg-xfB" id="glZ-rt-Sgo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RpI-qd-JYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3389" y="-512"/>
         </scene>
         <!--Item-->
         <scene sceneID="Svf-dY-bgi">
