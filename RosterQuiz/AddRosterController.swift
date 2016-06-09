@@ -28,7 +28,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     //private let scopes = [kGTLAuthScopeDriveMetadataReadonly]
     
     
-    private let service = GTLServiceDrive()
+    let service = GTLServiceDrive()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -223,14 +223,26 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "Show Students" {
+            let destionationVC : LoadRosterFromGDrive = segue.destinationViewController as! LoadRosterFromGDrive
+            
+            destionationVC.parentController = self
+            destionationVC.rosterFolder = rosterList[rosterListTable.indexPathForSelectedRow!.row]
+        }
+        
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let row = indexPath.row
-        print("Row: \(row)")
-        
-        //rosterList[row].printRoster()
+        //let row = indexPath.row
+        //print("Row: \(row)")
+    }
+    
+    func loadRosterFromGDrive(rosterFolder:GTLDriveFile){
+        // load the roster into new table.
         
     }
 }
