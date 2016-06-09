@@ -49,6 +49,12 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         rosterListTable.dataSource = self;
     }
     
+    // When the view appears, ensure that the Drive API service is authorized
+    // and perform API calls
+    override func viewDidAppear(animated: Bool) {
+       
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,6 +62,18 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     @IBAction func loadRosterList(sender: UIButton) {
+        if let authorizer = service.authorizer,
+            canAuth = authorizer.canAuthorize where canAuth {
+            startQuery()
+        } else {
+            presentViewController(
+                createAuthController(),
+                animated: true,
+                completion: nil
+            )
+        }
+    }
+    func startQuery(){
         // Construct a query to get names and IDs of 10 files using the Google Drive API
         loadingFilesIndicator.startAnimating()
         let query = GTLQueryDrive.queryForFilesList()
@@ -164,6 +182,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         
         service.authorizer = authResult
         dismissViewControllerAnimated(true, completion: nil)
+        startQuery()
     }
     
     // Helper for showing an alert
