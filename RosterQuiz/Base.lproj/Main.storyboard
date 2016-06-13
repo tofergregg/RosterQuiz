@@ -229,7 +229,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V6y-L8-OM7" id="Qja-Gs-I6Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -238,38 +238,51 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEH-gg-ni2">
                                 <rect key="frame" x="149" y="570" width="302" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="SEt-Jy-5Hi"/>
-                                    <constraint firstAttribute="width" constant="302" id="fZc-RP-hLW"/>
+                                    <constraint firstAttribute="width" constant="302" id="Vzj-Fe-YSN"/>
+                                    <constraint firstAttribute="height" constant="30" id="piG-Wc-fE3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Click here to load this roster into RosterQuiz"/>
+                                <connections>
+                                    <action selector="downloadRoster:" destination="ojn-bn-TdK" eventType="touchUpInside" id="ukv-No-IPy"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The following students were found on the roster:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b0-rE-pSt">
                                 <rect key="frame" x="151" y="72" width="298" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="298" id="S5V-dq-kfh"/>
-                                    <constraint firstAttribute="height" constant="21" id="VZv-4I-OMI"/>
+                                    <constraint firstAttribute="height" constant="21" id="RWM-iZ-6D4"/>
+                                    <constraint firstAttribute="width" constant="298" id="eNN-Nj-wDf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BXz-Yz-c4n">
+                                <rect key="frame" x="234" y="270" width="132" height="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="123" id="dpm-aE-4lr"/>
+                                    <constraint firstAttribute="width" constant="132" id="prp-lt-m95"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="top" secondItem="6b0-rE-pSt" secondAttribute="bottom" constant="8" symbolic="YES" id="9y0-Ee-ipw"/>
-                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="leading" secondItem="U0P-8q-yUi" secondAttribute="leading" id="Be5-ZX-HEZ"/>
-                            <constraint firstItem="tEH-gg-ni2" firstAttribute="bottom" secondItem="Sdm-Wl-cu0" secondAttribute="top" id="JnO-Nf-gaK"/>
-                            <constraint firstItem="6b0-rE-pSt" firstAttribute="top" secondItem="e9R-Tc-wtR" secondAttribute="bottom" constant="8" symbolic="YES" id="OrY-1b-JkT"/>
-                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="centerX" secondItem="tEH-gg-ni2" secondAttribute="centerX" id="SZr-jh-MdX"/>
-                            <constraint firstAttribute="trailing" secondItem="oR8-Pg-xfB" secondAttribute="trailing" id="Xuh-p3-gWe"/>
-                            <constraint firstItem="tEH-gg-ni2" firstAttribute="top" secondItem="oR8-Pg-xfB" secondAttribute="bottom" constant="8" symbolic="YES" id="e9a-Xw-lOh"/>
-                            <constraint firstItem="6b0-rE-pSt" firstAttribute="centerX" secondItem="oR8-Pg-xfB" secondAttribute="centerX" id="zif-CK-ZBp"/>
+                            <constraint firstItem="BXz-Yz-c4n" firstAttribute="centerX" secondItem="tEH-gg-ni2" secondAttribute="centerX" id="6Lm-K7-K1h"/>
+                            <constraint firstAttribute="trailing" secondItem="oR8-Pg-xfB" secondAttribute="trailing" id="NUK-EJ-l6i"/>
+                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="centerX" secondItem="BXz-Yz-c4n" secondAttribute="centerX" id="OYA-WQ-ml6"/>
+                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="leading" secondItem="U0P-8q-yUi" secondAttribute="leading" id="Pi1-zS-kjL"/>
+                            <constraint firstItem="tEH-gg-ni2" firstAttribute="bottom" secondItem="Sdm-Wl-cu0" secondAttribute="top" id="TPk-so-CGR"/>
+                            <constraint firstItem="6b0-rE-pSt" firstAttribute="top" secondItem="e9R-Tc-wtR" secondAttribute="bottom" constant="8" symbolic="YES" id="UB7-OI-kUu"/>
+                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="centerY" secondItem="BXz-Yz-c4n" secondAttribute="centerY" id="Yde-yR-ov2"/>
+                            <constraint firstItem="tEH-gg-ni2" firstAttribute="top" secondItem="oR8-Pg-xfB" secondAttribute="bottom" constant="8" symbolic="YES" id="Zxd-Nq-t96"/>
+                            <constraint firstItem="6b0-rE-pSt" firstAttribute="centerX" secondItem="BXz-Yz-c4n" secondAttribute="centerX" id="blG-vb-dY7"/>
+                            <constraint firstItem="oR8-Pg-xfB" firstAttribute="top" secondItem="6b0-rE-pSt" secondAttribute="bottom" constant="8" symbolic="YES" id="l41-uK-6ZZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Load Roster" id="P0Z-8h-mW1"/>
                     <connections>
                         <outlet property="rosterTable" destination="oR8-Pg-xfB" id="glZ-rt-Sgo"/>
+                        <outlet property="studentImage" destination="BXz-Yz-c4n" id="va6-jn-9K5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RpI-qd-JYo" userLabel="First Responder" sceneMemberID="firstResponder"/>

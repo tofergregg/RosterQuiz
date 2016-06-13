@@ -81,8 +81,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         //query.fields = "nextPageToken, files(id, name)"
         query.spaces = "drive"
         query.q = "name = '\(folderName)'"
-        //query.q = "'0BxrnKK8LdJT0VGxVQXNiclhtWEU' in parents"
-        //query.q = "'0BxrnKK8LdJT0QzJuTkhTb2hZNE0' in parents"
+        //query.q = "'0BxrnKK8LdJT0TGVhOEZ1WE5tMnM' in parents"
         service.executeQuery(
             query,
             delegate: self,
@@ -239,11 +238,6 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //let row = indexPath.row
         //print("Row: \(row)")
-    }
-    
-    func loadRosterFromGDrive(rosterFolder:GTLDriveFile){
-        // load the roster into new table.
-        
     }
 }
 
