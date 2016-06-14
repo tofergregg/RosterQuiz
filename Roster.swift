@@ -12,6 +12,25 @@ class Roster {
     var name : String = ""
     var students : [Student] = []
     
+    func addStudent(student : Student){
+        students.append(student)
+        students.sortInPlace({$0.last_name < $1.last_name})
+    }
+    
+    func count() -> Int {
+        return students.count
+    }
+    
+    // define the bracket notation
+    subscript(index : Int) -> Student {
+        get {
+            return students[index]
+        }
+        set {
+            students[index] = newValue
+        }
+    }
+    
     func csv_paste(pasted : String)
     {
         // pasted text should have the following form, separated by newlines:

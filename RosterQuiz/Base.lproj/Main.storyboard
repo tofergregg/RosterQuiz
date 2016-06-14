@@ -229,7 +229,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V6y-L8-OM7" id="Qja-Gs-I6Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -242,7 +242,7 @@
                                     <constraint firstAttribute="height" constant="30" id="piG-Wc-fE3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Click here to load this roster into RosterQuiz"/>
+                                <state key="normal" title="Click here to add this roster to RosterQuiz"/>
                                 <connections>
                                     <action selector="downloadRoster:" destination="ojn-bn-TdK" eventType="touchUpInside" id="ukv-No-IPy"/>
                                 </connections>

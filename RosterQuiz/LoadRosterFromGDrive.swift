@@ -19,30 +19,16 @@ import UIKit
 import GoogleAPIClient
 import GTMOAuth2
 
-struct StudentData {
-    var google_drive_info : GTLDriveFile?
-    var last_name : String
-    var first_name : String
-    var img : UIImage?
-    
-    func underscore_name() -> String {
-        return last_name + "_" + first_name
-    }
-    
-    func comma_name() -> String {
-        return last_name + ", " + first_name
-    }
-}
-
 class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var parentController : AddRosterController!
     
     var loadingFilesIndicator : UIActivityIndicatorView!
     
+    var roster = Roster()
+    
     @IBOutlet weak var studentImage: UIImageView!
     @IBOutlet weak var rosterTable: UITableView!
     var rosterFolder : GTLDriveFile!
-    var allStudents : [StudentData] = []
     var rosterCSVFilename = "roster.csv"
     var rosterCSVId : GTLDriveFile!
     var imageCount = 0
@@ -101,8 +87,8 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
                     rosterCSVId = file
                 }
                 else if (file.mimeType.containsString("image/")) {
-                    var student = StudentData(google_drive_info : nil, last_name : "",first_name : "",  img : nil)
-
+                    let student = Student()
+                    
                     // change name to Last,First (okay b/c we will search later by id)
                     // strip out period for extension
                     let fullname = file.name.componentsSeparatedByString(".")[0] // assuming there is an extension
@@ -113,13 +99,10 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
                     print("\(student.last_name), \(student.first_name), id:\(file.identifier)")
                     // add to the array
                     student.google_drive_info = file
-                    allStudents.append(student)
-
+                    roster.addStudent(student)
                 }
             }
         }
-        // sort the array by name
-        allStudents.sortInPlace({$0.last_name < $1.last_name})
         
         // reload the table and stop the indicator
         rosterTable.reloadData()
@@ -137,24 +120,20 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allStudents.count
+        return roster.count()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("student cell", forIndexPath: indexPath)
         let row = indexPath.row
-        if (allStudents[row].img != nil) {
-            cell.imageView!.image = allStudents[row].img
+        if (roster[row].picture != nil) {
+            cell.imageView!.image = roster[row].picture
         }
         else {
             cell.imageView!.image = UIImage(named:"User-100")
         }
-        cell.textLabel?.text = allStudents[indexPath.row].comma_name()
+        cell.textLabel?.text = roster[indexPath.row].commaName()
         return cell
-    }
-    @IBAction func downloadRoster(sender: UIButton) {
-        // download the first file
-        
     }
     
     func populateImages() {
@@ -165,9 +144,9 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     func downloadImages(studentNum : Int){
-        if (studentNum < allStudents.count) {
+        if (studentNum < roster.count()) {
             self.studentImage.hidden = false
-            let url = "https://www.googleapis.com/drive/v3/files/\(allStudents[studentNum].google_drive_info!.identifier)?alt=media"
+            let url = "https://www.googleapis.com/drive/v3/files/\(roster[studentNum].google_drive_info!.identifier)?alt=media"
             let fetcher = GTMSessionFetcher(URLString:url)
             fetcher.authorizer = parentController.service.authorizer
             fetcher.beginFetchWithCompletionHandler(handleDownload(studentNum))
@@ -197,10 +176,10 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
     func handleDownload(studentNum:Int) -> (NSData?, NSError?) -> Void {
         return { (data: NSData?, error: NSError?) -> Void in
             // received image
-            print(self.allStudents[studentNum].comma_name())
+            print(self.roster[studentNum].commaName())
             print(data!.length)
-            self.allStudents[studentNum].img = UIImage(data:data!,scale:1.0)
-            self.studentImage.image = self.allStudents[studentNum].img
+            self.roster[studentNum].picture = UIImage(data:data!,scale:1.0)
+            self.studentImage.image = self.roster[studentNum].picture
             self.studentImage.setNeedsDisplay()
             self.rosterTable.reloadData()
         }
@@ -213,6 +192,11 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
             loadingFilesIndicator.stopAnimating()
             self.studentImage.hidden = true
 
+    }
+    
+    @IBAction func downloadRoster(sender: UIButton) {
+        // create a roster
+        
     }
 }
 

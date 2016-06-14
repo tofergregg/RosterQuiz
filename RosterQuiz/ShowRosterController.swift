@@ -37,9 +37,13 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
         
         let row = indexPath.row
-        cell.imageView!.image = UIImage(named:"User-100")
-        cell.textLabel?.text = roster.students[row].last_name + ", " +
-                               roster.students[row].first_name
+        if (roster.students[row].picture != nil) {
+            cell.imageView!.image = roster.students[row].picture
+        }
+        else {
+            cell.imageView!.image = UIImage(named:"User-100")
+        }
+        cell.textLabel?.text = roster.students[row].commaName();
         return cell
     }
     

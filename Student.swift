@@ -8,13 +8,15 @@
 
 import Foundation
 import UIKit
+import GoogleAPIClient
 
 class Student {
+    var google_drive_info : GTLDriveFile!
     var first_name : String = ""
     var last_name  : String = ""
     var year       : String = ""
     var gender     : String = ""
-    var picture    : UIImage!
+    var picture    : UIImage! = nil
     
     func addDetails(last : String, first : String, yr : String = "", gend : String = "", pic : UIImage! = nil)
     {
@@ -30,9 +32,19 @@ class Student {
         picture = pic;
     }
     
+    func addNameAndImage(last: String, first: String, img: UIImage){
+        last_name = last;
+        first_name = first;
+        picture = img;
+    }
+    
     func printStudent()
     {
         print("Name: \(last_name) \(first_name), Year: \(year), Gender: \(gender)")
+    }
+    
+    func commaName() -> String {
+        return last_name + " ," + first_name
     }
 
 }
