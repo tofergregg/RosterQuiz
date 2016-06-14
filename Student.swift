@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import GoogleAPIClient
 
-class Student {
+class Student : NSObject, NSCoding {
     var google_drive_info : GTLDriveFile!
     var first_name : String = ""
     var last_name  : String = ""
@@ -46,5 +46,41 @@ class Student {
     func commaName() -> String {
         return last_name + " ," + first_name
     }
-
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(google_drive_info, forKey: "google_drive_info")
+        aCoder.encodeObject(last_name, forKey: "last_name")
+        aCoder.encodeObject(first_name, forKey: "first_name")
+        aCoder.encodeObject(year, forKey: "year")
+        aCoder.encodeObject(gender, forKey: "gender")
+        aCoder.encodeObject(picture, forKey: "picture")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let google_drive_info = aDecoder.decodeObjectForKey("google_drive_info") as! GTLDriveFile!
+        let last_name = aDecoder.decodeObjectForKey("last_name") as! String
+        let first_name = aDecoder.decodeObjectForKey("first_name") as! String
+        let year = aDecoder.decodeObjectForKey("year") as! String
+        let gender = aDecoder.decodeObjectForKey("gender") as! String
+        let picture = aDecoder.decodeObjectForKey("picture") as! UIImage
+        
+        // Must call designated initializer.
+        self.init(google_drive_info: google_drive_info, last_name: last_name,
+                  first_name : first_name, year: year, gender: gender, picture: picture)
+    }
+    
+    override init() {
+        // initial values in declaration
+    }
+    
+    init?(google_drive_info: GTLDriveFile, last_name: String,
+          first_name : String, year: String, gender: String, picture: UIImage) {
+        // Initialize stored properties.
+        self.google_drive_info = google_drive_info
+        self.last_name = last_name
+        self.first_name = first_name
+        self.year = year
+        self.gender = gender
+        self.picture = picture
+        super.init()
+    }
 }

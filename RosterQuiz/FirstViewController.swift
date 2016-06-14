@@ -21,6 +21,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         rosterTableView.delegate = self
         rosterTableView.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
+        let possibleRosters = loadRosters()
+        if (possibleRosters != nil) {
+            rosters = possibleRosters!
+        }
+        rosterTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,12 +36,26 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func returnFromAddRoster(segue: UIStoryboardSegue) {
         // Here you can receive the parameter(s) from secondVC
-        let addRoster : AddRosterController = segue.sourceViewController as! AddRosterController
-        let roster = Roster()
-        //roster.name = addRoster.rosterNameText.text!
-        //roster.csv_paste(addRoster.rosterText.text)
-        rosters.append(roster)
+        let addRoster : LoadRosterFromGDrive = segue.sourceViewController as! LoadRosterFromGDrive
+        rosters.append(addRoster.roster)
         rosterTableView.reloadData()
+        // save the rosters
+        saveRosters()
+    }
+    
+    func saveRosters(){
+        let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("rosters")
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(rosters, toFile: ArchiveURL.path!)
+        if (!isSuccessfulSave) {
+            print("Could not save rosters!")
+        }
+    }
+    
+    func loadRosters() -> [Roster]? {
+        let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("rosters")
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(ArchiveURL.path!) as? [Roster]
     }
 
     

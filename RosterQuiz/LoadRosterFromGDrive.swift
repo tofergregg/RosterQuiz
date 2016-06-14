@@ -45,6 +45,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewDidAppear(animated: Bool) {
+        roster.name = rosterFolder.name
         startQuery()
     }
 
@@ -195,7 +196,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func downloadRoster(sender: UIButton) {
-        // create a roster
+        // return the roster
         
     }
 }

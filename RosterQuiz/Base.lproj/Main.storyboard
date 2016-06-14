@@ -244,7 +244,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Click here to add this roster to RosterQuiz"/>
                                 <connections>
-                                    <action selector="downloadRoster:" destination="ojn-bn-TdK" eventType="touchUpInside" id="ukv-No-IPy"/>
+                                    <segue destination="s9w-pl-unk" kind="unwind" unwindAction="returnFromAddRoster:" id="VZB-KO-vBX"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The following students were found on the roster:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b0-rE-pSt">
@@ -286,6 +286,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RpI-qd-JYo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="s9w-pl-unk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3389" y="-512"/>
         </scene>
@@ -309,7 +310,7 @@
         <!--Class Roster-->
         <scene sceneID="ha3-rr-FrD">
             <objects>
-                <viewController storyboardIdentifier="Show Roster Controller" title="Class Roster" id="0zY-ma-Jgf" customClass="ShowRosterController" customModule="RosterQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Show Roster Controller" title="Class Roster" automaticallyAdjustsScrollViewInsets="NO" id="0zY-ma-Jgf" customClass="ShowRosterController" customModule="RosterQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LBN-B2-F7F"/>
                         <viewControllerLayoutGuide type="bottom" id="B1u-lV-2IQ"/>
@@ -319,11 +320,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s7l-Sm-Cah">
-                                <rect key="frame" x="0.0" y="57" width="600" height="494"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StudentCell" id="cFV-1L-I1D">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cFV-1L-I1D" id="Rt2-j0-3WU">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -332,12 +333,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6B-hT-yrO">
-                                <rect key="frame" x="110" y="28" width="490" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZD-NE-LC0">
                                 <rect key="frame" x="6" y="28" width="105" height="21"/>
                                 <attributedString key="attributedText">
@@ -354,8 +349,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="41H-N2-9j3"/>
                     <connections>
-                        <outlet property="rosterName" destination="D6B-hT-yrO" id="QcA-eZ-DuM"/>
+                        <outlet property="rosterTitle" destination="41H-N2-9j3" id="Sgv-Lo-f0b"/>
                         <outlet property="studentsTableView" destination="s7l-Sm-Cah" id="PTk-l9-X12"/>
                     </connections>
                 </viewController>

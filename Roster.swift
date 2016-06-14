@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Roster {
+class Roster : NSObject, NSCoding {
     var name : String = ""
     var students : [Student] = []
     
@@ -67,5 +67,29 @@ class Roster {
         for student in students {
             student.printStudent()
         }
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(students, forKey: "students")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObjectForKey("name") as! String
+        let students = aDecoder.decodeObjectForKey("students") as! [Student]
+        
+        // Must call designated initializer.
+        self.init(name: name, students: students)
+    }
+    
+    override init() {
+        // initial values in declaration
+    }
+    
+    init?(name: String, students: [Student]) {
+        // Initialize stored properties.
+        self.name = name
+        self.students = students
+        super.init()
     }
 }

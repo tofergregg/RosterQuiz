@@ -9,7 +9,8 @@
 import UIKit
 
 class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var rosterName: UILabel!
+    @IBOutlet weak var rosterTitle: UINavigationItem!
+    
     @IBOutlet weak var studentsTableView: UITableView!
     
     var roster : Roster!
@@ -17,11 +18,10 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rosterName.text = roster.name
+        rosterTitle.title = roster.name
         studentsTableView.delegate = self
         studentsTableView.dataSource = self
-
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 15)!]
     }
     
     override func didReceiveMemoryWarning() {
