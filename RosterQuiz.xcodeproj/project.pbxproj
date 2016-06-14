@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D00DDA31D09FA06000EC78F /* LoadRosterFromGDrive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00DDA21D09FA06000EC78F /* LoadRosterFromGDrive.swift */; };
+		2D0959141D1052CF00E53AD9 /* StudentInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0959131D1052CF00E53AD9 /* StudentInfoController.swift */; };
 		2D7AD90D1D09B4D0008A6853 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7AD90C1D09B4D0008A6853 /* FirstViewController.swift */; };
 		2D7AD9111D09B6D2008A6853 /* Add User Group Man Man-22.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AD9101D09B6D2008A6853 /* Add User Group Man Man-22.png */; };
 		2D8CE20B1D09BDB800B2ACAA /* Add User Group Man Man-44.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8CE20A1D09BDB800B2ACAA /* Add User Group Man Man-44.png */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		2D00DDA21D09FA06000EC78F /* LoadRosterFromGDrive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadRosterFromGDrive.swift; sourceTree = "<group>"; };
+		2D0959131D1052CF00E53AD9 /* StudentInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInfoController.swift; sourceTree = "<group>"; };
 		2D7AD90C1D09B4D0008A6853 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		2D7AD9101D09B6D2008A6853 /* Add User Group Man Man-22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User Group Man Man-22.png"; sourceTree = "<group>"; };
 		2D8CE20A1D09BDB800B2ACAA /* Add User Group Man Man-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User Group Man Man-44.png"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				D517D1C21D04FC5600B6FDBC /* AppDelegate.swift */,
 				D517D1C61D04FC5600B6FDBC /* SecondViewController.swift */,
 				D568953C1D05EF3C00B9386D /* ShowRosterController.swift */,
+				2D0959131D1052CF00E53AD9 /* StudentInfoController.swift */,
 				D568953A1D05D76900B9386D /* AddRosterController.swift */,
 				2D00DDA21D09FA06000EC78F /* LoadRosterFromGDrive.swift */,
 				D517D1C81D04FC5600B6FDBC /* Main.storyboard */,
@@ -387,6 +390,7 @@
 				D568953B1D05D76900B9386D /* AddRosterController.swift in Sources */,
 				2D00DDA31D09FA06000EC78F /* LoadRosterFromGDrive.swift in Sources */,
 				D517D1C71D04FC5600B6FDBC /* SecondViewController.swift in Sources */,
+				2D0959141D1052CF00E53AD9 /* StudentInfoController.swift in Sources */,
 				D517D1C31D04FC5600B6FDBC /* AppDelegate.swift in Sources */,
 				D517D1F51D0506AF00B6FDBC /* Roster.swift in Sources */,
 				D568953D1D05EF3C00B9386D /* ShowRosterController.swift in Sources */,

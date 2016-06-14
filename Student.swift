@@ -17,6 +17,7 @@ class Student : NSObject, NSCoding {
     var year       : String = ""
     var gender     : String = ""
     var picture    : UIImage! = nil
+    var notes      : String = ""
     
     func addDetails(last : String, first : String, yr : String = "", gend : String = "", pic : UIImage! = nil)
     {
@@ -44,7 +45,7 @@ class Student : NSObject, NSCoding {
     }
     
     func commaName() -> String {
-        return last_name + " ," + first_name
+        return last_name + ", " + first_name
     }
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(google_drive_info, forKey: "google_drive_info")
@@ -53,6 +54,7 @@ class Student : NSObject, NSCoding {
         aCoder.encodeObject(year, forKey: "year")
         aCoder.encodeObject(gender, forKey: "gender")
         aCoder.encodeObject(picture, forKey: "picture")
+        aCoder.encodeObject(notes, forKey: "notes")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -62,10 +64,11 @@ class Student : NSObject, NSCoding {
         let year = aDecoder.decodeObjectForKey("year") as! String
         let gender = aDecoder.decodeObjectForKey("gender") as! String
         let picture = aDecoder.decodeObjectForKey("picture") as! UIImage
+        let notes = aDecoder.decodeObjectForKey("notes") as! String
         
         // Must call designated initializer.
         self.init(google_drive_info: google_drive_info, last_name: last_name,
-                  first_name : first_name, year: year, gender: gender, picture: picture)
+                  first_name : first_name, year: year, gender: gender, picture: picture, notes: notes)
     }
     
     override init() {
@@ -73,7 +76,7 @@ class Student : NSObject, NSCoding {
     }
     
     init?(google_drive_info: GTLDriveFile, last_name: String,
-          first_name : String, year: String, gender: String, picture: UIImage) {
+          first_name : String, year: String, gender: String, picture: UIImage, notes: String) {
         // Initialize stored properties.
         self.google_drive_info = google_drive_info
         self.last_name = last_name
@@ -81,6 +84,7 @@ class Student : NSObject, NSCoding {
         self.year = year
         self.gender = gender
         self.picture = picture
+        self.notes = notes
         super.init()
     }
 }

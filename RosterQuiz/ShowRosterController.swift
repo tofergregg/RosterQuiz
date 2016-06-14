@@ -60,4 +60,13 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "Loading Student Info" {
+            let destionationVC : StudentInfoController = segue.destinationViewController as! StudentInfoController
+            
+            destionationVC.student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
+        }
+        
+    }
+    
 }
