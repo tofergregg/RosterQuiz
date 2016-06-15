@@ -28,7 +28,12 @@ class StudentInfoController : UIViewController {
             firstNameText.text = student.first_name
             yearText.text = student.year
             genderText.text = student.gender
-            studentPic.image = student.picture
+            if (student.picture != nil) {
+                studentPic.image = student.picture
+            }
+            else {
+                studentPic.image = UIImage(named: "User-400")
+            }
             notesText.text = student.notes
         }
         notesText.layer.borderWidth = 0.5

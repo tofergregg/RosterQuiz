@@ -140,6 +140,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
     func populateImages() {
         // download the first file
         loadingFilesIndicator.startAnimating()
+        imageCount = 0
         downloadImages(0)
     }
 
@@ -160,17 +161,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         else {
-            // done downloading images, load csv if it exists
-            if ((rosterCSVId) != nil) {
-                let url = "https://www.googleapis.com/drive/v3/files/\(rosterCSVId.identifier)?alt=media"
-                let fetcher = GTMSessionFetcher(URLString:url)
-                fetcher.authorizer = parentController.service.authorizer
-                fetcher.beginFetchWithCompletionHandler(handleCSVDownload)
-            }
-            else {
-                loadingFilesIndicator.stopAnimating()
-                self.studentImage.hidden = true
-            }
+
         }
     }
     
@@ -183,21 +174,100 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
             self.studentImage.image = self.roster[studentNum].picture
             self.studentImage.setNeedsDisplay()
             self.rosterTable.reloadData()
+            // race condition possible here...
+            self.imageCount += 1
+            if (self.imageCount == self.roster.count()) { // received all images, update with csv data
+                self.studentImage.hidden = true
+                // done downloading images, load csv if it exists
+                if ((self.rosterCSVId) != nil) {
+                    let url = "https://www.googleapis.com/drive/v3/files/\(self.rosterCSVId.identifier)?alt=media"
+                    let fetcher = GTMSessionFetcher(URLString:url)
+                    fetcher.authorizer = self.parentController.service.authorizer
+                    fetcher.beginFetchWithCompletionHandler(self.handleCSVDownload)
+                }
+                else {
+                    self.loadingFilesIndicator.stopAnimating()
+                    self.studentImage.hidden = true
+                }
+            }
         }
     }
     
     func handleCSVDownload(data: NSData?, error: NSError?) -> Void {
+            if let error = error {
+                showAlert("Error", message: error.localizedDescription)
+                return
+            }
             // received csv file
-            let csv = String(data: data!, encoding:NSUTF8StringEncoding)
-            print(csv)
-            loadingFilesIndicator.stopAnimating()
-            self.studentImage.hidden = true
+            let csv = String(data: data!, encoding:NSUTF8StringEncoding)!
+            self.loadingFilesIndicator.stopAnimating()
 
+            print(csv)
+            addToRoster(csv)
+        
     }
     
-    @IBAction func downloadRoster(sender: UIButton) {
-        // return the roster
-        
+    func addToRoster(csv : String){
+        // csv should have the following form:
+        // last,first,year(e.g."Sophomore"),gender(e.g."M")
+        // year and gender are optional
+        let lines = csv.componentsSeparatedByString("\n")
+        for line in lines {
+            var last : String = "", first: String = ""
+            var year : String = "", gender : String = ""
+            let details = line.componentsSeparatedByString(",")
+            if (details.count > 1) {
+                last = details[0]
+                first = details[1]
+                if (details.count > 2){
+                    year = details[2]
+                }
+                if (details.count > 3) {
+                    gender = details[3]
+                }
+                print(last+first+year+gender)
+                var found = false
+                for i in 0 ..< roster.count() {
+                    let student = roster[i]
+                    if (student.last_name == last && student.first_name == first) {
+                        student.year = year
+                        student.gender = gender
+                        student.notes = ""
+                        found = true
+                        break
+                    }
+                }
+                if (!found){
+                    // put the student in the roster without a picture
+                    let new_student = Student()
+                    new_student.google_drive_info = nil
+                    new_student.last_name = last
+                    new_student.first_name = first
+                    new_student.year = year
+                    new_student.gender = gender
+                    new_student.notes = ""
+                    roster.addStudent(new_student)
+                    rosterTable.reloadData()
+                }
+            }
+        }
+    }
+    
+    // Helper for showing an alert
+    func showAlert(title : String, message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertControllerStyle.Alert
+        )
+        let ok = UIAlertAction(
+            title: "OK",
+            style: UIAlertActionStyle.Default,
+            handler: nil
+        )
+        alert.addAction(ok)
+        presentViewController(alert, animated: true, completion: nil)
+        loadingFilesIndicator.stopAnimating()
     }
 }
 

@@ -12,6 +12,7 @@
 		2D7AD90D1D09B4D0008A6853 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7AD90C1D09B4D0008A6853 /* FirstViewController.swift */; };
 		2D7AD9111D09B6D2008A6853 /* Add User Group Man Man-22.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AD9101D09B6D2008A6853 /* Add User Group Man Man-22.png */; };
 		2D8CE20B1D09BDB800B2ACAA /* Add User Group Man Man-44.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8CE20A1D09BDB800B2ACAA /* Add User Group Man Man-44.png */; };
+		2DFD96E21D11FFB5008E5D1A /* User-400.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD96E11D11FFB5008E5D1A /* User-400.png */; };
 		CF0575F41B6CB8EC3E7E411E /* Pods_RosterQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4086CFCBCAE9B2AC937ACA43 /* Pods_RosterQuiz.framework */; };
 		D517D1C31D04FC5600B6FDBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1C21D04FC5600B6FDBC /* AppDelegate.swift */; };
 		D517D1C71D04FC5600B6FDBC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1C61D04FC5600B6FDBC /* SecondViewController.swift */; };
@@ -65,6 +66,7 @@
 		2D7AD90C1D09B4D0008A6853 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		2D7AD9101D09B6D2008A6853 /* Add User Group Man Man-22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User Group Man Man-22.png"; sourceTree = "<group>"; };
 		2D8CE20A1D09BDB800B2ACAA /* Add User Group Man Man-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User Group Man Man-44.png"; sourceTree = "<group>"; };
+		2DFD96E11D11FFB5008E5D1A /* User-400.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-400.png"; sourceTree = "<group>"; };
 		4086CFCBCAE9B2AC937ACA43 /* Pods_RosterQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RosterQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F9D293EB90EB28A4325B8B /* Pods-RosterQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RosterQuiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz.debug.xcconfig"; sourceTree = "<group>"; };
 		D517D1BF1D04FC5600B6FDBC /* RosterQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RosterQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 				D56895361D050FA100B9386D /* User Groups-50.png */,
 				D56895381D05115F00B9386D /* Why Us Female-50.png */,
 				D5BEBC6F1D064694003BA21D /* User-100.png */,
+				2DFD96E11D11FFB5008E5D1A /* User-400.png */,
 				D517D1CD1D04FC5600B6FDBC /* LaunchScreen.storyboard */,
 				D517D1D01D04FC5600B6FDBC /* Info.plist */,
 			);
@@ -313,6 +316,7 @@
 				D517D1CC1D04FC5600B6FDBC /* Assets.xcassets in Resources */,
 				D56895391D05115F00B9386D /* Why Us Female-50.png in Resources */,
 				D517D1CA1D04FC5600B6FDBC /* Main.storyboard in Resources */,
+				2DFD96E21D11FFB5008E5D1A /* User-400.png in Resources */,
 				D5BEBC701D064694003BA21D /* User-100.png in Resources */,
 				2D7AD9111D09B6D2008A6853 /* Add User Group Man Man-22.png in Resources */,
 			);
