@@ -14,9 +14,12 @@ class Roster : NSObject, NSCoding {
     
     func addStudent(student : Student){
         students.append(student)
-        students.sortInPlace({$0.last_name < $1.last_name})
+        sortStudents()
     }
     
+    func sortStudents() {
+        students.sortInPlace({$0.last_name < $1.last_name})
+    }
     func count() -> Int {
         return students.count
     }

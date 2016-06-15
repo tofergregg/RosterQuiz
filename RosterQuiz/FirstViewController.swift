@@ -90,9 +90,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "Show Roster Segue" {
-            let destionationVC : ShowRosterController = segue.destinationViewController as! ShowRosterController
+            let destinationVC : ShowRosterController = segue.destinationViewController as! ShowRosterController
 
-            destionationVC.roster = rosters[selectedRow]
+            destinationVC.roster = rosters[selectedRow]
+            destinationVC.parentController = self
         }
 
     }

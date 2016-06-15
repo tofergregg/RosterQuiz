@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
     @IBOutlet weak var rosterTitle: UINavigationItem!
     
     @IBOutlet weak var studentsTableView: UITableView!
     
     var roster : Roster!
+    var parentController : FirstViewController!
     let textCellIdentifier = "StudentCell"
     
     override func viewDidLoad() {
@@ -22,6 +23,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         studentsTableView.delegate = self
         studentsTableView.dataSource = self
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 15)!]
+        //navigationController?.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,7 +51,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
         /*
         let row = indexPath.row
         
@@ -66,7 +68,30 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
             
             destionationVC.student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
         }
+    }
+    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        if (viewController == self) {
+            if (studentsTableView.indexPathForSelectedRow != nil) {
+                let student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
+                student.printStudent()
+            }
+        }
+    }
+    
+    @IBAction func returnFromStudentInfo(segue: UIStoryboardSegue) {
+        // Here you can receive the parameter(s) from secondVC
+        let studentInfoView : StudentInfoController = segue.sourceViewController as! StudentInfoController
+        let student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
         
+        student.last_name = studentInfoView.lastNameText.text!
+        student.first_name = studentInfoView.firstNameText.text!
+        student.year = studentInfoView.yearText.text!
+        student.gender = studentInfoView.genderText.text!
+        student.notes = studentInfoView.notesText.text!
+        roster.sortStudents() // in case name change would re-sort
+        parentController.saveRosters() // save officially
+        studentsTableView.reloadData()
     }
     
 }
