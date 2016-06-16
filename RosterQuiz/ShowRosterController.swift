@@ -24,6 +24,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         studentsTableView.dataSource = self
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 15)!]
         //navigationController?.delegate = self
+        self.studentsTableView.allowsMultipleSelectionDuringEditing = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,7 +52,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         /*
         let row = indexPath.row
         
@@ -60,6 +61,23 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationController?.pushViewController(destination, animated: true)
         performSegueWithIdentifier("Show Roster Segue", sender: self)*/
         
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath : NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            roster.students.removeAtIndex(indexPath.row)
+            parentController.saveRosters()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

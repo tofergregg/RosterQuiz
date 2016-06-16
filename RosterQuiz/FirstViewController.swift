@@ -88,6 +88,23 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             performSegueWithIdentifier("Show Roster Segue", sender: self)
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath : NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            rosters.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            saveRosters()
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "Show Roster Segue" {
             let destinationVC : ShowRosterController = segue.destinationViewController as! ShowRosterController

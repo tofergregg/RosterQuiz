@@ -30,8 +30,9 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var rosterTable: UITableView!
     var rosterFolder : GTLDriveFile!
     var rosterCSVFilename = "roster.csv"
-    var rosterCSVId : GTLDriveFile!
+    var rosterCSVId : GTLDriveFile?
     var imageCount = 0
+    var loadingErrors = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,6 +142,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
         // download the first file
         loadingFilesIndicator.startAnimating()
         imageCount = 0
+        loadingErrors = 0
         downloadImages(0)
     }
 
@@ -169,6 +171,9 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
         return { (data: NSData?, error: NSError?) -> Void in
             // received image
             print(self.roster[studentNum].commaName())
+            if ((error) != nil) {
+                self.loadingErrors += 1
+            }
             if (data != nil) {
                 print(data!.length)
                 self.roster[studentNum].picture = UIImage(data:data!,scale:1.0)
@@ -180,9 +185,13 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
             self.imageCount += 1
             if (self.imageCount == self.roster.count()) { // received all images, update with csv data
                 self.studentImage.hidden = true
+                if (self.loadingErrors > 0) {
+                    self.showAlert("Errors loading roster",
+                              message: "There were \(self.loadingErrors) errors loading the roster.")
+                }
                 // done downloading images, load csv if it exists
                 if ((self.rosterCSVId) != nil) {
-                    let url = "https://www.googleapis.com/drive/v3/files/\(self.rosterCSVId.identifier)?alt=media"
+                    let url = "https://www.googleapis.com/drive/v3/files/\(self.rosterCSVId!.identifier)?alt=media"
                     let fetcher = GTMSessionFetcher(URLString:url)
                     fetcher.authorizer = self.parentController.service.authorizer
                     fetcher.beginFetchWithCompletionHandler(self.handleCSVDownload)
