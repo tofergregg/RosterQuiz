@@ -169,12 +169,14 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
         return { (data: NSData?, error: NSError?) -> Void in
             // received image
             print(self.roster[studentNum].commaName())
-            print(data!.length)
-            self.roster[studentNum].picture = UIImage(data:data!,scale:1.0)
-            self.studentImage.image = self.roster[studentNum].picture
-            self.studentImage.setNeedsDisplay()
-            self.rosterTable.reloadData()
-            // race condition possible here...
+            if (data != nil) {
+                print(data!.length)
+                self.roster[studentNum].picture = UIImage(data:data!,scale:1.0)
+                self.studentImage.image = self.roster[studentNum].picture
+                self.studentImage.setNeedsDisplay()
+                self.rosterTable.reloadData()
+                // race condition possible here...
+            }
             self.imageCount += 1
             if (self.imageCount == self.roster.count()) { // received all images, update with csv data
                 self.studentImage.hidden = true
