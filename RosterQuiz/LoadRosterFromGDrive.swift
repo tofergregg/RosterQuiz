@@ -187,7 +187,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
                 self.studentImage.hidden = true
                 if (self.loadingErrors > 0) {
                     self.showAlert("Errors loading roster",
-                              message: "There were \(self.loadingErrors) errors loading the roster.")
+                              message: "There were \(self.loadingErrors) errors loading the roster. You may want to try again later.")
                 }
                 // done downloading images, load csv if it exists
                 if ((self.rosterCSVId) != nil) {

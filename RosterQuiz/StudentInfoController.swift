@@ -22,6 +22,7 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var yearText: UITextField!
     @IBOutlet weak var genderText: UITextField!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if (student != nil) {

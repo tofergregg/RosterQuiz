@@ -112,5 +112,4 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         parentController.saveRosters() // save officially
         studentsTableView.reloadData()
     }
-    
 }
