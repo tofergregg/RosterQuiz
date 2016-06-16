@@ -52,7 +52,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
         /*
         let row = indexPath.row
         
@@ -107,6 +107,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         student.year = studentInfoView.yearText.text!
         student.gender = studentInfoView.genderText.text!
         student.notes = studentInfoView.notesText.text!
+        student.picture = studentInfoView.studentPicButton.currentImage
         roster.sortStudents() // in case name change would re-sort
         parentController.saveRosters() // save officially
         studentsTableView.reloadData()

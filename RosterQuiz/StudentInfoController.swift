@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 
-class StudentInfoController : UIViewController {
+class StudentInfoController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var student : Student! = nil
     
-    @IBOutlet weak var studentPic: UIImageView!
+    let imagePicker = UIImagePickerController()
+    
+    @IBOutlet weak var studentPicButton: UIButton!
     @IBOutlet weak var notesText: UITextView!
     @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var firstNameText: UITextField!
@@ -28,11 +30,12 @@ class StudentInfoController : UIViewController {
             firstNameText.text = student.first_name
             yearText.text = student.year
             genderText.text = student.gender
+            studentPicButton.setTitle("", forState: .Normal)
             if (student.picture != nil) {
-                studentPic.image = student.picture
+                studentPicButton.setImage(student.picture, forState:.Normal)
             }
             else {
-                studentPic.image = UIImage(named: "User-400")
+                studentPicButton.setImage(UIImage(named: "User-400"), forState:.Normal)
             }
             notesText.text = student.notes
         }
@@ -41,6 +44,8 @@ class StudentInfoController : UIViewController {
         notesText.layer.cornerRadius = 5.0
         lastNameText.addTarget(self, action: #selector(StudentInfoController.nameChanged), forControlEvents: UIControlEvents.EditingChanged)
         firstNameText.addTarget(self, action: #selector(StudentInfoController.nameChanged), forControlEvents: UIControlEvents.EditingChanged)
+        imagePicker.delegate = self
+        studentPicButton.imageView!.contentMode = .ScaleAspectFit
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -56,6 +61,24 @@ class StudentInfoController : UIViewController {
         navigationItem.title = lastNameText.text! + ", " + firstNameText.text!
     }
     
+    @IBAction func picClicked(sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            studentPicButton.setImage(pickedImage, forState: .Normal)
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
 
 }
