@@ -15,6 +15,8 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     
     let imagePicker = UIImagePickerController()
     
+    var newStudent = false
+    
     @IBOutlet weak var studentPicButton: UIButton!
     @IBOutlet weak var notesText: UITextView!
     @IBOutlet weak var lastNameText: UITextField!

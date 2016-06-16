@@ -13,6 +13,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var studentsTableView: UITableView!
     
+    @IBOutlet weak var newStudentButton: UIButton!
     var roster : Roster!
     var parentController : FirstViewController!
     let textCellIdentifier = "StudentCell"
@@ -81,10 +82,18 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        let destinationVC : StudentInfoController = segue.destinationViewController as! StudentInfoController
+        
         if segue.identifier == "Loading Student Info" {
-            let destionationVC : StudentInfoController = segue.destinationViewController as! StudentInfoController
-            
-            destionationVC.student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
+            destinationVC.student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
+            destinationVC.newStudent = false
+        }
+        else if segue.identifier == "New Student Segue" {
+            destinationVC.student = Student()
+            destinationVC.student.last_name = "Last Name"
+            destinationVC.student.first_name = "First Name"
+            destinationVC.student.picture = UIImage(named: "User-400")
+            destinationVC.newStudent = true
         }
     }
     
@@ -100,14 +109,18 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func returnFromStudentInfo(segue: UIStoryboardSegue) {
         // Here you can receive the parameter(s) from secondVC
         let studentInfoView : StudentInfoController = segue.sourceViewController as! StudentInfoController
+        if studentInfoView.newStudent {
+            roster.addStudent(studentInfoView.student)
+        }
+        else {
         let student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
-        
-        student.last_name = studentInfoView.lastNameText.text!
-        student.first_name = studentInfoView.firstNameText.text!
-        student.year = studentInfoView.yearText.text!
-        student.gender = studentInfoView.genderText.text!
-        student.notes = studentInfoView.notesText.text!
-        student.picture = studentInfoView.studentPicButton.currentImage
+            student.last_name = studentInfoView.lastNameText.text!
+            student.first_name = studentInfoView.firstNameText.text!
+            student.year = studentInfoView.yearText.text!
+            student.gender = studentInfoView.genderText.text!
+            student.notes = studentInfoView.notesText.text!
+            student.picture = studentInfoView.studentPicButton.currentImage
+        }
         roster.sortStudents() // in case name change would re-sort
         parentController.saveRosters() // save officially
         studentsTableView.reloadData()
