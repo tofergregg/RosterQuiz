@@ -34,10 +34,13 @@ extension MutableCollectionType where Index == Int {
     }
 }
 
-class QuizController : UIViewController {
+class QuizController : UIViewController, UITextFieldDelegate {
+    
     
     @IBOutlet weak var studentImage: UIImageView!
     @IBOutlet weak var firstNameGuess: UITextField!
+    @IBOutlet weak var correctNameLabel: UILabel!
+    @IBOutlet weak var continueButton: UIButton!
     var buttonCount = 6;
     var choiceButtons : [UIButton] = []
     var roster : Roster?
@@ -89,14 +92,28 @@ class QuizController : UIViewController {
             }
             runMultipleChoiceQuiz()
         }
+        else if restorationIdentifier == "Free Response Quiz" {
+            firstNameGuess.delegate = self
+            runFreeResponseQuiz()
+        }
     }
     
     func runMultipleChoiceQuiz() {
         chooseImage()
         getRandomChoices()
-        
     }
     
+    func runFreeResponseQuiz() {
+        chooseImage()
+        firstNameGuess.text = ""
+        correctNameLabel.text = ""
+        continueButton.hidden = true
+        firstNameGuess.enabled = true
+    }
+    
+    @IBAction func continueClicked(sender: UIButton!) {
+        runFreeResponseQuiz()
+    }
     func chooseImage() {
         // select a random student to display
         var random = Int(arc4random_uniform(UInt32(roster!.count())))
@@ -127,8 +144,11 @@ class QuizController : UIViewController {
         choices.shuffleInPlace()
         // populate the buttons with the names
         for i in 0..<buttonCount {
-            choiceButtons[i].setTitle(choices[i].commaName(), forState: .Normal)
-            choiceButtons[i].backgroundColor = nil
+            let attribStr = NSMutableAttributedString(
+                string:choices[i].commaName(),
+                attributes:[:])
+            choiceButtons[i].setAttributedTitle(attribStr, forState: .Normal)
+            choiceButtons[i].enabled = true
         }
     }
     func userMadeChoice(sender:UIButton!){
@@ -141,7 +161,14 @@ class QuizController : UIViewController {
         }
         else {
             print("Incorrect!")
-            sender.backgroundColor = UIColor.redColor()
+            //sender.backgroundColor = UIColor.redColor()
+            let attribStr = NSMutableAttributedString(
+                string:(sender.titleLabel?.text)!,
+                attributes:[NSStrikethroughStyleAttributeName:NSUnderlineStyle.StyleSingle.rawValue])
+            
+            sender.setAttributedTitle(attribStr, forState: .Normal)
+            sender.enabled = false
+            
             let scorePercent = round(Float(score) / Float(totalGuesses) * 10000) / 100
             scoreLabel.text = "Score: \(score)/\(totalGuesses)(\(scorePercent)%)"
             return
@@ -150,6 +177,33 @@ class QuizController : UIViewController {
         let scorePercent = round(Float(score) / Float(totalGuesses) * 10000) / 100
         scoreLabel.text = "Score: \(score)/\(totalGuesses)(\(scorePercent)%)"
         runMultipleChoiceQuiz()
+    }
+    
+    @IBAction func userTypedName(sender: UITextField!) {
+        print("checking...")
+        continueButton.hidden = false
+        firstNameGuess.enabled = false
+
+        totalGuesses += 1
+        if (sender!.text == studentToGuess?.first_name) {
+            print("Correct!")
+            correctNameLabel.text = "Correct! \(studentToGuess!.commaName())"
+            score += 1
+        }
+        else {
+            print("Incorrect")
+            correctNameLabel.text = "Incorrect! \(studentToGuess!.commaName())"
+        }
+        let scorePercent = round(Float(score) / Float(totalGuesses) * 10000) / 100
+        scoreLabel.text = "Score: \(score)/\(totalGuesses)(\(scorePercent)%)"
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == firstNameGuess {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     override func viewDidAppear(animated: Bool) {

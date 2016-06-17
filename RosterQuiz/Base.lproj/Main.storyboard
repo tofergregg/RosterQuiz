@@ -444,7 +444,10 @@
                                                             <constraint firstAttribute="width" constant="220" id="1hK-hh-i6D"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                                        <connections>
+                                                            <action selector="userTypedName:" destination="ezh-bf-yGY" eventType="editingDidEnd" id="utS-dT-sKt"/>
+                                                        </connections>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zsj-Vl-oJg">
                                                         <rect key="frame" x="215" y="8" width="170" height="170"/>
@@ -454,16 +457,33 @@
                                                             <constraint firstAttribute="height" constant="170" id="7A8-Mf-Uuz"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KD-Nf-eIC">
+                                                        <rect key="frame" x="246" y="253" width="108" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVK-8c-RGr">
+                                                        <rect key="frame" x="241" y="282" width="118" height="30"/>
+                                                        <state key="normal" title="Click to Continue"/>
+                                                        <connections>
+                                                            <action selector="continueClicked:" destination="ezh-bf-yGY" eventType="touchUpInside" id="Uh3-wh-V43"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="DEC-Hq-pCF" firstAttribute="centerX" secondItem="szr-D4-FSX" secondAttribute="centerX" id="4kF-dy-UEO"/>
+                                                    <constraint firstItem="6KD-Nf-eIC" firstAttribute="top" secondItem="szr-D4-FSX" secondAttribute="bottom" constant="8" symbolic="YES" id="Bga-65-gck"/>
                                                     <constraint firstItem="qcC-k2-p5N" firstAttribute="bottom" secondItem="9FM-GH-P8m" secondAttribute="bottomMargin" id="Ryx-q1-0hY"/>
                                                     <constraint firstItem="zsj-Vl-oJg" firstAttribute="centerX" secondItem="DEC-Hq-pCF" secondAttribute="centerX" id="YrM-50-cnV"/>
                                                     <constraint firstItem="zsj-Vl-oJg" firstAttribute="centerX" secondItem="9FM-GH-P8m" secondAttribute="centerX" id="b78-fM-hcS"/>
+                                                    <constraint firstItem="6KD-Nf-eIC" firstAttribute="centerX" secondItem="szr-D4-FSX" secondAttribute="centerX" id="bYP-sZ-2FX"/>
                                                     <constraint firstItem="DEC-Hq-pCF" firstAttribute="top" secondItem="zsj-Vl-oJg" secondAttribute="bottom" constant="8" id="dTy-Ik-BS3"/>
                                                     <constraint firstItem="qcC-k2-p5N" firstAttribute="leading" secondItem="9FM-GH-P8m" secondAttribute="leadingMargin" id="eAG-2J-aXJ"/>
                                                     <constraint firstItem="szr-D4-FSX" firstAttribute="top" secondItem="DEC-Hq-pCF" secondAttribute="bottom" constant="8" symbolic="YES" id="hMq-nK-HmQ"/>
+                                                    <constraint firstItem="DVK-8c-RGr" firstAttribute="top" secondItem="6KD-Nf-eIC" secondAttribute="bottom" constant="8" symbolic="YES" id="j4O-2Q-zLi"/>
+                                                    <constraint firstItem="DVK-8c-RGr" firstAttribute="centerX" secondItem="6KD-Nf-eIC" secondAttribute="centerX" id="vNU-RG-jmC"/>
                                                     <constraint firstItem="zsj-Vl-oJg" firstAttribute="top" secondItem="9FM-GH-P8m" secondAttribute="topMargin" id="z1h-dg-wr6"/>
                                                 </constraints>
                                             </view>
@@ -496,6 +516,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Free Response" image="Single User Small.png" id="8Hi-x9-CJM"/>
                     <connections>
+                        <outlet property="continueButton" destination="DVK-8c-RGr" id="Ylg-NP-Wv4"/>
+                        <outlet property="correctNameLabel" destination="6KD-Nf-eIC" id="vGJ-wa-4Rc"/>
                         <outlet property="firstNameGuess" destination="szr-D4-FSX" id="iwP-hf-uhy"/>
                         <outlet property="scoreLabel" destination="qcC-k2-p5N" id="eFt-da-GdZ"/>
                         <outlet property="studentImage" destination="zsj-Vl-oJg" id="gGM-kM-9Q7"/>
