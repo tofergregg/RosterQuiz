@@ -82,18 +82,24 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        let destinationVC : StudentInfoController = segue.destinationViewController as! StudentInfoController
-        
-        if segue.identifier == "Loading Student Info" {
-            destinationVC.student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
-            destinationVC.newStudent = false
+        if (segue.identifier == "Loading Student Info" || segue.identifier == "New Student Segue") {
+            let destinationVC : StudentInfoController = segue.destinationViewController as! StudentInfoController
+            
+            if segue.identifier == "Loading Student Info" {
+                destinationVC.student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
+                destinationVC.newStudent = false
+            }
+            else if segue.identifier == "New Student Segue" {
+                destinationVC.student = Student()
+                destinationVC.student.last_name = "Last Name"
+                destinationVC.student.first_name = "First Name"
+                destinationVC.student.picture = UIImage(named: "User-400")
+                destinationVC.newStudent = true
+            }
         }
-        else if segue.identifier == "New Student Segue" {
-            destinationVC.student = Student()
-            destinationVC.student.last_name = "Last Name"
-            destinationVC.student.first_name = "First Name"
-            destinationVC.student.picture = UIImage(named: "User-400")
-            destinationVC.newStudent = true
+        else if segue.identifier == "Quiz Segue" {
+            let destinationVC : QuizTabBarController = segue.destinationViewController as! QuizTabBarController
+            destinationVC.roster = roster
         }
     }
     

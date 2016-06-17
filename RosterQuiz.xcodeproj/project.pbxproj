@@ -26,6 +26,11 @@
 		D560194C1D12F47C00769381 /* Add User 44.png in Resources */ = {isa = PBXBuildFile; fileRef = D560194B1D12F47C00769381 /* Add User 44.png */; };
 		D560194E1D12F88E00769381 /* Quiz 44.png in Resources */ = {isa = PBXBuildFile; fileRef = D560194D1D12F88E00769381 /* Quiz 44.png */; };
 		D56019501D13050800769381 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D560194F1D13050800769381 /* ImagePicker.swift */; };
+		D56019521D133FB900769381 /* Multiple Choice Small.png in Resources */ = {isa = PBXBuildFile; fileRef = D56019511D133FB900769381 /* Multiple Choice Small.png */; };
+		D56019541D1341DB00769381 /* Single User Small.png in Resources */ = {isa = PBXBuildFile; fileRef = D56019531D1341DB00769381 /* Single User Small.png */; };
+		D56019561D13431600769381 /* QuizTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56019551D13431600769381 /* QuizTabBarController.swift */; };
+		D56019581D13486F00769381 /* Multiple Choice Small2.png in Resources */ = {isa = PBXBuildFile; fileRef = D56019571D13486F00769381 /* Multiple Choice Small2.png */; };
+		D560195C1D13648200769381 /* QuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D560195B1D13648200769381 /* QuizController.swift */; };
 		D56895371D050FA100B9386D /* User Groups-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D56895361D050FA100B9386D /* User Groups-50.png */; };
 		D56895391D05115F00B9386D /* Why Us Female-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D56895381D05115F00B9386D /* Why Us Female-50.png */; };
 		D568953B1D05D76900B9386D /* AddRosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D568953A1D05D76900B9386D /* AddRosterController.swift */; };
@@ -90,6 +95,11 @@
 		D560194B1D12F47C00769381 /* Add User 44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User 44.png"; sourceTree = "<group>"; };
 		D560194D1D12F88E00769381 /* Quiz 44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Quiz 44.png"; sourceTree = "<group>"; };
 		D560194F1D13050800769381 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D56019511D133FB900769381 /* Multiple Choice Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Multiple Choice Small.png"; sourceTree = "<group>"; };
+		D56019531D1341DB00769381 /* Single User Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Single User Small.png"; sourceTree = "<group>"; };
+		D56019551D13431600769381 /* QuizTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizTabBarController.swift; sourceTree = "<group>"; };
+		D56019571D13486F00769381 /* Multiple Choice Small2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Multiple Choice Small2.png"; sourceTree = "<group>"; };
+		D560195B1D13648200769381 /* QuizController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizController.swift; sourceTree = "<group>"; };
 		D56895361D050FA100B9386D /* User Groups-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User Groups-50.png"; sourceTree = "<group>"; };
 		D56895381D05115F00B9386D /* Why Us Female-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Why Us Female-50.png"; sourceTree = "<group>"; };
 		D568953A1D05D76900B9386D /* AddRosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRosterController.swift; sourceTree = "<group>"; };
@@ -161,6 +171,9 @@
 				D560194D1D12F88E00769381 /* Quiz 44.png */,
 				2D7AD9101D09B6D2008A6853 /* Add User Group Man Man-22.png */,
 				D560194B1D12F47C00769381 /* Add User 44.png */,
+				D56019511D133FB900769381 /* Multiple Choice Small.png */,
+				D56019531D1341DB00769381 /* Single User Small.png */,
+				D56019571D13486F00769381 /* Multiple Choice Small2.png */,
 				2D7AD90C1D09B4D0008A6853 /* FirstViewController.swift */,
 				D517D1F41D0506AF00B6FDBC /* Roster.swift */,
 				D517D1F61D0506E700B6FDBC /* Student.swift */,
@@ -172,6 +185,8 @@
 				2D00DDA21D09FA06000EC78F /* LoadRosterFromGDrive.swift */,
 				D560194F1D13050800769381 /* ImagePicker.swift */,
 				D517D1C81D04FC5600B6FDBC /* Main.storyboard */,
+				D560195B1D13648200769381 /* QuizController.swift */,
+				D56019551D13431600769381 /* QuizTabBarController.swift */,
 				D517D1CB1D04FC5600B6FDBC /* Assets.xcassets */,
 				D56895361D050FA100B9386D /* User Groups-50.png */,
 				D56895381D05115F00B9386D /* Why Us Female-50.png */,
@@ -319,11 +334,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D56019541D1341DB00769381 /* Single User Small.png in Resources */,
 				D517D1CF1D04FC5600B6FDBC /* LaunchScreen.storyboard in Resources */,
 				D56895371D050FA100B9386D /* User Groups-50.png in Resources */,
 				D560194C1D12F47C00769381 /* Add User 44.png in Resources */,
 				2D8CE20B1D09BDB800B2ACAA /* Add User Group Man Man-44.png in Resources */,
+				D56019521D133FB900769381 /* Multiple Choice Small.png in Resources */,
 				D517D1CC1D04FC5600B6FDBC /* Assets.xcassets in Resources */,
+				D56019581D13486F00769381 /* Multiple Choice Small2.png in Resources */,
 				D560194E1D12F88E00769381 /* Quiz 44.png in Resources */,
 				D56895391D05115F00B9386D /* Why Us Female-50.png in Resources */,
 				D517D1CA1D04FC5600B6FDBC /* Main.storyboard in Resources */,
@@ -404,11 +422,13 @@
 			files = (
 				D568953B1D05D76900B9386D /* AddRosterController.swift in Sources */,
 				2D00DDA31D09FA06000EC78F /* LoadRosterFromGDrive.swift in Sources */,
+				D56019561D13431600769381 /* QuizTabBarController.swift in Sources */,
 				D517D1C71D04FC5600B6FDBC /* SecondViewController.swift in Sources */,
 				2D0959141D1052CF00E53AD9 /* StudentInfoController.swift in Sources */,
 				D517D1C31D04FC5600B6FDBC /* AppDelegate.swift in Sources */,
 				D517D1F51D0506AF00B6FDBC /* Roster.swift in Sources */,
 				D568953D1D05EF3C00B9386D /* ShowRosterController.swift in Sources */,
+				D560195C1D13648200769381 /* QuizController.swift in Sources */,
 				D56019501D13050800769381 /* ImagePicker.swift in Sources */,
 				D517D1F71D0506E700B6FDBC /* Student.swift in Sources */,
 				2D7AD90D1D09B4D0008A6853 /* FirstViewController.swift in Sources */,

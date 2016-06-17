@@ -3,6 +3,20 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "QuizController.viewDidLoad() -&gt; ():QuizController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "button0.constraints">
+            </PersistentString>
+            <PersistentString
+               value = "button.constraints">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Student.init(coder : NSCoder) -&gt; Student?:Student.swift">
+      </ContextState>
+      <ContextState
          contextName = "Http.TaskDelegate.URLSession(NSURLSession, task : NSURLSessionTask, didCompleteWithError : NSError?) -&gt; ():Http.swift">
       </ContextState>
       <ContextState
@@ -12,6 +26,9 @@
                value = "response as! String">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ShowRosterController.viewDidLoad() -&gt; ():ShowRosterController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
