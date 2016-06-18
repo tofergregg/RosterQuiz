@@ -41,7 +41,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstNameGuess: UITextField!
     @IBOutlet weak var correctNameLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
-    var buttonCount = 6;
+    var buttonCount = 7;
     var choiceButtons : [UIButton] = []
     var roster : Roster?
     var studentToGuess : Student?
@@ -145,7 +145,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
         // populate the buttons with the names
         for i in 0..<buttonCount {
             let attribStr = NSMutableAttributedString(
-                string:choices[i].commaName(),
+                string:choices[i].first_name,
                 attributes:[:])
             choiceButtons[i].setAttributedTitle(attribStr, forState: .Normal)
             choiceButtons[i].enabled = true

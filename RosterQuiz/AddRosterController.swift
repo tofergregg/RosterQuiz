@@ -21,7 +21,6 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     private var folderId = ""
     var rosterList : [GTLDriveFile] = []
     let textCellIdentifier = "First Cell"
-    var roster : Roster!
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
@@ -224,7 +223,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if segue.identifier == "Show Students" {
+        if segue.identifier == "Show Students GDrive" {
             let destionationVC : LoadRosterFromGDrive = segue.destinationViewController as! LoadRosterFromGDrive
             
             destionationVC.parentController = self
@@ -239,12 +238,6 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //let row = indexPath.row
         //print("Row: \(row)")
-    }
-    
-    @IBAction func returnFromLoadRoster(segue: UIStoryboardSegue) {
-        // Here you can receive the parameter(s) from secondVC
-        let loadRoster : LoadRosterFromGDrive = segue.sourceViewController as! LoadRosterFromGDrive
-        roster = loadRoster.roster
     }
 }
 

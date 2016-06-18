@@ -35,6 +35,9 @@
 		D56895391D05115F00B9386D /* Why Us Female-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D56895381D05115F00B9386D /* Why Us Female-50.png */; };
 		D568953B1D05D76900B9386D /* AddRosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D568953A1D05D76900B9386D /* AddRosterController.swift */; };
 		D568953D1D05EF3C00B9386D /* ShowRosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D568953C1D05EF3C00B9386D /* ShowRosterController.swift */; };
+		D594D8D91D15F4A00021ED22 /* drive-text-logo-flat.png in Resources */ = {isa = PBXBuildFile; fileRef = D594D8D81D15F4A00021ED22 /* drive-text-logo-flat.png */; };
+		D594D8DB1D15FC920021ED22 /* AddRosterFromWebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594D8DA1D15FC920021ED22 /* AddRosterFromWebsiteController.swift */; };
+		D594D8DD1D1611980021ED22 /* LoadRosterFromWebsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594D8DC1D1611980021ED22 /* LoadRosterFromWebsite.swift */; };
 		D5BEBC701D064694003BA21D /* User-100.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BEBC6F1D064694003BA21D /* User-100.png */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +107,9 @@
 		D56895381D05115F00B9386D /* Why Us Female-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Why Us Female-50.png"; sourceTree = "<group>"; };
 		D568953A1D05D76900B9386D /* AddRosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRosterController.swift; sourceTree = "<group>"; };
 		D568953C1D05EF3C00B9386D /* ShowRosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRosterController.swift; sourceTree = "<group>"; };
+		D594D8D81D15F4A00021ED22 /* drive-text-logo-flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drive-text-logo-flat.png"; sourceTree = "<group>"; };
+		D594D8DA1D15FC920021ED22 /* AddRosterFromWebsiteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRosterFromWebsiteController.swift; sourceTree = "<group>"; };
+		D594D8DC1D1611980021ED22 /* LoadRosterFromWebsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadRosterFromWebsite.swift; sourceTree = "<group>"; };
 		D5BEBC6F1D064694003BA21D /* User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-100.png"; sourceTree = "<group>"; };
 		E01858CD12DE73A3B9BE0F37 /* Pods-RosterQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RosterQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +180,7 @@
 				D56019511D133FB900769381 /* Multiple Choice Small.png */,
 				D56019531D1341DB00769381 /* Single User Small.png */,
 				D56019571D13486F00769381 /* Multiple Choice Small2.png */,
+				D594D8D81D15F4A00021ED22 /* drive-text-logo-flat.png */,
 				2D7AD90C1D09B4D0008A6853 /* FirstViewController.swift */,
 				D517D1F41D0506AF00B6FDBC /* Roster.swift */,
 				D517D1F61D0506E700B6FDBC /* Student.swift */,
@@ -182,7 +189,9 @@
 				D568953C1D05EF3C00B9386D /* ShowRosterController.swift */,
 				2D0959131D1052CF00E53AD9 /* StudentInfoController.swift */,
 				D568953A1D05D76900B9386D /* AddRosterController.swift */,
+				D594D8DA1D15FC920021ED22 /* AddRosterFromWebsiteController.swift */,
 				2D00DDA21D09FA06000EC78F /* LoadRosterFromGDrive.swift */,
+				D594D8DC1D1611980021ED22 /* LoadRosterFromWebsite.swift */,
 				D560194F1D13050800769381 /* ImagePicker.swift */,
 				D517D1C81D04FC5600B6FDBC /* Main.storyboard */,
 				D560195B1D13648200769381 /* QuizController.swift */,
@@ -336,6 +345,7 @@
 			files = (
 				D56019541D1341DB00769381 /* Single User Small.png in Resources */,
 				D517D1CF1D04FC5600B6FDBC /* LaunchScreen.storyboard in Resources */,
+				D594D8D91D15F4A00021ED22 /* drive-text-logo-flat.png in Resources */,
 				D56895371D050FA100B9386D /* User Groups-50.png in Resources */,
 				D560194C1D12F47C00769381 /* Add User 44.png in Resources */,
 				2D8CE20B1D09BDB800B2ACAA /* Add User Group Man Man-44.png in Resources */,
@@ -420,6 +430,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D594D8DD1D1611980021ED22 /* LoadRosterFromWebsite.swift in Sources */,
+				D594D8DB1D15FC920021ED22 /* AddRosterFromWebsiteController.swift in Sources */,
 				D568953B1D05D76900B9386D /* AddRosterController.swift in Sources */,
 				2D00DDA31D09FA06000EC78F /* LoadRosterFromGDrive.swift in Sources */,
 				D56019561D13431600769381 /* QuizTabBarController.swift in Sources */,

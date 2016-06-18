@@ -1,18 +1,16 @@
 //
-//  LoadRosterFromGDrive.swift
+//  LoadRosterFromWebsite.swift
 //  RosterQuiz
 //
-//  Created by Chris Gregg on 6/9/16.
+//  Created by Chris Gregg on 6/18/16.
 //  Copyright © 2016 Chris Gregg. All rights reserved.
 //
 
 import Foundation
 
 import UIKit
-import GoogleAPIClient
-import GTMOAuth2
 
-class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var parentController : AddRosterController!
     
     var loadingFilesIndicator : UIActivityIndicatorView!
@@ -42,7 +40,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
         roster.name = rosterFolder.name
         startQuery()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -90,7 +88,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
                     let name_parts = fullname.componentsSeparatedByString("_")
                     student.last_name = name_parts[0]
                     student.first_name = name_parts[1]
-                
+                    
                     print("\(student.last_name), \(student.first_name), id:\(file.identifier)")
                     // add to the array
                     student.google_drive_info = file
@@ -107,8 +105,8 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
         
         //output.text = filesString
     }
-
-
+    
+    
     // table functions
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -138,7 +136,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
         loadingErrors = 0
         downloadImages(0)
     }
-
+    
     
     func downloadImages(studentNum : Int){
         if (studentNum < roster.count()) {
@@ -156,7 +154,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         else {
-
+            
         }
     }
     
@@ -180,7 +178,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
                 self.studentImage.hidden = true
                 if (self.loadingErrors > 0) {
                     self.showAlert("Errors loading roster",
-                              message: "There were \(self.loadingErrors) errors loading the roster. You may want to try again later.")
+                                   message: "There were \(self.loadingErrors) errors loading the roster. You may want to try again later.")
                 }
                 // done downloading images, load csv if it exists
                 if ((self.rosterCSVId) != nil) {
@@ -198,16 +196,16 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func handleCSVDownload(data: NSData?, error: NSError?) -> Void {
-            if let error = error {
-                showAlert("Error", message: error.localizedDescription)
-                return
-            }
-            // received csv file
-            let csv = String(data: data!, encoding:NSUTF8StringEncoding)!
-            self.loadingFilesIndicator.stopAnimating()
-
-            print(csv)
-            addToRoster(csv)
+        if let error = error {
+            showAlert("Error", message: error.localizedDescription)
+            return
+        }
+        // received csv file
+        let csv = String(data: data!, encoding:NSUTF8StringEncoding)!
+        self.loadingFilesIndicator.stopAnimating()
+        
+        print(csv)
+        addToRoster(csv)
         
     }
     
