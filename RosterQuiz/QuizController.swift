@@ -134,7 +134,9 @@ class QuizController : UIViewController, UITextFieldDelegate {
         for _ in 1..<buttonCount {
             var random = Int(arc4random_uniform(UInt32(roster!.count())))
             var student = roster![random]
-            while choices.contains(student) {
+            // don't choose a student twice, and don't put the name of the actual
+            // student twice. This could put the same first name twice, however (TODO...)
+            while choices.contains(student) || student.first_name == studentToGuess?.first_name {
                 random = Int(arc4random_uniform(UInt32(roster!.count())))
                 student = roster![random]
             }
