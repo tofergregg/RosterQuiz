@@ -2,6 +2,7 @@
 
 import sys
 import os
+import operator
 
 if len(sys.argv) != 3:
         print("Usage:")
@@ -11,11 +12,45 @@ if len(sys.argv) != 3:
 with open(sys.argv[1],"r") as f:
         rawText = f.read()
 
+def countPrefixSpaces(line):
+        '''counts the number of spaces at the beginning of a line
+        '''
+        spaces = 0
+        for c in line:
+                if c == ' ':
+                        spaces+=1
+                else:
+                        # done
+                        return spaces
+        return spaces
+
 textLines = rawText.split("\n")
 
-# only look at lines that start with 11 spaces or blank lines
-newText1 = [x[11:] for x in textLines if (x.startswith('           ') 
-                                         and x[11].isalpha()) or len(x)==0]
+# student names begin with some number of spaces (e.g., 11), but we don't know
+# how many. So, we'll find the mode of the number of spaces at the beginning
+# of each line, and use that.
+numSpaces = {}
+for line in textLines:
+        ps = countPrefixSpaces(line)
+        if ps in numSpaces:
+                numSpaces[ps]+=1
+        else:
+                numSpaces[ps]=1
+
+# find the max, ignoring 0, and ignoring any over 20
+max_val = 0
+max_key = 0
+for k,v in numSpaces.iteritems():
+        if k > 20 or k == 0:
+                continue
+        if v > max_val:
+                max_val = v
+                max_key = k
+#print max_key
+
+# only look at lines that start with max_key spaces or blank lines
+newText1 = [x[max_key:] for x in textLines if (x.startswith('           ')
+                                         and x[max_key].isalpha()) or len(x)==0]
 
 # read each line until we find two spaces, at which point we truncate
 newText1 = [x[:x.find("  ")] for x in newText1]
@@ -41,11 +76,11 @@ for idx,line in enumerate(newText1):
                 foundBlank = True
                 # now skip
         else:
-                if foundBlank: # will always add a new entry if blank was just found 
+                if foundBlank: # will always add a new entry if blank was just found
                         newText2.append(line)
                         foundBlank = False
                 else:
-                        # make sure both don't have commas 
+                        # make sure both don't have commas
                         if ',' not in newText2[-1] or ',' not in line:
                                 # if prev last character is a comma, put a space
                                 # or, if the last character and the first character
