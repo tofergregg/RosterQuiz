@@ -65,7 +65,9 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
                     self.showAlert("Error!", message: stringData)
                 }
                 else {
-                    let rosterInfos = stringData.componentsSeparatedByString("\n")
+                    var rosterInfos = stringData.componentsSeparatedByString("\n")
+                    // there will be an extra because of the last line
+                    rosterInfos.removeLast()
                     for r in rosterInfos {
                         let parts = r.componentsSeparatedByString(".jpg")
                         if parts.count == 2 {
