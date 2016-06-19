@@ -71,6 +71,7 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func loadRosterList(sender: UIButton!) {
         // dismiss keyboard
+        self.view.endEditing(true)
         alreadyLoading = true;
         view.endEditing(true)
         loadingFilesIndicator.startAnimating()
