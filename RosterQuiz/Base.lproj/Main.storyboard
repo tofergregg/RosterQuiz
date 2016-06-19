@@ -890,16 +890,25 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                         <rect key="frame" x="78" y="460" width="499" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="nze-dK-nUl" id="Bch-Fg-fxa"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T26-hh-52g">
                                         <rect key="frame" x="78" y="384" width="499" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="nze-dK-nUl" id="Pmn-ae-Ka6"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMs-Nc-XxG">
                                         <rect key="frame" x="78" y="422" width="499" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="nze-dK-nUl" id="vCK-Vm-eCi"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0H-Ca-4iX">
                                         <rect key="frame" x="32" y="388" width="38" height="21"/>
@@ -921,6 +930,9 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="nze-dK-nUl" id="bbr-LL-Hlq"/>
+                                                </connections>
                                             </textView>
                                         </subviews>
                                         <constraints>
@@ -1006,7 +1018,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzX-Vu-dxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eTI-qm-0F0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2214" y="403"/>
+            <point key="canvasLocation" x="2248" y="403"/>
         </scene>
     </scenes>
     <resources>
