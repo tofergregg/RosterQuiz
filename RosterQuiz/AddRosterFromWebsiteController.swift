@@ -24,6 +24,8 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
     
     var rosterList : [RosterInfo] = []
     
+    var alreadyLoading = false
+    
     let textCellIdentifier = "First Cell"
     let sentinel = "_S__S_"
     
@@ -39,7 +41,7 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
     // When the view appears, ensure that the Drive API service is authorized
     // and perform API calls
     override func viewDidAppear(animated: Bool) {
-        
+        alreadyLoading = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,16 +56,22 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        if textField == userPw {
-            loadRosterList(nil)
+        if !alreadyLoading {
+            if textField == userPw {
+                loadRosterList(nil)
+            }
+            else if textField == username {
+                userPw.becomeFirstResponder()
+            }
         }
-        else if textField == username {
-            userPw.becomeFirstResponder()
+        else {
+            alreadyLoading = false
         }
     }
     
     @IBAction func loadRosterList(sender: UIButton!) {
         // dismiss keyboard
+        alreadyLoading = true;
         view.endEditing(true)
         loadingFilesIndicator.startAnimating()
         self.rosterList = [] // reset
