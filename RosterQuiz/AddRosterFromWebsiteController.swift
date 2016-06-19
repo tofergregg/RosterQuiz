@@ -13,7 +13,7 @@ struct RosterInfo {
     var filename : String
 }
 
-class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var loadingFilesIndicator: UIActivityIndicatorView!
     
@@ -32,6 +32,8 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
 
         rosterListTable.delegate = self;
         rosterListTable.dataSource = self;
+        username.delegate = self;
+        userPw.delegate = self;
     }
     
     // When the view appears, ensure that the Drive API service is authorized
@@ -45,8 +47,24 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
+    {
+        textField.resignFirstResponder()
+        return true
+    }
     
-    @IBAction func loadRosterList(sender: UIButton) {
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField == userPw {
+            loadRosterList(nil)
+        }
+        else if textField == username {
+            userPw.becomeFirstResponder()
+        }
+    }
+    
+    @IBAction func loadRosterList(sender: UIButton!) {
+        // dismiss keyboard
+        view.endEditing(true)
         loadingFilesIndicator.startAnimating()
         self.rosterList = [] // reset
         self.rosterListTable.reloadData()
