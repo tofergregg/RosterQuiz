@@ -205,11 +205,11 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qP2-n0-V1H" id="j3L-KO-ydJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ojn-bn-TdK" kind="show" identifier="Show Students Gdrive" id="BMp-eo-Xcv"/>
+                                            <segue destination="ojn-bn-TdK" kind="show" identifier="Show Students GDrive" id="BMp-eo-Xcv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -337,6 +337,9 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jNl-TO-srS" kind="show" identifier="Show Students Website" id="QZP-2F-jsV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -372,17 +375,16 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                         <outlet property="rosterListTable" destination="bqQ-Fh-6lW" id="Gkh-5F-GzS"/>
                         <outlet property="userPw" destination="99Q-ak-EFW" id="ygW-I4-WgG"/>
                         <outlet property="username" destination="7S8-f9-oOA" id="2eb-iO-MtV"/>
-                        <segue destination="jNl-TO-srS" kind="show" identifier="Show Students Website" id="haD-2r-X4Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zL6-hG-pcy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3495" y="277"/>
+            <point key="canvasLocation" x="3471" y="277"/>
         </scene>
         <!--Load Roster From Website-->
         <scene sceneID="SQj-jp-Obk">
             <objects>
-                <viewController id="jNl-TO-srS" customClass="LoadRosterFromWebsite" customModule="RosterQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Load Roster from Website" automaticallyAdjustsScrollViewInsets="NO" id="jNl-TO-srS" customClass="LoadRosterFromWebsite" customModule="RosterQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hYK-9q-7N5"/>
                         <viewControllerLayoutGuide type="bottom" id="1gy-mo-2tt"/>
@@ -396,7 +398,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="student cell" id="yLQ-Q5-VVn">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yLQ-Q5-VVn" id="fBg-JX-Llx">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -408,8 +410,8 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffi-Oc-pWV">
                                 <rect key="frame" x="149" y="570" width="302" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="RMs-HM-qZb"/>
-                                    <constraint firstAttribute="width" constant="302" id="vxM-bU-rpF"/>
+                                    <constraint firstAttribute="width" constant="302" id="5d1-B6-9o2"/>
+                                    <constraint firstAttribute="height" constant="30" id="gon-Ce-hjz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Click here to add this roster to RosterQuiz"/>
@@ -420,8 +422,8 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The following students were found on the roster:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G55-Aq-pgi">
                                 <rect key="frame" x="151" y="72" width="298" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="77c-RH-b5a"/>
-                                    <constraint firstAttribute="width" constant="298" id="cQ4-aE-r0a"/>
+                                    <constraint firstAttribute="height" constant="21" id="dee-iT-MLS"/>
+                                    <constraint firstAttribute="width" constant="298" id="gQI-tO-Qcf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -430,23 +432,23 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E5w-uQ-33b">
                                 <rect key="frame" x="234" y="270" width="132" height="123"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="123" id="eFe-i9-ev1"/>
-                                    <constraint firstAttribute="width" constant="132" id="whZ-8D-Kt4"/>
+                                    <constraint firstAttribute="width" constant="132" id="IOP-SP-7EI"/>
+                                    <constraint firstAttribute="height" constant="123" id="kUh-S4-tp5"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Nv7-Xz-51T" firstAttribute="leading" secondItem="oe1-c4-P8k" secondAttribute="leading" id="Ete-cc-RvF"/>
-                            <constraint firstItem="E5w-uQ-33b" firstAttribute="centerX" secondItem="ffi-Oc-pWV" secondAttribute="centerX" id="HQf-9Y-aJ5"/>
-                            <constraint firstItem="ffi-Oc-pWV" firstAttribute="top" secondItem="Nv7-Xz-51T" secondAttribute="bottom" constant="8" symbolic="YES" id="cCj-qi-p25"/>
-                            <constraint firstItem="G55-Aq-pgi" firstAttribute="top" secondItem="hYK-9q-7N5" secondAttribute="bottom" constant="8" symbolic="YES" id="hsr-Pt-nxg"/>
-                            <constraint firstItem="Nv7-Xz-51T" firstAttribute="centerX" secondItem="E5w-uQ-33b" secondAttribute="centerX" id="mmL-rT-wQH"/>
-                            <constraint firstItem="Nv7-Xz-51T" firstAttribute="centerY" secondItem="E5w-uQ-33b" secondAttribute="centerY" id="pzu-FX-RGn"/>
-                            <constraint firstItem="ffi-Oc-pWV" firstAttribute="bottom" secondItem="1gy-mo-2tt" secondAttribute="top" id="sg9-Pn-Ger"/>
-                            <constraint firstAttribute="trailing" secondItem="Nv7-Xz-51T" secondAttribute="trailing" id="uCg-vq-3m8"/>
-                            <constraint firstItem="Nv7-Xz-51T" firstAttribute="top" secondItem="G55-Aq-pgi" secondAttribute="bottom" constant="8" symbolic="YES" id="vf0-kg-pwZ"/>
-                            <constraint firstItem="G55-Aq-pgi" firstAttribute="centerX" secondItem="E5w-uQ-33b" secondAttribute="centerX" id="zBX-vt-fy2"/>
+                            <constraint firstItem="Nv7-Xz-51T" firstAttribute="centerX" secondItem="E5w-uQ-33b" secondAttribute="centerX" id="ASX-US-Z5g"/>
+                            <constraint firstAttribute="trailing" secondItem="Nv7-Xz-51T" secondAttribute="trailing" id="CIp-Hj-qvq"/>
+                            <constraint firstItem="ffi-Oc-pWV" firstAttribute="top" secondItem="Nv7-Xz-51T" secondAttribute="bottom" constant="8" symbolic="YES" id="PgI-Sg-9QZ"/>
+                            <constraint firstItem="E5w-uQ-33b" firstAttribute="centerX" secondItem="ffi-Oc-pWV" secondAttribute="centerX" id="QE1-0G-All"/>
+                            <constraint firstItem="Nv7-Xz-51T" firstAttribute="leading" secondItem="oe1-c4-P8k" secondAttribute="leading" id="TjL-SK-gga"/>
+                            <constraint firstItem="Nv7-Xz-51T" firstAttribute="centerY" secondItem="E5w-uQ-33b" secondAttribute="centerY" id="eK6-lh-r3R"/>
+                            <constraint firstItem="G55-Aq-pgi" firstAttribute="centerX" secondItem="E5w-uQ-33b" secondAttribute="centerX" id="eko-9K-Hlh"/>
+                            <constraint firstItem="Nv7-Xz-51T" firstAttribute="top" secondItem="G55-Aq-pgi" secondAttribute="bottom" constant="8" symbolic="YES" id="sEf-An-xre"/>
+                            <constraint firstItem="G55-Aq-pgi" firstAttribute="top" secondItem="hYK-9q-7N5" secondAttribute="bottom" constant="8" symbolic="YES" id="tY5-Yr-FLd"/>
+                            <constraint firstItem="ffi-Oc-pWV" firstAttribute="bottom" secondItem="1gy-mo-2tt" secondAttribute="top" id="upI-pK-c61"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1036,6 +1038,6 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
         <image name="drive-text-logo-flat.png" width="200" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gBr-wX-2yu"/>
+        <segue reference="kBc-30-9qb"/>
     </inferredMetricsTieBreakers>
 </document>

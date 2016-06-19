@@ -115,13 +115,17 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
         
         let row = indexPath.row
-        cell.textLabel?.text = "\(rosterList[row].name) (\(rosterList[row].filename))"
+        cell.textLabel?.text = "\(rosterList[row].name) (\(rosterList[row].filename).pdf)"
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-
-        
+        if segue.identifier == "Show Students Website" {
+            let destionationVC : LoadRosterFromWebsite = segue.destinationViewController as! LoadRosterFromWebsite
+            
+            destionationVC.parentController = self
+            destionationVC.rosterFolder = rosterList[rosterListTable.indexPathForSelectedRow!.row]
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

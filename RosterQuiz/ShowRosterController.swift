@@ -117,6 +117,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         let studentInfoView : StudentInfoController = segue.sourceViewController as! StudentInfoController
         if studentInfoView.newStudent {
             roster.addStudent(studentInfoView.student)
+            roster.sortStudents()
         }
         else {
         let student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]

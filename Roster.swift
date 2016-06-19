@@ -14,7 +14,6 @@ class Roster : NSObject, NSCoding {
     
     func addStudent(student : Student){
         students.append(student)
-        sortStudents()
     }
     
     func sortStudents() {

@@ -36,6 +36,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
         loadingFilesIndicator.color = UIColor.blackColor()
         loadingFilesIndicator.hidesWhenStopped = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loadingFilesIndicator)
+        navigationItem.title = rosterFolder.name
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -99,6 +100,8 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         
+        roster.sortStudents()
+        
         // reload the table and stop the indicator
         rosterTable.reloadData()
         
@@ -154,9 +157,6 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
             dispatch_after(time, dispatch_get_main_queue()) {
                 self.downloadImages(studentNum + 1)
             }
-        }
-        else {
-
         }
     }
     
@@ -251,6 +251,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
                     new_student.gender = gender
                     new_student.notes = ""
                     roster.addStudent(new_student)
+                    roster.sortStudents()
                     rosterTable.reloadData()
                 }
             }

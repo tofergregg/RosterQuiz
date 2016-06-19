@@ -36,8 +36,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func returnFromAddRoster(segue: UIStoryboardSegue) {
         // Here you can receive the parameter(s) from secondVC
-        let addRoster : LoadRosterFromGDrive = segue.sourceViewController as! LoadRosterFromGDrive
-        rosters.append(addRoster.roster)
+        if let addRoster : LoadRosterFromGDrive = segue.sourceViewController as? LoadRosterFromGDrive {
+            rosters.append(addRoster.roster)
+        }
+        else if let addRoster : LoadRosterFromWebsite = segue.sourceViewController as? LoadRosterFromWebsite {
+            rosters.append(addRoster.roster)
+        }
         rosterTableView.reloadData()
         // save the rosters
         saveRosters()
