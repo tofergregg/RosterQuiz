@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+extension UINavigationController {
+    public override func shouldAutorotate() -> Bool {
+        return visibleViewController!.shouldAutorotate()
+    }
+}
+
 class StudentInfoController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     var student : Student! = nil
@@ -47,6 +53,10 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         firstNameText.addTarget(self, action: #selector(StudentInfoController.nameChanged), forControlEvents: UIControlEvents.EditingChanged)
         imagePicker.delegate = self
         studentPicButton.imageView!.contentMode = .ScaleAspectFit
+        
+        // force portrait mode
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -147,6 +157,25 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         self.view.frame = rect;
         
         UIView.commitAnimations();
+    }
+    
+    // don't allow landscape mode
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+
+    }
+    
+    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
+        return UIInterfaceOrientation.Portrait
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        switch UIDevice.currentDevice().orientation {
+        case .Portrait, .PortraitUpsideDown, .Unknown:
+            return true
+        default:
+            return false
+        }
     }
     
     func nameChanged(){
