@@ -18,10 +18,18 @@ def space_escape(s):
 def space_unescape(s):
         return s.replace('%20',' ')
 
+def unSaltBang(s):
+        # remove exclamation points
+        newS = ''
+        for c in s:
+                if c != '!':
+                        newS+=c
+        return newS
+
 form = cgi.FieldStorage()
 name = space_escape(form['name'].value)
 folder = space_escape(form['imgFolder'].value) 
-imgName = form['imgName'].value
+imgName = unSaltBang(form['imgName'].value)
 
 # get a list of jpegs in the users directory
 imageFolder = rosterFolder+name+'/'+folder+'/'

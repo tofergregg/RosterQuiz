@@ -17,12 +17,13 @@ function init(){
 
 function loadImage(name,imgFolder,imgName,tableId)
 {
+        var imgNameBang = saltBang(imgName);
         var img = new Image();
         img.width = "50";
         img.src='https://www.eecs.tufts.edu/~cgregg/rosters/cgi-bin/retrieveImageByFolder.cgi?'+
                 'name='+name+
                 '&imgFolder='+imgFolder+
-                '&imgName='+imgName;
+                '&imgName='+imgNameBang;
         var table = document.getElementById(tableId);
         var row = table.insertRow(-1); // insert at end
         var cell1 = row.insertCell(0);
@@ -30,6 +31,15 @@ function loadImage(name,imgFolder,imgName,tableId)
         var cell2 = row.insertCell(1);
         imgName = imgName.replace('.jpg','').replace('_',', ');
         cell2.innerHTML = imgName;
+}
+
+function saltBang(theName)
+{
+       var newName = '';
+       for (var i=0;i<theName.length;i++){
+              newName += '!'+theName[i];
+       }
+       return newName;
 }
 
 function imageList(name,imgFolder)
@@ -40,6 +50,8 @@ function imageList(name,imgFolder)
                 init.names = data.split('\n');
                 init.names.pop() // remove trailing newline
                 for (var i=0;i<init.names.length;i++){
+                        // salt name with exclamation points so the CS server
+                        // does not deny the request
                         loadImage(name,imgFolder,init.names[i],'imageTable');
                 }
         });

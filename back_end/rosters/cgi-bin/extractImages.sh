@@ -27,8 +27,10 @@ for p in $ppms; do
 done
 
 # extract the text from the pdf
-pdftotext -layout ${filename} ${imageDir}/roster.txt
+pdftotext -layout ${filename} ${imageDir}/roster.txt 
 
 # parse the names
 ./parseNames.py ${imageDir}/roster.txt ${imageDir}
+
+
 

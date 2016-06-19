@@ -49,7 +49,7 @@ for k,v in numSpaces.iteritems():
 #print max_key
 
 # only look at lines that start with max_key spaces or blank lines
-newText1 = [x[max_key:] for x in textLines if (x.startswith('           ')
+newText1 = [x[max_key:] for x in textLines if (x.startswith('           ') 
                                          and x[max_key].isalpha()) or len(x)==0]
 
 # read each line until we find two spaces, at which point we truncate
@@ -76,11 +76,11 @@ for idx,line in enumerate(newText1):
                 foundBlank = True
                 # now skip
         else:
-                if foundBlank: # will always add a new entry if blank was just found
+                if foundBlank: # will always add a new entry if blank was just found 
                         newText2.append(line)
                         foundBlank = False
                 else:
-                        # make sure both don't have commas
+                        # make sure both don't have commas 
                         if ',' not in newText2[-1] or ',' not in line:
                                 # if prev last character is a comma, put a space
                                 # or, if the last character and the first character
