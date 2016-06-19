@@ -36,12 +36,9 @@ class Roster : NSObject, NSCoding {
     func csv_paste(pasted : String)
     {
         // pasted text should have the following form, separated by newlines:
-        // last,first,year,gender (year and gender are optional.
-        // If the gender is missing, the year can still be used, but
-        // if the year is missing, both must be missing). E.g.:
-        // Gregg,Chris,Fr,M
-        // or
-        // Gregg,Chris,Fr
+        // last,first,year (year is optional).
+        // E.g.:
+        // Gregg,Chris,Freshman
         let lines = pasted.componentsSeparatedByString("\n")
         for line in lines {
             let s = Student()
@@ -52,9 +49,6 @@ class Roster : NSObject, NSCoding {
             }
             else if details.count == 3 {
                 s.addDetails(details[0], first: details[1], yr: details[2])
-            }
-            else if details.count == 4 {
-                s.addDetails(details[0], first: details[1], yr: details[2], gend: details[3])
             }
             else {
                 // could not parse

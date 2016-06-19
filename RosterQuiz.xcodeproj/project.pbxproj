@@ -39,6 +39,7 @@
 		D594D8DB1D15FC920021ED22 /* AddRosterFromWebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594D8DA1D15FC920021ED22 /* AddRosterFromWebsiteController.swift */; };
 		D594D8DD1D1611980021ED22 /* LoadRosterFromWebsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594D8DC1D1611980021ED22 /* LoadRosterFromWebsite.swift */; };
 		D5BEBC701D064694003BA21D /* User-100.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BEBC6F1D064694003BA21D /* User-100.png */; };
+		D5E7E07D1D16F564002138E6 /* icon1024e.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E7E07C1D16F564002138E6 /* icon1024e.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		D594D8DA1D15FC920021ED22 /* AddRosterFromWebsiteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRosterFromWebsiteController.swift; sourceTree = "<group>"; };
 		D594D8DC1D1611980021ED22 /* LoadRosterFromWebsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadRosterFromWebsite.swift; sourceTree = "<group>"; };
 		D5BEBC6F1D064694003BA21D /* User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-100.png"; sourceTree = "<group>"; };
+		D5E7E07C1D16F564002138E6 /* icon1024e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024e.png; sourceTree = "<group>"; };
 		E01858CD12DE73A3B9BE0F37 /* Pods-RosterQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RosterQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,6 +203,7 @@
 				D56895381D05115F00B9386D /* Why Us Female-50.png */,
 				D5BEBC6F1D064694003BA21D /* User-100.png */,
 				2DFD96E11D11FFB5008E5D1A /* User-400.png */,
+				D5E7E07C1D16F564002138E6 /* icon1024e.png */,
 				D517D1CD1D04FC5600B6FDBC /* LaunchScreen.storyboard */,
 				D517D1D01D04FC5600B6FDBC /* Info.plist */,
 			);
@@ -348,6 +351,7 @@
 				D594D8D91D15F4A00021ED22 /* drive-text-logo-flat.png in Resources */,
 				D56895371D050FA100B9386D /* User Groups-50.png in Resources */,
 				D560194C1D12F47C00769381 /* Add User 44.png in Resources */,
+				D5E7E07D1D16F564002138E6 /* icon1024e.png in Resources */,
 				2D8CE20B1D09BDB800B2ACAA /* Add User Group Man Man-44.png in Resources */,
 				D56019521D133FB900769381 /* Multiple Choice Small.png in Resources */,
 				D517D1CC1D04FC5600B6FDBC /* Assets.xcassets in Resources */,

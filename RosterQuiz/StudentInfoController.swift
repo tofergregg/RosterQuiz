@@ -22,7 +22,6 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var yearText: UITextField!
-    @IBOutlet weak var genderText: UITextField!
     
 
     override func viewDidLoad() {
@@ -32,7 +31,6 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
             lastNameText.text = student.last_name
             firstNameText.text = student.first_name
             yearText.text = student.year
-            genderText.text = student.gender
             studentPicButton.setTitle("", forState: .Normal)
             if (student.picture != nil) {
                 studentPicButton.setImage(student.picture, forState:.Normal)

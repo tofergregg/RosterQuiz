@@ -124,7 +124,6 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
             student.last_name = studentInfoView.lastNameText.text!
             student.first_name = studentInfoView.firstNameText.text!
             student.year = studentInfoView.yearText.text!
-            student.gender = studentInfoView.genderText.text!
             student.notes = studentInfoView.notesText.text!
             student.picture = studentInfoView.studentPicButton.currentImage
         }

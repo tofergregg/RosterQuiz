@@ -174,12 +174,12 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
     
     func addToRoster(csv : String){
         // csv should have the following form:
-        // last,first,year(e.g."Sophomore"),gender(e.g."M")
-        // year and gender are optional
+        // last,first,year(e.g."Sophomore")
+        // year is optional
         let lines = csv.componentsSeparatedByString("\n")
         for line in lines {
             var last : String = "", first: String = ""
-            var year : String = "", gender : String = ""
+            var year : String = ""
             let details = line.componentsSeparatedByString(",")
             if (details.count > 1) {
                 last = details[0]
@@ -187,16 +187,12 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
                 if (details.count > 2){
                     year = details[2]
                 }
-                if (details.count > 3) {
-                    gender = details[3]
-                }
-                print(last+first+year+gender)
+                print(last+first+year)
                 var found = false
                 for i in 0 ..< roster.count() {
                     let student = roster[i]
                     if (student.last_name == last && student.first_name == first) {
                         student.year = year
-                        student.gender = gender
                         student.notes = ""
                         found = true
                         break
@@ -209,7 +205,6 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
                     new_student.last_name = last
                     new_student.first_name = first
                     new_student.year = year
-                    new_student.gender = gender
                     new_student.notes = ""
                     roster.addStudent(new_student)
                     roster.sortStudents()
