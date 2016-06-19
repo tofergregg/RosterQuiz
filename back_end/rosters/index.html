@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <title>Upload Roster</title>
+</head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script type="text/javascript">
+function init(){
+}
+function uploadRoster()
+{
+        fileInfo = document.getElementById('PdfFileChooser').files[0];
+        var fd = new FormData();
+        fd.append("fileToUpload", fileInfo);
+
+        $.ajax({
+                url: "cgi-bin/upload.cgi",
+                type: "POST",
+                data: fd,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                        console.log(response);
+                },
+                error: function(jqXHR, textStatus, errorMessage) {
+                   console.log(errorMessage); // Optional
+                }
+        });
+}
+</script>
+<body onload="init()">
+        <form action="cgi-bin/upload.cgi" method="post" enctype="multipart/form-data">
+                Your Name: <input type="text" id="name" name="name"><br>
+                Roster Name: <input type="text" id="roster" name="rosterName"><br>
+                Password: <input type="password" id="pw" name='pw'><br>
+                PDF:<input  type='file'
+                        id='PdfFileChooser'
+                        name='fileToUpload' />
+                <p>
+                <input type='submit' id='submitButton'
+                        value='Upload Roster' />
+        </form>
+
+</body>
+</html>
+
