@@ -75,8 +75,8 @@ class QuizController : UIViewController, UITextFieldDelegate {
                 //let button = UIButton(type:UIButtonType.System) as UIButton
                 let button = UIButton()
                 button.tag = i
+                button.titleLabel!.font = button0.titleLabel?.font
                 //button.frame = buttonFrame
-                choiceButtons.append(button)
                 //label.center = CGPointMake(160, 284)
                 //label.frame.origin.x = studentImage.frame.origin.x
                 //label.frame.origin.y = studentImage.frame.origin.y+studentImage.frame.height+26
@@ -86,9 +86,11 @@ class QuizController : UIViewController, UITextFieldDelegate {
                 button.translatesAutoresizingMaskIntoConstraints = false
                 button.setTitle("Name \(i)", forState: .Normal)
                 button.addTarget(self, action: #selector(userMadeChoice), forControlEvents: .TouchUpInside)
-                button.backgroundColor = UIColor.blueColor()
+                //button.backgroundColor = UIColor.blueColor()
+                button.setTitleColor(button0.titleColorForState(.Normal), forState: .Normal)
                 //button0.backgroundColor = UIColor.blueColor()
                 view.addSubview(button)
+                // center horizontally
                 var constraints = NSLayoutConstraint.constraintsWithVisualFormat(
                     "V:[superview]-(<=1)-[button]",
                     options: NSLayoutFormatOptions.AlignAllCenterX,
@@ -98,14 +100,17 @@ class QuizController : UIViewController, UITextFieldDelegate {
                 button.frame=CGRectMake(0,buttonFrame.origin.y,100,30)
                 
                 // Center vertically
-                /*constraints = NSLayoutConstraint.constraintsWithVisualFormat(
-                    "H:[superview]-(<=1)-[button]",
-                    options: NSLayoutFormatOptions.AlignAllCenterY,
+                // Each button should be 6 away from the previous button
+                // But, we just align on the button already present
+                constraints = NSLayoutConstraint.constraintsWithVisualFormat(
+                    "V:[superview]-6-[button]",
+                    options: [],
                     metrics: nil,
-                    views: ["superview":view, "button":button])
-                view.addConstraints(constraints)*/
+                    views: ["superview":choiceButtons[i-1], "button":button])
+                view.addConstraints(constraints)
                 
                 //button.frame.origin.y = 280
+                choiceButtons.append(button)
                 
                 //let xConstraint = NSLayoutConstraint(item: button, attribute: .CenterX, relatedBy: .Equal, toItem: studentImage, attribute: .CenterX, multiplier: 1, constant: 0)
                 
@@ -114,6 +119,8 @@ class QuizController : UIViewController, UITextFieldDelegate {
                 
                 //NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: studentImage, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 0).active = true
             }
+            view.setNeedsLayout()
+            view.layoutIfNeeded()
             runMultipleChoiceQuiz()
         }
         else if restorationIdentifier == "Free Response Quiz" {
