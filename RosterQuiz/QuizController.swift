@@ -125,7 +125,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
         studentImage.image = studentToGuess?.picture
     }
     
-    func chooseAnother(student : Student) -> Bool {
+    func chooseAnother(let student : Student) -> Bool {
         //while choices.contains(student) || student.first_name == studentToGuess?.first_name {
         if choices.contains(student) {
             return true // must keep choosing
