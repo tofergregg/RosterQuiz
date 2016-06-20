@@ -125,6 +125,24 @@ class QuizController : UIViewController, UITextFieldDelegate {
         studentImage.image = studentToGuess?.picture
     }
     
+    func chooseAnother(student : Student) -> Bool {
+        //while choices.contains(student) || student.first_name == studentToGuess?.first_name {
+        if choices.contains(student) {
+            return true // must keep choosing
+        }
+        
+        if student.first_name == studentToGuess?.first_name {
+            return true // keep choosing
+        }
+        
+        for s in choices {
+            if student.first_name == s.first_name {
+                return true // keep choosing
+            }
+        }
+        return false
+    }
+    
     func getRandomChoices(){
         // populate the guesses
         choices = []
@@ -136,7 +154,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
             var student = roster![random]
             // don't choose a student twice, and don't put the name of the actual
             // student twice. This could put the same first name twice, however (TODO...)
-            while choices.contains(student) || student.first_name == studentToGuess?.first_name {
+            while chooseAnother(student) {
                 random = Int(arc4random_uniform(UInt32(roster!.count())))
                 student = roster![random]
             }
