@@ -26,11 +26,11 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GN2-HN-bAo" id="WrI-LY-M71">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="47.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RkJ-nw-DAq">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="47.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -205,7 +205,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qP2-n0-V1H" id="j3L-KO-ydJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -334,7 +334,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fT3-V5-kTA" id="Fde-UE-XDR">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -401,7 +401,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yLQ-Q5-VVn" id="fBg-JX-Llx">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -481,7 +481,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V6y-L8-OM7" id="Qja-Gs-I6Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -595,7 +595,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cFV-1L-I1D" id="Rt2-j0-3WU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -791,54 +791,40 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDU-sK-K2O">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSL-ub-89R">
-                                        <rect key="frame" x="8" y="458" width="50" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Px4-D1-aIf">
-                                        <rect key="frame" x="215" y="8" width="170" height="170"/>
-                                        <color key="backgroundColor" red="0.94117647410000005" green="0.0" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="170" id="2eS-jP-eAU"/>
-                                            <constraint firstAttribute="height" constant="170" id="C8p-dw-YHa"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxB-UO-c9a">
-                                        <rect key="frame" x="8" y="186" width="584" height="30"/>
-                                        <state key="normal" title="Name 0"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Px4-D1-aIf">
+                                <rect key="frame" x="215" y="72" width="170" height="170"/>
+                                <color key="backgroundColor" red="0.94117647410000005" green="0.0" blue="0.086274512110000007" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstItem="tSL-ub-89R" firstAttribute="bottom" secondItem="VDU-sK-K2O" secondAttribute="bottomMargin" id="2Zz-T7-b9D"/>
-                                    <constraint firstItem="LxB-UO-c9a" firstAttribute="leading" secondItem="VDU-sK-K2O" secondAttribute="leading" constant="8" id="GzM-2x-hMo"/>
-                                    <constraint firstItem="Px4-D1-aIf" firstAttribute="top" secondItem="VDU-sK-K2O" secondAttribute="topMargin" id="HBR-JA-M7n"/>
-                                    <constraint firstItem="LxB-UO-c9a" firstAttribute="top" secondItem="Px4-D1-aIf" secondAttribute="bottom" constant="8" symbolic="YES" id="asB-UU-E25"/>
-                                    <constraint firstAttribute="trailing" secondItem="LxB-UO-c9a" secondAttribute="trailing" constant="8" id="bax-kc-bUC"/>
-                                    <constraint firstItem="LxB-UO-c9a" firstAttribute="leading" secondItem="tSL-ub-89R" secondAttribute="leading" id="bnE-xl-v4g"/>
-                                    <constraint firstItem="Px4-D1-aIf" firstAttribute="centerX" secondItem="VDU-sK-K2O" secondAttribute="centerX" id="m6a-Rk-rGB"/>
-                                    <constraint firstItem="tSL-ub-89R" firstAttribute="leading" secondItem="VDU-sK-K2O" secondAttribute="leadingMargin" id="soE-Gs-5MM"/>
+                                    <constraint firstAttribute="height" constant="170" id="HfA-qU-3Yp"/>
+                                    <constraint firstAttribute="width" constant="170" id="M4i-vO-Ec9"/>
                                 </constraints>
-                            </view>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxB-UO-c9a">
+                                <rect key="frame" x="8" y="250" width="584" height="30"/>
+                                <state key="normal" title="Name 0"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppX-gT-bzJ">
+                                <rect key="frame" x="8" y="522" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VDU-sK-K2O" firstAttribute="leading" secondItem="0It-DW-Z6q" secondAttribute="leading" id="6xP-cm-CnI"/>
-                            <constraint firstAttribute="trailing" secondItem="VDU-sK-K2O" secondAttribute="trailing" id="QKx-EB-yC0"/>
-                            <constraint firstItem="VDU-sK-K2O" firstAttribute="top" secondItem="qT5-OF-CXE" secondAttribute="bottom" id="XUX-Im-HU3"/>
-                            <constraint firstItem="VDU-sK-K2O" firstAttribute="bottom" secondItem="Lfs-Ck-6J2" secondAttribute="top" id="gkF-kl-Img"/>
+                            <constraint firstItem="Px4-D1-aIf" firstAttribute="top" secondItem="qT5-OF-CXE" secondAttribute="bottom" constant="8" symbolic="YES" id="B71-aH-RmE"/>
+                            <constraint firstItem="Px4-D1-aIf" firstAttribute="centerX" secondItem="LxB-UO-c9a" secondAttribute="centerX" id="QeR-bb-utV"/>
+                            <constraint firstItem="LxB-UO-c9a" firstAttribute="leading" secondItem="ppX-gT-bzJ" secondAttribute="leading" id="fhf-cb-P3s"/>
+                            <constraint firstItem="Px4-D1-aIf" firstAttribute="centerX" secondItem="0It-DW-Z6q" secondAttribute="centerX" id="gnT-8q-ssk"/>
+                            <constraint firstItem="LxB-UO-c9a" firstAttribute="top" secondItem="Px4-D1-aIf" secondAttribute="bottom" constant="8" symbolic="YES" id="ljF-dH-zqI"/>
+                            <constraint firstItem="Lfs-Ck-6J2" firstAttribute="top" secondItem="ppX-gT-bzJ" secondAttribute="bottom" constant="8" symbolic="YES" id="sZL-0g-gbs"/>
+                            <constraint firstItem="LxB-UO-c9a" firstAttribute="leading" secondItem="0It-DW-Z6q" secondAttribute="leadingMargin" constant="-12" id="yqp-zz-h2g"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Multiple Choice" image="Multiple Choice Small2.png" id="MXZ-vo-fBD"/>
                     <connections>
                         <outlet property="button0" destination="LxB-UO-c9a" id="7gb-5r-gMO"/>
-                        <outlet property="insideView" destination="VDU-sK-K2O" id="Fj6-q5-8yT"/>
-                        <outlet property="scoreLabel" destination="tSL-ub-89R" id="RCz-BS-Vfc"/>
+                        <outlet property="scoreLabel" destination="ppX-gT-bzJ" id="2S4-3r-qYI"/>
                         <outlet property="studentImage" destination="Px4-D1-aIf" id="PLD-RT-PgE"/>
                     </connections>
                 </viewController>

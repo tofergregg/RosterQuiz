@@ -51,25 +51,31 @@ class QuizController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var button0: UIButton!
-    @IBOutlet weak var insideView: UIView!
+    //@IBOutlet weak var insideView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         if restorationIdentifier == "Multiple Choice Quiz" {
             print("Multiple Choice Quiz Loaded")
+            if (roster!.count() < buttonCount) {
+                buttonCount = roster!.count()
+            }
             choiceButtons.append(button0)
             button0.addTarget(self, action: #selector(userMadeChoice), forControlEvents: .TouchUpInside)
             // get original button0 frame
             //var buttonFrame = button0.frame
-            var buttonFrame = CGRectMake(8,button0.frame.origin.y,304,button0.frame.height)
+            ////var buttonFrame = CGRectMake(8,button0.frame.origin.y,304,button0.frame.height)
+            var buttonFrame = button0.frame
+            // change button count if there are less than buttonCount number of users
+
             for i in 1..<buttonCount {
                 buttonFrame.origin.y += 30
                 // why did it take me 8 hours to try and figure this out?
                 // in the end I had to hard-code it, which is really stupid.
                 // Apple, please make it easier to center these buttons!!!
-                //buttonFrame.set
-                let button = UIButton(type:UIButtonType.System) as UIButton
+                //let button = UIButton(type:UIButtonType.System) as UIButton
+                let button = UIButton()
                 button.tag = i
-                button.frame = buttonFrame
+                //button.frame = buttonFrame
                 choiceButtons.append(button)
                 //label.center = CGPointMake(160, 284)
                 //label.frame.origin.x = studentImage.frame.origin.x
@@ -77,12 +83,30 @@ class QuizController : UIViewController, UITextFieldDelegate {
                 //label.center = CGPointMake(studentImage.frame.origin.x, studentImage.frame.origin.y+studentImage.frame.height+26)
                 //button.textAlignment = NSTextAlignment.Natural
                 //button.autoresizingMask = [.FlexibleRightMargin, .FlexibleBottomMargin]
-                //button.translatesAutoresizingMaskIntoConstraints = false
+                button.translatesAutoresizingMaskIntoConstraints = false
                 button.setTitle("Name \(i)", forState: .Normal)
                 button.addTarget(self, action: #selector(userMadeChoice), forControlEvents: .TouchUpInside)
-                //button.backgroundColor = UIColor.blueColor()
+                button.backgroundColor = UIColor.blueColor()
                 //button0.backgroundColor = UIColor.blueColor()
-                insideView.addSubview(button)
+                view.addSubview(button)
+                var constraints = NSLayoutConstraint.constraintsWithVisualFormat(
+                    "V:[superview]-(<=1)-[button]",
+                    options: NSLayoutFormatOptions.AlignAllCenterX,
+                    metrics: nil,
+                    views: ["superview":view, "button":button])
+                view.addConstraints(constraints)
+                button.frame=CGRectMake(0,buttonFrame.origin.y,100,30)
+                
+                // Center vertically
+                /*constraints = NSLayoutConstraint.constraintsWithVisualFormat(
+                    "H:[superview]-(<=1)-[button]",
+                    options: NSLayoutFormatOptions.AlignAllCenterY,
+                    metrics: nil,
+                    views: ["superview":view, "button":button])
+                view.addConstraints(constraints)*/
+                
+                //button.frame.origin.y = 280
+                
                 //let xConstraint = NSLayoutConstraint(item: button, attribute: .CenterX, relatedBy: .Equal, toItem: studentImage, attribute: .CenterX, multiplier: 1, constant: 0)
                 
                 //NSLayoutConstraint.activateConstraints([xConstraint])
@@ -153,7 +177,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
             var random = Int(arc4random_uniform(UInt32(roster!.count())))
             var student = roster![random]
             // don't choose a student twice, and don't put the name of the actual
-            // student twice. This could put the same first name twice, however (TODO...)
+            // student twice.
             while chooseAnother(student) {
                 random = Int(arc4random_uniform(UInt32(roster!.count())))
                 student = roster![random]
