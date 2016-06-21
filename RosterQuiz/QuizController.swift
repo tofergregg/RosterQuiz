@@ -36,6 +36,7 @@ extension MutableCollectionType where Index == Int {
 
 class QuizController : UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var nextLetterHint: UIButton!
     
     @IBOutlet weak var studentImage: UIImageView!
     @IBOutlet weak var firstNameGuess: UITextField!
@@ -135,6 +136,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
     }
     
     func runFreeResponseQuiz() {
+        nextLetterHint.hidden = false
         chooseImage()
         firstNameGuess.text = ""
         correctNameLabel.text = ""
@@ -202,6 +204,58 @@ class QuizController : UIViewController, UITextFieldDelegate {
             choiceButtons[i].enabled = true
         }
     }
+    
+    func firstDiff(s1 : String, s2 : String) -> Int {
+        // returns -1 if the strings are the same
+        // returns the index of the first character if they are different
+        var i = 0
+        for c in zip(s1.characters,s2.characters) {
+            if c.0 != c.1 {
+                break
+            }
+            i+=1
+        }
+        if i == s1.characters.count && s1.characters.count == s2.characters.count {
+            return -1 // no differences
+        }
+        if i > s1.characters.count || i > s2.characters.count {
+            return -1 // no differences
+        }
+        return i
+    }
+    
+    func characterAtIndex(s : String, index: Int) -> Character? {
+        // returns the character at the index
+        var i = 0
+        for c in s.characters{
+            if i < index {
+                i+=1
+                continue
+            }
+            return c
+        }
+        return nil // too far!
+    }
+    
+    @IBAction func provideNextLetter(sender: UIButton) {
+        // If there is already a partial guess, provide the next letter if it is correct so far.
+        // If it is incorrect so far, delete and provide first letter
+        let upcaseGuess = firstNameGuess.text!.uppercaseString
+        let upcaseFirstName = (studentToGuess?.first_name.uppercaseString)! as String
+        
+        let fDiff = firstDiff(upcaseGuess, s2: upcaseFirstName)
+        let fn = studentToGuess!.first_name
+
+        if upcaseGuess.characters.count < upcaseFirstName.characters.count {
+            // provide next letter
+            firstNameGuess.text = studentToGuess?.first_name[fn.startIndex...fn.startIndex.advancedBy(fDiff)]
+        }
+        else if fDiff < upcaseGuess.characters.count {
+            
+        }
+        
+    }
+    
     func userMadeChoice(sender:UIButton!){
         print("Button \(sender.tag) chosen.")
         totalGuesses += 1
@@ -232,6 +286,8 @@ class QuizController : UIViewController, UITextFieldDelegate {
     
     @IBAction func userTypedName(sender: UITextField!) {
         print("checking...")
+        // hide hint button
+        nextLetterHint.hidden = true
         continueButton.hidden = false
         firstNameGuess.enabled = false
 

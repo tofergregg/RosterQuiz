@@ -26,11 +26,11 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GN2-HN-bAo" id="WrI-LY-M71">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="47"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="47.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RkJ-nw-DAq">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="47"/>
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="47.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -205,7 +205,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qP2-n0-V1H" id="j3L-KO-ydJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -334,7 +334,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fT3-V5-kTA" id="Fde-UE-XDR">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -401,7 +401,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yLQ-Q5-VVn" id="fBg-JX-Llx">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -481,7 +481,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V6y-L8-OM7" id="Qja-Gs-I6Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -595,7 +595,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cFV-1L-I1D" id="Rt2-j0-3WU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -722,11 +722,20 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                                                             <action selector="continueClicked:" destination="ezh-bf-yGY" eventType="touchUpInside" id="Uh3-wh-V43"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxo-ko-pTf">
+                                                        <rect key="frame" x="220" y="248" width="160" height="30"/>
+                                                        <state key="normal" title="Click for next letter hint"/>
+                                                        <connections>
+                                                            <action selector="provideNextLetter:" destination="ezh-bf-yGY" eventType="touchUpInside" id="CoZ-Y7-AOT"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="zxo-ko-pTf" firstAttribute="centerY" secondItem="6KD-Nf-eIC" secondAttribute="centerY" id="2PL-Hy-uUE"/>
                                                     <constraint firstItem="DEC-Hq-pCF" firstAttribute="centerX" secondItem="szr-D4-FSX" secondAttribute="centerX" id="4kF-dy-UEO"/>
                                                     <constraint firstItem="6KD-Nf-eIC" firstAttribute="top" secondItem="szr-D4-FSX" secondAttribute="bottom" constant="8" symbolic="YES" id="Bga-65-gck"/>
+                                                    <constraint firstItem="zxo-ko-pTf" firstAttribute="centerX" secondItem="6KD-Nf-eIC" secondAttribute="centerX" id="Bzm-ML-PhN"/>
                                                     <constraint firstItem="qcC-k2-p5N" firstAttribute="bottom" secondItem="9FM-GH-P8m" secondAttribute="bottomMargin" id="Ryx-q1-0hY"/>
                                                     <constraint firstItem="zsj-Vl-oJg" firstAttribute="centerX" secondItem="DEC-Hq-pCF" secondAttribute="centerX" id="YrM-50-cnV"/>
                                                     <constraint firstItem="zsj-Vl-oJg" firstAttribute="centerX" secondItem="9FM-GH-P8m" secondAttribute="centerX" id="b78-fM-hcS"/>
@@ -771,6 +780,7 @@ https://www.cs.tufts.edu/~cgregg/upload_roster/ to upload your rosters.</string>
                         <outlet property="continueButton" destination="DVK-8c-RGr" id="Ylg-NP-Wv4"/>
                         <outlet property="correctNameLabel" destination="6KD-Nf-eIC" id="vGJ-wa-4Rc"/>
                         <outlet property="firstNameGuess" destination="szr-D4-FSX" id="iwP-hf-uhy"/>
+                        <outlet property="nextLetterHint" destination="zxo-ko-pTf" id="vL9-45-eRy"/>
                         <outlet property="scoreLabel" destination="qcC-k2-p5N" id="eFt-da-GdZ"/>
                         <outlet property="studentImage" destination="zsj-Vl-oJg" id="gGM-kM-9Q7"/>
                     </connections>
