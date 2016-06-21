@@ -293,7 +293,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
         firstNameGuess.enabled = false
 
         totalGuesses += 1
-        if (sender!.text == studentToGuess?.first_name) {
+        if (sender!.text?.uppercaseString == studentToGuess?.first_name.uppercaseString) {
             print("Correct!")
             correctNameLabel.text = "Correct! \(studentToGuess!.commaName())"
             score += 1
