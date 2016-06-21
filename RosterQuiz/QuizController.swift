@@ -243,15 +243,16 @@ class QuizController : UIViewController, UITextFieldDelegate {
         let upcaseGuess = firstNameGuess.text!.uppercaseString
         let upcaseFirstName = (studentToGuess?.first_name.uppercaseString)! as String
         
-        let fDiff = firstDiff(upcaseGuess, s2: upcaseFirstName)
-        let fn = studentToGuess!.first_name
+        var fDiff = firstDiff(upcaseGuess, s2: upcaseFirstName)
+        if fDiff != -1 {
 
-        if upcaseGuess.characters.count < upcaseFirstName.characters.count {
+            let fn = studentToGuess!.first_name
+
             // provide next letter
+            if fDiff >= upcaseFirstName.characters.count {
+                fDiff = upcaseFirstName.characters.count - 1
+            }
             firstNameGuess.text = studentToGuess?.first_name[fn.startIndex...fn.startIndex.advancedBy(fDiff)]
-        }
-        else if fDiff < upcaseGuess.characters.count {
-            
         }
         
     }
