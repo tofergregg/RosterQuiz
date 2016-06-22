@@ -37,7 +37,7 @@ class Roster : NSObject, NSCoding {
     {
         // pasted text should have the following form, separated by newlines:
         // last,first,year (year is optional).
-        // E.g.:
+        // /E.g.:
         // Gregg,Chris,Freshman
         let lines = pasted.componentsSeparatedByString("\n")
         for line in lines {
