@@ -875,6 +875,13 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIL-IG-9f2">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0w-ap-iZX">
+                                        <rect key="frame" x="251" y="498" width="98" height="30"/>
+                                        <state key="normal" title="Save Changes"/>
+                                        <connections>
+                                            <segue destination="eTI-qm-0F0" kind="unwind" unwindAction="returnFromStudentInfo:" id="aDb-lF-EaZ"/>
+                                        </connections>
+                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vZZ-mc-EtW">
                                         <rect key="frame" x="78" y="460" width="499" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -960,6 +967,7 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
                                 <constraints>
                                     <constraint firstItem="zf3-6E-W5I" firstAttribute="top" secondItem="i33-e8-GbE" secondAttribute="bottom" constant="18" id="19V-NW-jlf"/>
                                     <constraint firstItem="jMs-Nc-XxG" firstAttribute="top" secondItem="T26-hh-52g" secondAttribute="bottom" constant="8" symbolic="YES" id="2ej-29-KO0"/>
+                                    <constraint firstItem="f0w-ap-iZX" firstAttribute="top" secondItem="vZZ-mc-EtW" secondAttribute="bottom" constant="8" symbolic="YES" id="3pp-rG-YPF"/>
                                     <constraint firstItem="crc-hv-wJG" firstAttribute="leading" secondItem="1iG-m6-XTe" secondAttribute="trailing" constant="8" symbolic="YES" id="CNT-Wa-c58"/>
                                     <constraint firstItem="l4z-1h-Bv9" firstAttribute="top" secondItem="iIL-IG-9f2" secondAttribute="top" constant="44" id="CSW-hD-fZz"/>
                                     <constraint firstItem="jMs-Nc-XxG" firstAttribute="trailing" secondItem="vZZ-mc-EtW" secondAttribute="trailing" id="D6v-4n-2bo"/>
@@ -975,6 +983,7 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
                                     <constraint firstItem="crc-hv-wJG" firstAttribute="leading" secondItem="iIL-IG-9f2" secondAttribute="leading" constant="78" id="dhj-sX-yIR"/>
                                     <constraint firstItem="crc-hv-wJG" firstAttribute="top" secondItem="l4z-1h-Bv9" secondAttribute="bottom" constant="8" symbolic="YES" id="fUM-BD-UZe"/>
                                     <constraint firstItem="T26-hh-52g" firstAttribute="leading" secondItem="jMs-Nc-XxG" secondAttribute="leading" id="fqx-j6-DA7"/>
+                                    <constraint firstItem="l4z-1h-Bv9" firstAttribute="centerX" secondItem="f0w-ap-iZX" secondAttribute="centerX" id="i8n-F5-hPf"/>
                                     <constraint firstItem="crc-hv-wJG" firstAttribute="leading" secondItem="T26-hh-52g" secondAttribute="leading" id="kgV-dS-Vrv"/>
                                     <constraint firstItem="crc-hv-wJG" firstAttribute="centerY" secondItem="1iG-m6-XTe" secondAttribute="centerY" id="pQg-2l-dc1"/>
                                     <constraint firstItem="crc-hv-wJG" firstAttribute="top" secondItem="iIL-IG-9f2" secondAttribute="top" constant="216" id="sdO-ty-wJl"/>
@@ -1003,6 +1012,7 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzX-Vu-dxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eTI-qm-0F0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2248" y="403"/>
         </scene>

@@ -11,7 +11,12 @@ import UIKit
 
 extension UINavigationController {
     public override func shouldAutorotate() -> Bool {
-        return visibleViewController!.shouldAutorotate()
+        if (visibleViewController != nil) {
+            return visibleViewController!.shouldAutorotate()
+        }
+        else {
+            return true;
+        }
     }
 }
 
@@ -83,6 +88,9 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     }*/
     
     override func viewWillDisappear(animated: Bool) {
+        /* decided against this. There is a save button for a reason.
+           If someone changes an image, it's changed forever, and there isn't
+           an undo button
         // save
         student.last_name = lastNameText.text!
         student.first_name = firstNameText.text!
@@ -91,6 +99,7 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         student.year = yearText.text!
         parentController!.roster.sortStudents()
         parentController!.parentController.saveRosters()
+         */
         super.viewWillDisappear(animated)
     }
     
