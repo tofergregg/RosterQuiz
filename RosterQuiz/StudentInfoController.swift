@@ -23,12 +23,13 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     
     var newStudent = false
     
+    var parentController : ShowRosterController?
+    
     @IBOutlet weak var studentPicButton: UIButton!
     @IBOutlet weak var notesText: UITextView!
     @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var yearText: UITextField!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +58,40 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         // force portrait mode
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        /* Did not work. See here: http://stackoverflow.com/a/2796488/561677
+        // change back button
+        let btn = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(StudentInfoController.backBtnClicked))
+        
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem=btn
+        */
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
+    
+    
+    /*func backBtnClicked() {
+        // back button was pressed.  We know this is true because self is no longer
+        // in the navigation stack.
+        print("Going back, checking for differences.");
+        // check for differences
+        if student.last_name != lastNameText.text ||
+            student.first_name != firstNameText.text ||
+            student.picture != studentPicButton.currentImage ||
+            student.notes != notesText.text ||
+            student.year != yearText.text {
+            showAlert("Information has Changed", message: "Do you want to save?")
+        }
+    }*/
+    
+    override func viewWillDisappear(animated: Bool) {
+        // save
+        student.last_name = lastNameText.text!
+        student.first_name = firstNameText.text!
+        student.picture = studentPicButton.currentImage
+        student.notes = notesText.text!
+        student.year = yearText.text!
+        parentController!.roster.sortStudents()
+        parentController!.parentController.saveRosters()
+        super.viewWillDisappear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -200,6 +231,21 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    // Helper for showing an alert
+    func showAlert(title : String, message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertControllerStyle.Alert
+        )
+        let ok = UIAlertAction(
+            title: "OK",
+            style: UIAlertActionStyle.Default,
+            handler: nil
+        )
+        alert.addAction(ok)
+        presentViewController(alert, animated: true, completion: nil)
+    }
 
 }

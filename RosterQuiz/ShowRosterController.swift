@@ -85,6 +85,8 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         if (segue.identifier == "Loading Student Info" || segue.identifier == "New Student Segue") {
             let destinationVC : StudentInfoController = segue.destinationViewController as! StudentInfoController
             
+            destinationVC.parentController = self
+            
             if segue.identifier == "Loading Student Info" {
                 destinationVC.student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
                 destinationVC.newStudent = false
