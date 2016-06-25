@@ -132,5 +132,8 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         roster.sortStudents() // in case name change would re-sort
         parentController.saveRosters() // save officially
         studentsTableView.reloadData()
+        // will go back to StudentInfoController to willMoveToParentViewController
+        // so we want to stop that from popping an alert (this seems like a kludge...)
+        studentInfoView.noBackAlert = true;
     }
 }

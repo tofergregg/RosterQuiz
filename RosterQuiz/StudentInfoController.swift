@@ -35,6 +35,9 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var yearText: UITextField!
+    
+    var viewLoaded = false
+    var noBackAlert = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,11 +72,21 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         
         self.navigationController?.navigationBar.topItem?.backBarButtonItem=btn
         */
+        let button  = UIButton(type: .Custom)
+        if let image = UIImage(named:"backButtonImage.png") {
+            button.setImage(image, forState: .Normal)
+        }
+        // trying to get the button as close as possible
+        button.frame = CGRectMake(0.0, 0.0, 56.0, 28.0)
+        button.addTarget(self, action: #selector(backBtnClicked), forControlEvents: .TouchUpInside)
+        let barButton = UIBarButtonItem(customView: button)
+        navigationItem.leftBarButtonItem = barButton
+        viewLoaded = true;
     }
     
     
     
-    /*func backBtnClicked() {
+    func backBtnClicked() {
         // back button was pressed.  We know this is true because self is no longer
         // in the navigation stack.
         print("Going back, checking for differences.");
@@ -83,11 +96,15 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
             student.picture != studentPicButton.currentImage ||
             student.notes != notesText.text ||
             student.year != yearText.text {
-            showAlert("Information has Changed", message: "Do you want to save?")
+            saveAlert("Information has Changed", message: "Do you want to save?")
         }
-    }*/
+        else {
+            self.navigationController!.popViewControllerAnimated(true);
+        }
+    }
     
     override func viewWillDisappear(animated: Bool) {
+        /* update: did end up creating my own button above */
         /* decided against this. There is a save button for a reason.
            If someone changes an image, it's changed forever, and there isn't
            an undo button
@@ -101,6 +118,14 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         parentController!.parentController.saveRosters()
          */
         super.viewWillDisappear(animated)
+    }
+    
+    override func willMoveToParentViewController(parent: UIViewController?) {
+        return
+        if viewLoaded && !noBackAlert {
+            print("Back button pressed");
+            saveAlert("Save Changes?", message: "Do you want to save the changes?")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -242,19 +267,38 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     }
     
     // Helper for showing an alert
-    func showAlert(title : String, message: String) {
+    func saveAlert(title : String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: UIAlertControllerStyle.Alert
         )
-        let ok = UIAlertAction(
-            title: "OK",
+        let yes = UIAlertAction(
+            title: "YES",
             style: UIAlertActionStyle.Default,
-            handler: nil
+            handler: yesSelected
         )
-        alert.addAction(ok)
+        let no = UIAlertAction(
+            title: "NO",
+            style: UIAlertActionStyle.Destructive,
+            handler: noSelected
+        )
+        let cancel = UIAlertAction(
+            title: "CANCEL",
+            style: UIAlertActionStyle.Cancel,
+            handler: nil // don't go back
+        )
+        alert.addAction(yes)
+        alert.addAction(no)
+        alert.addAction(cancel)
         presentViewController(alert, animated: true, completion: nil)
+    }
+    func noSelected(action: UIAlertAction){
+        self.navigationController!.popViewControllerAnimated(true);
+    }
+    
+    func yesSelected(action: UIAlertAction){
+        self.performSegueWithIdentifier("Save on Return",sender:self)
     }
 
 }

@@ -1,1758 +1,766 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>0465A80B309A10BBE9212E8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>10265E7B51923778A6A0A43C</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>2D00DDA21D09FA06000EC78F</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>LoadRosterFromGDrive.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D00DDA31D09FA06000EC78F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2D00DDA21D09FA06000EC78F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2D0959131D1052CF00E53AD9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>StudentInfoController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D0959141D1052CF00E53AD9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2D0959131D1052CF00E53AD9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2D7AD90C1D09B4D0008A6853</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>FirstViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D7AD90D1D09B4D0008A6853</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2D7AD90C1D09B4D0008A6853</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2D7AD9101D09B6D2008A6853</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Add User Group Man Man-22.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D7AD9111D09B6D2008A6853</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2D7AD9101D09B6D2008A6853</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2D8CE20A1D09BDB800B2ACAA</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Add User Group Man Man-44.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2D8CE20B1D09BDB800B2ACAA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2D8CE20A1D09BDB800B2ACAA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2DFD96E11D11FFB5008E5D1A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>User-400.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2DFD96E21D11FFB5008E5D1A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2DFD96E11D11FFB5008E5D1A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4086CFCBCAE9B2AC937ACA43</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_RosterQuiz.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>53D1046D0C241C1661B46CB4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4086CFCBCAE9B2AC937ACA43</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6DF5B139FF02E8BD8A836DC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>A5F9D293EB90EB28A4325B8B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-RosterQuiz.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C622EBDE30065AFD6A3BB5BA</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>CF0575F41B6CB8EC3E7E411E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4086CFCBCAE9B2AC937ACA43</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D517D1B61D04FC5600B6FDBC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D517D1C11D04FC5600B6FDBC</string>
-				<string>D517D1D81D04FC5700B6FDBC</string>
-				<string>D517D1E31D04FC5700B6FDBC</string>
-				<string>D517D1C01D04FC5600B6FDBC</string>
-				<string>FF11F898049C89A1CFC28BA9</string>
-				<string>53D1046D0C241C1661B46CB4</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1B71D04FC5600B6FDBC</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0730</string>
-				<key>LastUpgradeCheck</key>
-				<string>0730</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Chris Gregg</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>D517D1BE1D04FC5600B6FDBC</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3.1</string>
-						<key>DevelopmentTeam</key>
-						<string>XYT525MWQN</string>
-					</dict>
-					<key>D517D1D41D04FC5700B6FDBC</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3.1</string>
-						<key>TestTargetID</key>
-						<string>D517D1BE1D04FC5600B6FDBC</string>
-					</dict>
-					<key>D517D1DF1D04FC5700B6FDBC</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3.1</string>
-						<key>TestTargetID</key>
-						<string>D517D1BE1D04FC5600B6FDBC</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>D517D1BA1D04FC5600B6FDBC</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>D517D1B61D04FC5600B6FDBC</string>
-			<key>productRefGroup</key>
-			<string>D517D1C01D04FC5600B6FDBC</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>D517D1BE1D04FC5600B6FDBC</string>
-				<string>D517D1D41D04FC5700B6FDBC</string>
-				<string>D517D1DF1D04FC5700B6FDBC</string>
-			</array>
-		</dict>
-		<key>D517D1BA1D04FC5600B6FDBC</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D517D1E71D04FC5700B6FDBC</string>
-				<string>D517D1E81D04FC5700B6FDBC</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D517D1BB1D04FC5600B6FDBC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D594D8DD1D1611980021ED22</string>
-				<string>D594D8DB1D15FC920021ED22</string>
-				<string>D568953B1D05D76900B9386D</string>
-				<string>2D00DDA31D09FA06000EC78F</string>
-				<string>D56019561D13431600769381</string>
-				<string>D517D1C71D04FC5600B6FDBC</string>
-				<string>2D0959141D1052CF00E53AD9</string>
-				<string>D517D1C31D04FC5600B6FDBC</string>
-				<string>D517D1F51D0506AF00B6FDBC</string>
-				<string>D568953D1D05EF3C00B9386D</string>
-				<string>D560195C1D13648200769381</string>
-				<string>D56019501D13050800769381</string>
-				<string>D517D1F71D0506E700B6FDBC</string>
-				<string>2D7AD90D1D09B4D0008A6853</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D517D1BC1D04FC5600B6FDBC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>CF0575F41B6CB8EC3E7E411E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D517D1BD1D04FC5600B6FDBC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D56019541D1341DB00769381</string>
-				<string>D517D1CF1D04FC5600B6FDBC</string>
-				<string>D594D8D91D15F4A00021ED22</string>
-				<string>D56895371D050FA100B9386D</string>
-				<string>D560194C1D12F47C00769381</string>
-				<string>D5E7E07D1D16F564002138E6</string>
-				<string>2D8CE20B1D09BDB800B2ACAA</string>
-				<string>D56019521D133FB900769381</string>
-				<string>D517D1CC1D04FC5600B6FDBC</string>
-				<string>D56019581D13486F00769381</string>
-				<string>D560194E1D12F88E00769381</string>
-				<string>D56895391D05115F00B9386D</string>
-				<string>D517D1CA1D04FC5600B6FDBC</string>
-				<string>2DFD96E21D11FFB5008E5D1A</string>
-				<string>D5BEBC701D064694003BA21D</string>
-				<string>2D7AD9111D09B6D2008A6853</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D517D1BE1D04FC5600B6FDBC</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>D517D1E91D04FC5700B6FDBC</string>
-			<key>buildPhases</key>
-			<array>
-				<string>10265E7B51923778A6A0A43C</string>
-				<string>D517D1BB1D04FC5600B6FDBC</string>
-				<string>D517D1BC1D04FC5600B6FDBC</string>
-				<string>D517D1BD1D04FC5600B6FDBC</string>
-				<string>D5BEBC7C1D065D09003BA21D</string>
-				<string>C622EBDE30065AFD6A3BB5BA</string>
-				<string>0465A80B309A10BBE9212E8F</string>
-				<string>6DF5B139FF02E8BD8A836DC5</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>RosterQuiz</string>
-			<key>productName</key>
-			<string>RosterQuiz</string>
-			<key>productReference</key>
-			<string>D517D1BF1D04FC5600B6FDBC</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>D517D1BF1D04FC5600B6FDBC</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>RosterQuiz.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D517D1C01D04FC5600B6FDBC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D517D1BF1D04FC5600B6FDBC</string>
-				<string>D517D1D51D04FC5700B6FDBC</string>
-				<string>D517D1E01D04FC5700B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1C11D04FC5600B6FDBC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2D8CE20A1D09BDB800B2ACAA</string>
-				<string>D560194D1D12F88E00769381</string>
-				<string>2D7AD9101D09B6D2008A6853</string>
-				<string>D560194B1D12F47C00769381</string>
-				<string>D56019511D133FB900769381</string>
-				<string>D56019531D1341DB00769381</string>
-				<string>D56019571D13486F00769381</string>
-				<string>D594D8D81D15F4A00021ED22</string>
-				<string>2D7AD90C1D09B4D0008A6853</string>
-				<string>D517D1F41D0506AF00B6FDBC</string>
-				<string>D517D1F61D0506E700B6FDBC</string>
-				<string>D517D1C21D04FC5600B6FDBC</string>
-				<string>D517D1C61D04FC5600B6FDBC</string>
-				<string>D568953C1D05EF3C00B9386D</string>
-				<string>2D0959131D1052CF00E53AD9</string>
-				<string>D568953A1D05D76900B9386D</string>
-				<string>D594D8DA1D15FC920021ED22</string>
-				<string>2D00DDA21D09FA06000EC78F</string>
-				<string>D594D8DC1D1611980021ED22</string>
-				<string>D560194F1D13050800769381</string>
-				<string>D517D1C81D04FC5600B6FDBC</string>
-				<string>D560195B1D13648200769381</string>
-				<string>D56019551D13431600769381</string>
-				<string>D517D1CB1D04FC5600B6FDBC</string>
-				<string>D56895361D050FA100B9386D</string>
-				<string>D56895381D05115F00B9386D</string>
-				<string>D5BEBC6F1D064694003BA21D</string>
-				<string>2DFD96E11D11FFB5008E5D1A</string>
-				<string>D5E7E07C1D16F564002138E6</string>
-				<string>D517D1CD1D04FC5600B6FDBC</string>
-				<string>D517D1D01D04FC5600B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>RosterQuiz</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1C21D04FC5600B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1C31D04FC5600B6FDBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D517D1C21D04FC5600B6FDBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D517D1C61D04FC5600B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SecondViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1C71D04FC5600B6FDBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D517D1C61D04FC5600B6FDBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D517D1C81D04FC5600B6FDBC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D517D1C91D04FC5600B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1C91D04FC5600B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1CA1D04FC5600B6FDBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D517D1C81D04FC5600B6FDBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D517D1CB1D04FC5600B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1CC1D04FC5600B6FDBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D517D1CB1D04FC5600B6FDBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D517D1CD1D04FC5600B6FDBC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D517D1CE1D04FC5600B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1CE1D04FC5600B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1CF1D04FC5600B6FDBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D517D1CD1D04FC5600B6FDBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D517D1D01D04FC5600B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1D11D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D517D1DA1D04FC5700B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D517D1D21D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D517D1D31D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D517D1D41D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>D517D1EC1D04FC5700B6FDBC</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D517D1D11D04FC5700B6FDBC</string>
-				<string>D517D1D21D04FC5700B6FDBC</string>
-				<string>D517D1D31D04FC5700B6FDBC</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>D517D1D71D04FC5700B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>RosterQuizTests</string>
-			<key>productName</key>
-			<string>RosterQuizTests</string>
-			<key>productReference</key>
-			<string>D517D1D51D04FC5700B6FDBC</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>D517D1D51D04FC5700B6FDBC</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>RosterQuizTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D517D1D61D04FC5700B6FDBC</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D517D1B71D04FC5600B6FDBC</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>D517D1BE1D04FC5600B6FDBC</string>
-			<key>remoteInfo</key>
-			<string>RosterQuiz</string>
-		</dict>
-		<key>D517D1D71D04FC5700B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>D517D1BE1D04FC5600B6FDBC</string>
-			<key>targetProxy</key>
-			<string>D517D1D61D04FC5700B6FDBC</string>
-		</dict>
-		<key>D517D1D81D04FC5700B6FDBC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D517D1D91D04FC5700B6FDBC</string>
-				<string>D517D1DB1D04FC5700B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>RosterQuizTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1D91D04FC5700B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>RosterQuizTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1DA1D04FC5700B6FDBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D517D1D91D04FC5700B6FDBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D517D1DB1D04FC5700B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1DC1D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D517D1E51D04FC5700B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D517D1DD1D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D517D1DE1D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D517D1DF1D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>D517D1EF1D04FC5700B6FDBC</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D517D1DC1D04FC5700B6FDBC</string>
-				<string>D517D1DD1D04FC5700B6FDBC</string>
-				<string>D517D1DE1D04FC5700B6FDBC</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>D517D1E21D04FC5700B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>RosterQuizUITests</string>
-			<key>productName</key>
-			<string>RosterQuizUITests</string>
-			<key>productReference</key>
-			<string>D517D1E01D04FC5700B6FDBC</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.ui-testing</string>
-		</dict>
-		<key>D517D1E01D04FC5700B6FDBC</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>RosterQuizUITests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D517D1E11D04FC5700B6FDBC</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D517D1B71D04FC5600B6FDBC</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>D517D1BE1D04FC5600B6FDBC</string>
-			<key>remoteInfo</key>
-			<string>RosterQuiz</string>
-		</dict>
-		<key>D517D1E21D04FC5700B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>D517D1BE1D04FC5600B6FDBC</string>
-			<key>targetProxy</key>
-			<string>D517D1E11D04FC5700B6FDBC</string>
-		</dict>
-		<key>D517D1E31D04FC5700B6FDBC</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D517D1E41D04FC5700B6FDBC</string>
-				<string>D517D1E61D04FC5700B6FDBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>RosterQuizUITests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1E41D04FC5700B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>RosterQuizUITests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1E51D04FC5700B6FDBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D517D1E41D04FC5700B6FDBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D517D1E61D04FC5700B6FDBC</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1E71D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Distribution: Chris Gregg (XYT525MWQN)</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Distribution: Chris Gregg (XYT525MWQN)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>EMBEDDED_CONTENT_CONTAINS_SWIFT</key>
-				<string>YES</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D517D1E81D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Distribution: Chris Gregg (XYT525MWQN)</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Distribution: Chris Gregg (XYT525MWQN)</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>EMBEDDED_CONTENT_CONTAINS_SWIFT</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D517D1E91D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D517D1EA1D04FC5700B6FDBC</string>
-				<string>D517D1EB1D04FC5700B6FDBC</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D517D1EA1D04FC5700B6FDBC</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>A5F9D293EB90EB28A4325B8B</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RosterQuiz/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>-iquote</string>
-					<string>"$CONFIGURATION_BUILD_DIR/GTMSessionFetcher.framework/Headers"</string>
-					<string>-iquote</string>
-					<string>"$CONFIGURATION_BUILD_DIR/GoogleAPIClient.framework/Headers"</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>-framework</string>
-					<string>"GTMOAuth2"</string>
-					<string>-framework</string>
-					<string>"GTMSessionFetcher"</string>
-					<string>-framework</string>
-					<string>"GoogleAPIClient"</string>
-				</array>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.cocoadrillosoftware.RosterQuiz</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D517D1EB1D04FC5700B6FDBC</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E01858CD12DE73A3B9BE0F37</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RosterQuiz/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>OTHER_CFLAGS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>-iquote</string>
-					<string>"$CONFIGURATION_BUILD_DIR/GTMOAuth2.framework/Headers"</string>
-					<string>-iquote</string>
-					<string>"$CONFIGURATION_BUILD_DIR/GTMSessionFetcher.framework/Headers"</string>
-					<string>-iquote</string>
-					<string>"$CONFIGURATION_BUILD_DIR/GoogleAPIClient.framework/Headers"</string>
-				</array>
-				<key>OTHER_LDFLAGS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>-framework</string>
-					<string>"GTMOAuth2"</string>
-					<string>-framework</string>
-					<string>"GTMSessionFetcher"</string>
-					<string>-framework</string>
-					<string>"GoogleAPIClient"</string>
-				</array>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.cocoadrillosoftware.RosterQuiz</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D517D1EC1D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D517D1ED1D04FC5700B6FDBC</string>
-				<string>D517D1EE1D04FC5700B6FDBC</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D517D1ED1D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RosterQuizTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.cocoadrillosoftware.RosterQuizTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/RosterQuiz.app/RosterQuiz</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D517D1EE1D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>RosterQuizTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.cocoadrillosoftware.RosterQuizTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/RosterQuiz.app/RosterQuiz</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D517D1EF1D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D517D1F01D04FC5700B6FDBC</string>
-				<string>D517D1F11D04FC5700B6FDBC</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D517D1F01D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>RosterQuizUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.cocoadrillosoftware.RosterQuizUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>RosterQuiz</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D517D1F11D04FC5700B6FDBC</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>RosterQuizUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.cocoadrillosoftware.RosterQuizUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>RosterQuiz</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D517D1F41D0506AF00B6FDBC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Roster.swift</string>
-			<key>path</key>
-			<string>../Roster.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1F51D0506AF00B6FDBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D517D1F41D0506AF00B6FDBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D517D1F61D0506E700B6FDBC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Student.swift</string>
-			<key>path</key>
-			<string>../Student.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D517D1F71D0506E700B6FDBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D517D1F61D0506E700B6FDBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D560194B1D12F47C00769381</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Add User 44.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D560194C1D12F47C00769381</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D560194B1D12F47C00769381</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D560194D1D12F88E00769381</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Quiz 44.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D560194E1D12F88E00769381</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D560194D1D12F88E00769381</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D560194F1D13050800769381</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ImagePicker.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D56019501D13050800769381</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D560194F1D13050800769381</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D56019511D133FB900769381</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Multiple Choice Small.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D56019521D133FB900769381</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D56019511D133FB900769381</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D56019531D1341DB00769381</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Single User Small.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D56019541D1341DB00769381</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D56019531D1341DB00769381</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D56019551D13431600769381</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>QuizTabBarController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D56019561D13431600769381</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D56019551D13431600769381</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D56019571D13486F00769381</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Multiple Choice Small2.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D56019581D13486F00769381</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D56019571D13486F00769381</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D560195B1D13648200769381</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>QuizController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D560195C1D13648200769381</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D560195B1D13648200769381</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D56895361D050FA100B9386D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>User Groups-50.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D56895371D050FA100B9386D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D56895361D050FA100B9386D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D56895381D05115F00B9386D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Why Us Female-50.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D56895391D05115F00B9386D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D56895381D05115F00B9386D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D568953A1D05D76900B9386D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AddRosterController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D568953B1D05D76900B9386D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D568953A1D05D76900B9386D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D568953C1D05EF3C00B9386D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ShowRosterController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D568953D1D05EF3C00B9386D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D568953C1D05EF3C00B9386D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D594D8D81D15F4A00021ED22</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>drive-text-logo-flat.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D594D8D91D15F4A00021ED22</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D594D8D81D15F4A00021ED22</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D594D8DA1D15FC920021ED22</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AddRosterFromWebsiteController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D594D8DB1D15FC920021ED22</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D594D8DA1D15FC920021ED22</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D594D8DC1D1611980021ED22</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>LoadRosterFromWebsite.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D594D8DD1D1611980021ED22</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D594D8DC1D1611980021ED22</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5BEBC6F1D064694003BA21D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>User-100.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5BEBC701D064694003BA21D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5BEBC6F1D064694003BA21D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5BEBC7C1D065D09003BA21D</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>dstPath</key>
-			<string></string>
-			<key>dstSubfolderSpec</key>
-			<string>10</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXCopyFilesBuildPhase</string>
-			<key>name</key>
-			<string>Copy Frameworks</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D5E7E07C1D16F564002138E6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>icon1024e.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D5E7E07D1D16F564002138E6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D5E7E07C1D16F564002138E6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E01858CD12DE73A3B9BE0F37</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-RosterQuiz.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FF11F898049C89A1CFC28BA9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A5F9D293EB90EB28A4325B8B</string>
-				<string>E01858CD12DE73A3B9BE0F37</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D517D1B71D04FC5600B6FDBC</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D00DDA31D09FA06000EC78F /* LoadRosterFromGDrive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00DDA21D09FA06000EC78F /* LoadRosterFromGDrive.swift */; };
+		2D0959141D1052CF00E53AD9 /* StudentInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0959131D1052CF00E53AD9 /* StudentInfoController.swift */; };
+		2D7AD90D1D09B4D0008A6853 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7AD90C1D09B4D0008A6853 /* FirstViewController.swift */; };
+		2D7AD9111D09B6D2008A6853 /* Add User Group Man Man-22.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D7AD9101D09B6D2008A6853 /* Add User Group Man Man-22.png */; };
+		2D8CE20B1D09BDB800B2ACAA /* Add User Group Man Man-44.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D8CE20A1D09BDB800B2ACAA /* Add User Group Man Man-44.png */; };
+		2DFD96E21D11FFB5008E5D1A /* User-400.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD96E11D11FFB5008E5D1A /* User-400.png */; };
+		CF0575F41B6CB8EC3E7E411E /* Pods_RosterQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4086CFCBCAE9B2AC937ACA43 /* Pods_RosterQuiz.framework */; };
+		D517D1C31D04FC5600B6FDBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1C21D04FC5600B6FDBC /* AppDelegate.swift */; };
+		D517D1C71D04FC5600B6FDBC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1C61D04FC5600B6FDBC /* SecondViewController.swift */; };
+		D517D1CA1D04FC5600B6FDBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D517D1C81D04FC5600B6FDBC /* Main.storyboard */; };
+		D517D1CC1D04FC5600B6FDBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D517D1CB1D04FC5600B6FDBC /* Assets.xcassets */; };
+		D517D1CF1D04FC5600B6FDBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D517D1CD1D04FC5600B6FDBC /* LaunchScreen.storyboard */; };
+		D517D1DA1D04FC5700B6FDBC /* RosterQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1D91D04FC5700B6FDBC /* RosterQuizTests.swift */; };
+		D517D1E51D04FC5700B6FDBC /* RosterQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1E41D04FC5700B6FDBC /* RosterQuizUITests.swift */; };
+		D517D1F51D0506AF00B6FDBC /* Roster.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1F41D0506AF00B6FDBC /* Roster.swift */; };
+		D517D1F71D0506E700B6FDBC /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = D517D1F61D0506E700B6FDBC /* Student.swift */; };
+		D560194C1D12F47C00769381 /* Add User 44.png in Resources */ = {isa = PBXBuildFile; fileRef = D560194B1D12F47C00769381 /* Add User 44.png */; };
+		D560194E1D12F88E00769381 /* Quiz 44.png in Resources */ = {isa = PBXBuildFile; fileRef = D560194D1D12F88E00769381 /* Quiz 44.png */; };
+		D56019501D13050800769381 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D560194F1D13050800769381 /* ImagePicker.swift */; };
+		D56019521D133FB900769381 /* Multiple Choice Small.png in Resources */ = {isa = PBXBuildFile; fileRef = D56019511D133FB900769381 /* Multiple Choice Small.png */; };
+		D56019541D1341DB00769381 /* Single User Small.png in Resources */ = {isa = PBXBuildFile; fileRef = D56019531D1341DB00769381 /* Single User Small.png */; };
+		D56019561D13431600769381 /* QuizTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56019551D13431600769381 /* QuizTabBarController.swift */; };
+		D56019581D13486F00769381 /* Multiple Choice Small2.png in Resources */ = {isa = PBXBuildFile; fileRef = D56019571D13486F00769381 /* Multiple Choice Small2.png */; };
+		D560195C1D13648200769381 /* QuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D560195B1D13648200769381 /* QuizController.swift */; };
+		D56895371D050FA100B9386D /* User Groups-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D56895361D050FA100B9386D /* User Groups-50.png */; };
+		D56895391D05115F00B9386D /* Why Us Female-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D56895381D05115F00B9386D /* Why Us Female-50.png */; };
+		D568953B1D05D76900B9386D /* AddRosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D568953A1D05D76900B9386D /* AddRosterController.swift */; };
+		D568953D1D05EF3C00B9386D /* ShowRosterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D568953C1D05EF3C00B9386D /* ShowRosterController.swift */; };
+		D594D8D91D15F4A00021ED22 /* drive-text-logo-flat.png in Resources */ = {isa = PBXBuildFile; fileRef = D594D8D81D15F4A00021ED22 /* drive-text-logo-flat.png */; };
+		D594D8DB1D15FC920021ED22 /* AddRosterFromWebsiteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594D8DA1D15FC920021ED22 /* AddRosterFromWebsiteController.swift */; };
+		D594D8DD1D1611980021ED22 /* LoadRosterFromWebsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D594D8DC1D1611980021ED22 /* LoadRosterFromWebsite.swift */; };
+		D5ACFCC81D1F189000A0086D /* backButtonImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D5ACFCC71D1F189000A0086D /* backButtonImage.png */; };
+		D5BEBC701D064694003BA21D /* User-100.png in Resources */ = {isa = PBXBuildFile; fileRef = D5BEBC6F1D064694003BA21D /* User-100.png */; };
+		D5E7E07D1D16F564002138E6 /* icon1024e.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E7E07C1D16F564002138E6 /* icon1024e.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D517D1D61D04FC5700B6FDBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D517D1B71D04FC5600B6FDBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D517D1BE1D04FC5600B6FDBC;
+			remoteInfo = RosterQuiz;
+		};
+		D517D1E11D04FC5700B6FDBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D517D1B71D04FC5600B6FDBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D517D1BE1D04FC5600B6FDBC;
+			remoteInfo = RosterQuiz;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D5BEBC7C1D065D09003BA21D /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2D00DDA21D09FA06000EC78F /* LoadRosterFromGDrive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadRosterFromGDrive.swift; sourceTree = "<group>"; };
+		2D0959131D1052CF00E53AD9 /* StudentInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInfoController.swift; sourceTree = "<group>"; };
+		2D7AD90C1D09B4D0008A6853 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		2D7AD9101D09B6D2008A6853 /* Add User Group Man Man-22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User Group Man Man-22.png"; sourceTree = "<group>"; };
+		2D8CE20A1D09BDB800B2ACAA /* Add User Group Man Man-44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User Group Man Man-44.png"; sourceTree = "<group>"; };
+		2DFD96E11D11FFB5008E5D1A /* User-400.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-400.png"; sourceTree = "<group>"; };
+		4086CFCBCAE9B2AC937ACA43 /* Pods_RosterQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RosterQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F9D293EB90EB28A4325B8B /* Pods-RosterQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RosterQuiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz.debug.xcconfig"; sourceTree = "<group>"; };
+		D517D1BF1D04FC5600B6FDBC /* RosterQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RosterQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D517D1C21D04FC5600B6FDBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D517D1C61D04FC5600B6FDBC /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D517D1C91D04FC5600B6FDBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D517D1CB1D04FC5600B6FDBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D517D1CE1D04FC5600B6FDBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D517D1D01D04FC5600B6FDBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D517D1D51D04FC5700B6FDBC /* RosterQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RosterQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D517D1D91D04FC5700B6FDBC /* RosterQuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterQuizTests.swift; sourceTree = "<group>"; };
+		D517D1DB1D04FC5700B6FDBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D517D1E01D04FC5700B6FDBC /* RosterQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RosterQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D517D1E41D04FC5700B6FDBC /* RosterQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterQuizUITests.swift; sourceTree = "<group>"; };
+		D517D1E61D04FC5700B6FDBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D517D1F41D0506AF00B6FDBC /* Roster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Roster.swift; path = ../Roster.swift; sourceTree = "<group>"; };
+		D517D1F61D0506E700B6FDBC /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../Student.swift; sourceTree = "<group>"; };
+		D560194B1D12F47C00769381 /* Add User 44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add User 44.png"; sourceTree = "<group>"; };
+		D560194D1D12F88E00769381 /* Quiz 44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Quiz 44.png"; sourceTree = "<group>"; };
+		D560194F1D13050800769381 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D56019511D133FB900769381 /* Multiple Choice Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Multiple Choice Small.png"; sourceTree = "<group>"; };
+		D56019531D1341DB00769381 /* Single User Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Single User Small.png"; sourceTree = "<group>"; };
+		D56019551D13431600769381 /* QuizTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizTabBarController.swift; sourceTree = "<group>"; };
+		D56019571D13486F00769381 /* Multiple Choice Small2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Multiple Choice Small2.png"; sourceTree = "<group>"; };
+		D560195B1D13648200769381 /* QuizController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizController.swift; sourceTree = "<group>"; };
+		D56895361D050FA100B9386D /* User Groups-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User Groups-50.png"; sourceTree = "<group>"; };
+		D56895381D05115F00B9386D /* Why Us Female-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Why Us Female-50.png"; sourceTree = "<group>"; };
+		D568953A1D05D76900B9386D /* AddRosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRosterController.swift; sourceTree = "<group>"; };
+		D568953C1D05EF3C00B9386D /* ShowRosterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRosterController.swift; sourceTree = "<group>"; };
+		D594D8D81D15F4A00021ED22 /* drive-text-logo-flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drive-text-logo-flat.png"; sourceTree = "<group>"; };
+		D594D8DA1D15FC920021ED22 /* AddRosterFromWebsiteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRosterFromWebsiteController.swift; sourceTree = "<group>"; };
+		D594D8DC1D1611980021ED22 /* LoadRosterFromWebsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadRosterFromWebsite.swift; sourceTree = "<group>"; };
+		D5ACFCC71D1F189000A0086D /* backButtonImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButtonImage.png; sourceTree = "<group>"; };
+		D5BEBC6F1D064694003BA21D /* User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-100.png"; sourceTree = "<group>"; };
+		D5E7E07C1D16F564002138E6 /* icon1024e.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024e.png; sourceTree = "<group>"; };
+		E01858CD12DE73A3B9BE0F37 /* Pods-RosterQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RosterQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D517D1BC1D04FC5600B6FDBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF0575F41B6CB8EC3E7E411E /* Pods_RosterQuiz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D517D1D21D04FC5700B6FDBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D517D1DD1D04FC5700B6FDBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53D1046D0C241C1661B46CB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4086CFCBCAE9B2AC937ACA43 /* Pods_RosterQuiz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D517D1B61D04FC5600B6FDBC = {
+			isa = PBXGroup;
+			children = (
+				D517D1C11D04FC5600B6FDBC /* RosterQuiz */,
+				D517D1D81D04FC5700B6FDBC /* RosterQuizTests */,
+				D517D1E31D04FC5700B6FDBC /* RosterQuizUITests */,
+				D517D1C01D04FC5600B6FDBC /* Products */,
+				FF11F898049C89A1CFC28BA9 /* Pods */,
+				53D1046D0C241C1661B46CB4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D517D1C01D04FC5600B6FDBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D517D1BF1D04FC5600B6FDBC /* RosterQuiz.app */,
+				D517D1D51D04FC5700B6FDBC /* RosterQuizTests.xctest */,
+				D517D1E01D04FC5700B6FDBC /* RosterQuizUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D517D1C11D04FC5600B6FDBC /* RosterQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				2D8CE20A1D09BDB800B2ACAA /* Add User Group Man Man-44.png */,
+				D560194D1D12F88E00769381 /* Quiz 44.png */,
+				2D7AD9101D09B6D2008A6853 /* Add User Group Man Man-22.png */,
+				D560194B1D12F47C00769381 /* Add User 44.png */,
+				D56019511D133FB900769381 /* Multiple Choice Small.png */,
+				D56019531D1341DB00769381 /* Single User Small.png */,
+				D56019571D13486F00769381 /* Multiple Choice Small2.png */,
+				D594D8D81D15F4A00021ED22 /* drive-text-logo-flat.png */,
+				D5ACFCC71D1F189000A0086D /* backButtonImage.png */,
+				2D7AD90C1D09B4D0008A6853 /* FirstViewController.swift */,
+				D517D1F41D0506AF00B6FDBC /* Roster.swift */,
+				D517D1F61D0506E700B6FDBC /* Student.swift */,
+				D517D1C21D04FC5600B6FDBC /* AppDelegate.swift */,
+				D517D1C61D04FC5600B6FDBC /* SecondViewController.swift */,
+				D568953C1D05EF3C00B9386D /* ShowRosterController.swift */,
+				2D0959131D1052CF00E53AD9 /* StudentInfoController.swift */,
+				D568953A1D05D76900B9386D /* AddRosterController.swift */,
+				D594D8DA1D15FC920021ED22 /* AddRosterFromWebsiteController.swift */,
+				2D00DDA21D09FA06000EC78F /* LoadRosterFromGDrive.swift */,
+				D594D8DC1D1611980021ED22 /* LoadRosterFromWebsite.swift */,
+				D560194F1D13050800769381 /* ImagePicker.swift */,
+				D517D1C81D04FC5600B6FDBC /* Main.storyboard */,
+				D560195B1D13648200769381 /* QuizController.swift */,
+				D56019551D13431600769381 /* QuizTabBarController.swift */,
+				D517D1CB1D04FC5600B6FDBC /* Assets.xcassets */,
+				D56895361D050FA100B9386D /* User Groups-50.png */,
+				D56895381D05115F00B9386D /* Why Us Female-50.png */,
+				D5BEBC6F1D064694003BA21D /* User-100.png */,
+				2DFD96E11D11FFB5008E5D1A /* User-400.png */,
+				D5E7E07C1D16F564002138E6 /* icon1024e.png */,
+				D517D1CD1D04FC5600B6FDBC /* LaunchScreen.storyboard */,
+				D517D1D01D04FC5600B6FDBC /* Info.plist */,
+			);
+			path = RosterQuiz;
+			sourceTree = "<group>";
+		};
+		D517D1D81D04FC5700B6FDBC /* RosterQuizTests */ = {
+			isa = PBXGroup;
+			children = (
+				D517D1D91D04FC5700B6FDBC /* RosterQuizTests.swift */,
+				D517D1DB1D04FC5700B6FDBC /* Info.plist */,
+			);
+			path = RosterQuizTests;
+			sourceTree = "<group>";
+		};
+		D517D1E31D04FC5700B6FDBC /* RosterQuizUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D517D1E41D04FC5700B6FDBC /* RosterQuizUITests.swift */,
+				D517D1E61D04FC5700B6FDBC /* Info.plist */,
+			);
+			path = RosterQuizUITests;
+			sourceTree = "<group>";
+		};
+		FF11F898049C89A1CFC28BA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5F9D293EB90EB28A4325B8B /* Pods-RosterQuiz.debug.xcconfig */,
+				E01858CD12DE73A3B9BE0F37 /* Pods-RosterQuiz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D517D1BE1D04FC5600B6FDBC /* RosterQuiz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D517D1E91D04FC5700B6FDBC /* Build configuration list for PBXNativeTarget "RosterQuiz" */;
+			buildPhases = (
+				10265E7B51923778A6A0A43C /* [CP] Check Pods Manifest.lock */,
+				D517D1BB1D04FC5600B6FDBC /* Sources */,
+				D517D1BC1D04FC5600B6FDBC /* Frameworks */,
+				D517D1BD1D04FC5600B6FDBC /* Resources */,
+				D5BEBC7C1D065D09003BA21D /* Copy Frameworks */,
+				C622EBDE30065AFD6A3BB5BA /* [CP] Embed Pods Frameworks */,
+				0465A80B309A10BBE9212E8F /* [CP] Copy Pods Resources */,
+				6DF5B139FF02E8BD8A836DC5 /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RosterQuiz;
+			productName = RosterQuiz;
+			productReference = D517D1BF1D04FC5600B6FDBC /* RosterQuiz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D517D1D41D04FC5700B6FDBC /* RosterQuizTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D517D1EC1D04FC5700B6FDBC /* Build configuration list for PBXNativeTarget "RosterQuizTests" */;
+			buildPhases = (
+				D517D1D11D04FC5700B6FDBC /* Sources */,
+				D517D1D21D04FC5700B6FDBC /* Frameworks */,
+				D517D1D31D04FC5700B6FDBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D517D1D71D04FC5700B6FDBC /* PBXTargetDependency */,
+			);
+			name = RosterQuizTests;
+			productName = RosterQuizTests;
+			productReference = D517D1D51D04FC5700B6FDBC /* RosterQuizTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D517D1DF1D04FC5700B6FDBC /* RosterQuizUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D517D1EF1D04FC5700B6FDBC /* Build configuration list for PBXNativeTarget "RosterQuizUITests" */;
+			buildPhases = (
+				D517D1DC1D04FC5700B6FDBC /* Sources */,
+				D517D1DD1D04FC5700B6FDBC /* Frameworks */,
+				D517D1DE1D04FC5700B6FDBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D517D1E21D04FC5700B6FDBC /* PBXTargetDependency */,
+			);
+			name = RosterQuizUITests;
+			productName = RosterQuizUITests;
+			productReference = D517D1E01D04FC5700B6FDBC /* RosterQuizUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D517D1B71D04FC5600B6FDBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Chris Gregg";
+				TargetAttributes = {
+					D517D1BE1D04FC5600B6FDBC = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = XYT525MWQN;
+					};
+					D517D1D41D04FC5700B6FDBC = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D517D1BE1D04FC5600B6FDBC;
+					};
+					D517D1DF1D04FC5700B6FDBC = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D517D1BE1D04FC5600B6FDBC;
+					};
+				};
+			};
+			buildConfigurationList = D517D1BA1D04FC5600B6FDBC /* Build configuration list for PBXProject "RosterQuiz" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D517D1B61D04FC5600B6FDBC;
+			productRefGroup = D517D1C01D04FC5600B6FDBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D517D1BE1D04FC5600B6FDBC /* RosterQuiz */,
+				D517D1D41D04FC5700B6FDBC /* RosterQuizTests */,
+				D517D1DF1D04FC5700B6FDBC /* RosterQuizUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D517D1BD1D04FC5600B6FDBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D56019541D1341DB00769381 /* Single User Small.png in Resources */,
+				D517D1CF1D04FC5600B6FDBC /* LaunchScreen.storyboard in Resources */,
+				D594D8D91D15F4A00021ED22 /* drive-text-logo-flat.png in Resources */,
+				D56895371D050FA100B9386D /* User Groups-50.png in Resources */,
+				D560194C1D12F47C00769381 /* Add User 44.png in Resources */,
+				D5E7E07D1D16F564002138E6 /* icon1024e.png in Resources */,
+				2D8CE20B1D09BDB800B2ACAA /* Add User Group Man Man-44.png in Resources */,
+				D5ACFCC81D1F189000A0086D /* backButtonImage.png in Resources */,
+				D56019521D133FB900769381 /* Multiple Choice Small.png in Resources */,
+				D517D1CC1D04FC5600B6FDBC /* Assets.xcassets in Resources */,
+				D56019581D13486F00769381 /* Multiple Choice Small2.png in Resources */,
+				D560194E1D12F88E00769381 /* Quiz 44.png in Resources */,
+				D56895391D05115F00B9386D /* Why Us Female-50.png in Resources */,
+				D517D1CA1D04FC5600B6FDBC /* Main.storyboard in Resources */,
+				2DFD96E21D11FFB5008E5D1A /* User-400.png in Resources */,
+				D5BEBC701D064694003BA21D /* User-100.png in Resources */,
+				2D7AD9111D09B6D2008A6853 /* Add User Group Man Man-22.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D517D1D31D04FC5700B6FDBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D517D1DE1D04FC5700B6FDBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0465A80B309A10BBE9212E8F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		10265E7B51923778A6A0A43C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6DF5B139FF02E8BD8A836DC5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C622EBDE30065AFD6A3BB5BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RosterQuiz/Pods-RosterQuiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D517D1BB1D04FC5600B6FDBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D594D8DD1D1611980021ED22 /* LoadRosterFromWebsite.swift in Sources */,
+				D594D8DB1D15FC920021ED22 /* AddRosterFromWebsiteController.swift in Sources */,
+				D568953B1D05D76900B9386D /* AddRosterController.swift in Sources */,
+				2D00DDA31D09FA06000EC78F /* LoadRosterFromGDrive.swift in Sources */,
+				D56019561D13431600769381 /* QuizTabBarController.swift in Sources */,
+				D517D1C71D04FC5600B6FDBC /* SecondViewController.swift in Sources */,
+				2D0959141D1052CF00E53AD9 /* StudentInfoController.swift in Sources */,
+				D517D1C31D04FC5600B6FDBC /* AppDelegate.swift in Sources */,
+				D517D1F51D0506AF00B6FDBC /* Roster.swift in Sources */,
+				D568953D1D05EF3C00B9386D /* ShowRosterController.swift in Sources */,
+				D560195C1D13648200769381 /* QuizController.swift in Sources */,
+				D56019501D13050800769381 /* ImagePicker.swift in Sources */,
+				D517D1F71D0506E700B6FDBC /* Student.swift in Sources */,
+				2D7AD90D1D09B4D0008A6853 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D517D1D11D04FC5700B6FDBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D517D1DA1D04FC5700B6FDBC /* RosterQuizTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D517D1DC1D04FC5700B6FDBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D517D1E51D04FC5700B6FDBC /* RosterQuizUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D517D1D71D04FC5700B6FDBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D517D1BE1D04FC5600B6FDBC /* RosterQuiz */;
+			targetProxy = D517D1D61D04FC5700B6FDBC /* PBXContainerItemProxy */;
+		};
+		D517D1E21D04FC5700B6FDBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D517D1BE1D04FC5600B6FDBC /* RosterQuiz */;
+			targetProxy = D517D1E11D04FC5700B6FDBC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D517D1C81D04FC5600B6FDBC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D517D1C91D04FC5600B6FDBC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D517D1CD1D04FC5600B6FDBC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D517D1CE1D04FC5600B6FDBC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D517D1E71D04FC5700B6FDBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Gregg (XYT525MWQN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Gregg (XYT525MWQN)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D517D1E81D04FC5700B6FDBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chris Gregg (XYT525MWQN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chris Gregg (XYT525MWQN)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D517D1EA1D04FC5700B6FDBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5F9D293EB90EB28A4325B8B /* Pods-RosterQuiz.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = RosterQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/GTMSessionFetcher.framework/Headers\"",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/GoogleAPIClient.framework/Headers\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"GTMOAuth2\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAPIClient\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cocoadrillosoftware.RosterQuiz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		D517D1EB1D04FC5700B6FDBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E01858CD12DE73A3B9BE0F37 /* Pods-RosterQuiz.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = RosterQuiz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/GTMOAuth2.framework/Headers\"",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/GTMSessionFetcher.framework/Headers\"",
+					"-iquote",
+					"\"$CONFIGURATION_BUILD_DIR/GoogleAPIClient.framework/Headers\"",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"GTMOAuth2\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAPIClient\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cocoadrillosoftware.RosterQuiz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		D517D1ED1D04FC5700B6FDBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RosterQuizTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cocoadrillosoftware.RosterQuizTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RosterQuiz.app/RosterQuiz";
+			};
+			name = Debug;
+		};
+		D517D1EE1D04FC5700B6FDBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RosterQuizTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cocoadrillosoftware.RosterQuizTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RosterQuiz.app/RosterQuiz";
+			};
+			name = Release;
+		};
+		D517D1F01D04FC5700B6FDBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RosterQuizUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cocoadrillosoftware.RosterQuizUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RosterQuiz;
+			};
+			name = Debug;
+		};
+		D517D1F11D04FC5700B6FDBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RosterQuizUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cocoadrillosoftware.RosterQuizUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RosterQuiz;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D517D1BA1D04FC5600B6FDBC /* Build configuration list for PBXProject "RosterQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D517D1E71D04FC5700B6FDBC /* Debug */,
+				D517D1E81D04FC5700B6FDBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D517D1E91D04FC5700B6FDBC /* Build configuration list for PBXNativeTarget "RosterQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D517D1EA1D04FC5700B6FDBC /* Debug */,
+				D517D1EB1D04FC5700B6FDBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D517D1EC1D04FC5700B6FDBC /* Build configuration list for PBXNativeTarget "RosterQuizTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D517D1ED1D04FC5700B6FDBC /* Debug */,
+				D517D1EE1D04FC5700B6FDBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D517D1EF1D04FC5700B6FDBC /* Build configuration list for PBXNativeTarget "RosterQuizUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D517D1F01D04FC5700B6FDBC /* Debug */,
+				D517D1F11D04FC5700B6FDBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D517D1B71D04FC5600B6FDBC /* Project object */;
+}

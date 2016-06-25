@@ -879,7 +879,7 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
                                         <rect key="frame" x="251" y="498" width="98" height="30"/>
                                         <state key="normal" title="Save Changes"/>
                                         <connections>
-                                            <segue destination="eTI-qm-0F0" kind="unwind" unwindAction="returnFromStudentInfo:" id="aDb-lF-EaZ"/>
+                                            <segue destination="eTI-qm-0F0" kind="unwind" unwindAction="returnFromStudentInfo:" id="cCO-AD-JqF"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vZZ-mc-EtW">
@@ -1009,6 +1009,7 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
                         <outlet property="notesText" destination="Mgp-GK-vmN" id="S5D-YU-OPb"/>
                         <outlet property="studentPicButton" destination="l4z-1h-Bv9" id="qbu-nB-ct3"/>
                         <outlet property="yearText" destination="vZZ-mc-EtW" id="SAG-Q9-24u"/>
+                        <segue destination="eTI-qm-0F0" kind="unwind" identifier="Save on Return" unwindAction="returnFromStudentInfo:" id="dJB-8u-NC8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzX-Vu-dxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
