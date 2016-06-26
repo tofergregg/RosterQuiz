@@ -80,7 +80,12 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         button.frame = CGRectMake(0.0, 0.0, 56.0, 28.0)
         button.addTarget(self, action: #selector(backBtnClicked), forControlEvents: .TouchUpInside)
         let barButton = UIBarButtonItem(customView: button)
-        navigationItem.leftBarButtonItem = barButton
+
+        // the button is too far to the right, so add some negative space...
+        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -10;
+        //navigationItem.leftBarButtonItem = barButton
+        navigationItem.setLeftBarButtonItems([negativeSpacer,barButton], animated: false)
         viewLoaded = true;
     }
     
@@ -121,11 +126,12 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     }
     
     override func willMoveToParentViewController(parent: UIViewController?) {
-        return
+        /* not necessary
         if viewLoaded && !noBackAlert {
             print("Back button pressed");
             saveAlert("Save Changes?", message: "Do you want to save the changes?")
         }
+        */
     }
     
     override func didReceiveMemoryWarning() {
