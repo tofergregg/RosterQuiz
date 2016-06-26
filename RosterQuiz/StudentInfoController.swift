@@ -24,8 +24,6 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     
     var student : Student! = nil
     
-    let imagePicker = UIImagePickerController()
-    
     var newStudent = false
     
     var parentController : ShowRosterController?
@@ -60,7 +58,6 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         notesText.layer.cornerRadius = 5.0
         lastNameText.addTarget(self, action: #selector(StudentInfoController.nameChanged), forControlEvents: UIControlEvents.EditingChanged)
         firstNameText.addTarget(self, action: #selector(StudentInfoController.nameChanged), forControlEvents: UIControlEvents.EditingChanged)
-        imagePicker.delegate = self
         studentPicButton.imageView!.contentMode = .ScaleAspectFit
         
         // force portrait mode
@@ -254,11 +251,31 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func picClicked(sender: UIButton) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .Default, handler: {
+            action in
+            picker.sourceType = .Camera
+            picker.allowsEditing = true
+            self.presentViewController(picker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .Default, handler: {
+            action in
+            picker.sourceType = .PhotoLibrary
+            picker.allowsEditing = true
+            self.presentViewController(picker, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    /*@IBAction func picClicked(sender: UIButton) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
         
         presentViewController(imagePicker, animated: true, completion: nil)
-    }
+    }*/
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
