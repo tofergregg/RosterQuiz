@@ -117,18 +117,20 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func returnFromStudentInfo(segue: UIStoryboardSegue) {
         // Here you can receive the parameter(s) from secondVC
         let studentInfoView : StudentInfoController = segue.sourceViewController as! StudentInfoController
+        var student : Student
+        
         if studentInfoView.newStudent {
-            roster.addStudent(studentInfoView.student)
-            roster.sortStudents()
+            student = Student()
+            roster.addStudent(student)
         }
         else {
-        let student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
-            student.last_name = studentInfoView.lastNameText.text!
-            student.first_name = studentInfoView.firstNameText.text!
-            student.year = studentInfoView.yearText.text!
-            student.notes = studentInfoView.notesText.text!
-            student.picture = studentInfoView.studentPicButton.currentImage
+            student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
         }
+        student.last_name = studentInfoView.lastNameText.text!
+        student.first_name = studentInfoView.firstNameText.text!
+        student.year = studentInfoView.yearText.text!
+        student.notes = studentInfoView.notesText.text!
+        student.picture = studentInfoView.studentPicButton.currentImage
         roster.sortStudents() // in case name change would re-sort
         parentController.saveRosters() // save officially
         studentsTableView.reloadData()
