@@ -452,6 +452,7 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clickToAddButton" destination="ffi-Oc-pWV" id="BFt-zB-sH8"/>
                         <outlet property="rosterTable" destination="Nv7-Xz-51T" id="4du-9A-jRy"/>
                         <outlet property="studentImage" destination="E5w-uQ-33b" id="bNC-zn-DLc"/>
                     </connections>

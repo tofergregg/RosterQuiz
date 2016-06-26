@@ -20,10 +20,12 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var studentImage: UIImageView!
     @IBOutlet weak var rosterTable: UITableView!
+    @IBOutlet weak var clickToAddButton: UIButton!
     var rosterFolder : RosterInfo!
     var rosterCSVFilename = "roster.csv"
     var imageCount = 0
     var loadingErrors = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,7 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
         loadingFilesIndicator.hidesWhenStopped = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loadingFilesIndicator)
         navigationItem.title = rosterFolder.name
+        clickToAddButton.enabled = false
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -135,6 +138,8 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
             self.imageCount += 1
             if (self.imageCount == self.roster.count()) { // received all images, update with csv data
                 self.studentImage.hidden = true
+                self.clickToAddButton.enabled = true
+
                 if (self.loadingErrors > 0) {
                     self.showAlert("Errors loading roster",
                                    message: "There were \(self.loadingErrors) errors loading the roster. You may want to try again later.")
