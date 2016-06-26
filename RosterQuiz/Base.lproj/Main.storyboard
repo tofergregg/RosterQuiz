@@ -65,6 +65,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <exit id="GE2-l9-47l" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1919" y="-517"/>
         </scene>
@@ -116,15 +117,31 @@
                                             <segue destination="uoe-z8-L1X" kind="show" id="Pde-CG-llj"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cri-YL-hSC">
+                                        <rect key="frame" x="200" y="254" width="200" height="47"/>
+                                        <color key="backgroundColor" red="0.10630942090000001" green="0.27598448869999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="jm6-iX-Zgb"/>
+                                        </constraints>
+                                        <state key="normal" title="Add Blank Roster">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="GE2-l9-47l" kind="unwind" unwindAction="returnAndMakeBlankRoster:" id="VzY-4a-skZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="bV7-Ed-jXC" firstAttribute="centerX" secondItem="4jf-Tr-KIW" secondAttribute="centerX" id="5Ba-ye-8uj"/>
+                                    <constraint firstItem="cri-YL-hSC" firstAttribute="top" secondItem="2Ll-ZV-Zta" secondAttribute="bottom" constant="27" id="JjT-Rz-oem"/>
+                                    <constraint firstItem="cri-YL-hSC" firstAttribute="trailing" secondItem="2Ll-ZV-Zta" secondAttribute="trailing" id="bFi-vW-7XN"/>
                                     <constraint firstItem="zXF-Ke-RLp" firstAttribute="leading" secondItem="2Ll-ZV-Zta" secondAttribute="leading" id="bRm-Ap-bKv"/>
                                     <constraint firstItem="bV7-Ed-jXC" firstAttribute="centerX" secondItem="zXF-Ke-RLp" secondAttribute="centerX" id="cYE-by-e5f"/>
                                     <constraint firstItem="zXF-Ke-RLp" firstAttribute="trailing" secondItem="2Ll-ZV-Zta" secondAttribute="trailing" id="f5J-30-qUD"/>
                                     <constraint firstItem="2Ll-ZV-Zta" firstAttribute="top" secondItem="zXF-Ke-RLp" secondAttribute="bottom" constant="23" id="feh-WU-rbF"/>
                                     <constraint firstItem="bV7-Ed-jXC" firstAttribute="top" secondItem="4jf-Tr-KIW" secondAttribute="topMargin" id="gAN-ux-QEC"/>
+                                    <constraint firstItem="cri-YL-hSC" firstAttribute="leading" secondItem="2Ll-ZV-Zta" secondAttribute="leading" id="koB-w8-kU0"/>
                                     <constraint firstItem="zXF-Ke-RLp" firstAttribute="top" secondItem="bV7-Ed-jXC" secondAttribute="bottom" constant="18" id="zs3-ex-Vf7"/>
                                 </constraints>
                             </view>

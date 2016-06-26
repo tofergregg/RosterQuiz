@@ -15,6 +15,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var rosters : [Roster] = []
     let textCellIdentifier = "TextCell"
     var selectedRow : Int = 0
+    var makingNewRoster = false
+    var rosterNameTextField : UITextField? // used when creating blank roster
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +29,32 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         rosterTableView.reloadData()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        if makingNewRoster {
+            makingNewRoster = false; // reset
+            // ask for Roster name
+            let alert = UIAlertController(title: "Add Blank Roster", message: "Please name the roster.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: addNewRoster))
+            alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+                textField.placeholder = "Roster name"
+                self.rosterNameTextField = textField
+            })
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addNewRoster(action : UIAlertAction) {
+        print("Creating new roster named '" + (rosterNameTextField?.text)! + "'")
+        let roster = Roster(n: (rosterNameTextField?.text)!)
+        rosters.append(roster)
+        rosterTableView.reloadData()
     }
     
     @IBAction func returnFromAddRoster(segue: UIStoryboardSegue) {
@@ -45,6 +68,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         rosterTableView.reloadData()
         // save the rosters
         saveRosters()
+    }
+    
+    @IBAction func returnAndMakeBlankRoster(segue: UIStoryboardSegue) {
+        // can't do much here because we want an alert, which must
+        // happen after the view is loaded
+        makingNewRoster = true;
     }
     
     func saveRosters(){

@@ -12,6 +12,10 @@ class Roster : NSObject, NSCoding {
     var name : String = ""
     var students : [Student] = []
     
+    convenience init(n : String) {
+        self.init(name : n, students: [])!
+    }
+    
     func addStudent(student : Student){
         students.append(student)
     }
