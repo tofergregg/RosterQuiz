@@ -253,6 +253,9 @@ class QuizController : UIViewController, UITextFieldDelegate {
                 fDiff = upcaseFirstName.characters.count - 1
             }
             firstNameGuess.text = studentToGuess?.first_name[fn.startIndex...fn.startIndex.advancedBy(fDiff)]
+            if fDiff == upcaseFirstName.characters.count-1 {
+                userTypedName(nil)
+            }
         }
         
     }
@@ -293,14 +296,20 @@ class QuizController : UIViewController, UITextFieldDelegate {
         firstNameGuess.enabled = false
 
         totalGuesses += 1
-        if (sender!.text?.uppercaseString == studentToGuess?.first_name.uppercaseString) {
-            print("Correct!")
-            correctNameLabel.text = "Correct! \(studentToGuess!.commaName())"
-            score += 1
+        if (sender == nil) {
+            // guess was provided by hint!
+            correctNameLabel.text = studentToGuess!.commaName()
         }
         else {
-            print("Incorrect")
-            correctNameLabel.text = "Incorrect! \(studentToGuess!.commaName())"
+            if (sender!.text?.uppercaseString == studentToGuess?.first_name.uppercaseString) {
+                print("Correct!")
+                correctNameLabel.text = "Correct! \(studentToGuess!.commaName())"
+                score += 1
+            }
+            else {
+                print("Incorrect")
+                correctNameLabel.text = "Incorrect! \(studentToGuess!.commaName())"
+            }
         }
         let scorePercent = round(Float(score) / Float(totalGuesses) * 10000) / 100
         scoreLabel.text = "Score: \(score)/\(totalGuesses)(\(scorePercent)%)"

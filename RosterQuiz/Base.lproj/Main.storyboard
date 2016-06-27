@@ -741,7 +741,7 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxo-ko-pTf">
-                                                        <rect key="frame" x="220" y="248" width="160" height="30"/>
+                                                        <rect key="frame" x="220" y="264" width="160" height="30"/>
                                                         <state key="normal" title="Click for next letter hint"/>
                                                         <connections>
                                                             <action selector="provideNextLetter:" destination="ezh-bf-yGY" eventType="touchUpInside" id="CoZ-Y7-AOT"/>
@@ -750,7 +750,7 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="zxo-ko-pTf" firstAttribute="centerY" secondItem="6KD-Nf-eIC" secondAttribute="centerY" id="2PL-Hy-uUE"/>
+                                                    <constraint firstItem="zxo-ko-pTf" firstAttribute="centerY" secondItem="6KD-Nf-eIC" secondAttribute="centerY" constant="15.5" id="2PL-Hy-uUE"/>
                                                     <constraint firstItem="DEC-Hq-pCF" firstAttribute="centerX" secondItem="szr-D4-FSX" secondAttribute="centerX" id="4kF-dy-UEO"/>
                                                     <constraint firstItem="6KD-Nf-eIC" firstAttribute="top" secondItem="szr-D4-FSX" secondAttribute="bottom" constant="8" symbolic="YES" id="Bga-65-gck"/>
                                                     <constraint firstItem="zxo-ko-pTf" firstAttribute="centerX" secondItem="6KD-Nf-eIC" secondAttribute="centerX" id="Bzm-ML-PhN"/>
@@ -1046,6 +1046,6 @@ https://www.eecs.tufts.edu/~cgregg/rosters/ to upload your rosters.</string>
         <image name="drive-text-logo-flat.png" width="200" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kBc-30-9qb"/>
+        <segue reference="gBr-wX-2yu"/>
     </inferredMetricsTieBreakers>
 </document>

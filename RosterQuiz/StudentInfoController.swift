@@ -81,9 +81,9 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         // the button is too far to the right, so add some negative space...
         let negativeSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
         negativeSpacer.width = -10;
-        //navigationItem.leftBarButtonItem = barButton
         navigationItem.setLeftBarButtonItems([negativeSpacer,barButton], animated: false)
         viewLoaded = true;
+        //navigationItem.backBarButtonItem = barButton
     }
     
     

@@ -145,6 +145,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             saveRosters()
         }
+        else {
+            print("not deleting")
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

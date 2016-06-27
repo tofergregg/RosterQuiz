@@ -17,6 +17,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     var roster : Roster!
     var parentController : FirstViewController!
     let textCellIdentifier = "StudentCell"
+    var rosterNameTextField : UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,34 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Helvetica", size: 15)!]
         //navigationController?.delegate = self
         self.studentsTableView.allowsMultipleSelectionDuringEditing = false
+        
+        // set up rename button
+        let renameButton = UIBarButtonItem(title: "Rename", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(renameRoster))
+        navigationItem.setRightBarButtonItem(renameButton, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func renameRoster(){
+        print("renaming roster")
+        let alert = UIAlertController(title: "Rename Roster", message: "Please enter the new roster name.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Rename", style: UIAlertActionStyle.Default, handler: newNameChosen))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = "Roster name"
+            self.rosterNameTextField = textField
+        })
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func newNameChosen(action: UIAlertAction) {
+        roster.name = rosterNameTextField!.text!
+        rosterTitle.title = roster.name
+        parentController.saveRosters()
+        parentController.rosterTableView.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
