@@ -55,6 +55,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let roster = Roster(n: (rosterNameTextField?.text)!)
         rosters.append(roster)
         rosterTableView.reloadData()
+        saveRosters()
     }
     
     @IBAction func returnFromAddRoster(segue: UIStoryboardSegue) {
