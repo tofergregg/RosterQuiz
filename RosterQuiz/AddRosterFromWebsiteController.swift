@@ -77,7 +77,7 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
         loadingFilesIndicator.startAnimating()
         self.rosterList = [] // reset
         self.rosterListTable.reloadData()
-        let url: NSURL = NSURL(string: "https://www.eecs.tufts.edu/~cgregg/rosters/cgi-bin/list_rosters.cgi")!
+        let url: NSURL = NSURL(string: "https://cs.stanford.edu/~cgregg/cgi-bin/run_python.cgi?script_to_run=../rosters/cgi-bin/list_rosters.cgi")!
         let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
         request.HTTPMethod = "POST"
         let bodyData = "name=\(username.text!)&pw=\(userPw.text!)"

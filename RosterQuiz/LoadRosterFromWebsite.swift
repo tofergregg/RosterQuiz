@@ -52,7 +52,7 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
     
     func loadImageNames(){
         // load the list of images
-        let url: NSURL = NSURL(string: "https://www.eecs.tufts.edu/~cgregg/rosters/cgi-bin/getImageList.cgi")!
+        let url: NSURL = NSURL(string: "https://cs.stanford.edu/~cgregg/cgi-bin/run_python.cgi?script_to_run=../rosters/cgi-bin/getImageList.cgi")!
         let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
         request.HTTPMethod = "POST"
         let folderName = rosterFolder.name+parentController.sentinel+rosterFolder.filename
@@ -102,7 +102,7 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
     func downloadImages(studentNum : Int){
         if (studentNum < roster.count()) {
             self.studentImage.hidden = false
-            let url: NSURL = NSURL(string: "https://www.eecs.tufts.edu/~cgregg/rosters/cgi-bin/retrieveImageByFolder.cgi")!
+            let url: NSURL = NSURL(string: "https://cs.stanford.edu/~cgregg/cgi-bin/run_python.cgi?script_to_run=../rosters/cgi-bin/retrieveImageByFolder.cgi")!
             let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
             request.HTTPMethod = "POST"
             let folderName = rosterFolder.name+parentController.sentinel+rosterFolder.filename
