@@ -85,7 +85,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
             let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("rosters")
             let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self.rosters, toFile: ArchiveURL.path!)
-            
             dispatch_async(dispatch_get_main_queue()) {
                 // UI updates must be on main thread
                 if (!isSuccessfulSave) {
