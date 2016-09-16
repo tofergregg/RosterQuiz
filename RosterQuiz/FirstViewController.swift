@@ -112,9 +112,39 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         
+        cell.indentationWidth = 25
+        cell.indentationLevel = 1
+        
         let row = (indexPath as NSIndexPath).row
         cell.textLabel?.text = rosters[row].name
+        let button : UIButton = UIButton(type:UIButtonType.infoDark) as UIButton
+        
+        //button.frame = CGRect(origin: CGPoint(x: 40,y :60), size: CGSize(width: 100, height: 24))
+        let cellHeight: CGFloat = 44.0
+        let cellWidth: CGFloat = 44.0
+        button.center = CGPoint(x: cellWidth / 2.0, y: cellHeight / 2.0)
+        //button.backgroundColor = UIColor.red
+        button.addTarget(self, action: #selector(buttonClicked(sender: event:)), for: UIControlEvents.touchUpInside)
+        //button.setTitle("Click Me !", for: UIControlState.normal)
+        
+        cell.addSubview(button)
         return cell
+    }
+    
+    func buttonClicked(sender : UIButton!, event : UIEvent) {
+        print("Clicked!")
+        
+        let position: CGPoint = sender.convert(CGPoint.zero, to: rosterTableView)
+        let indexPath = rosterTableView.indexPathForRow(at: position)
+        //let cell = rosterTableView.cellForRow(at: indexPath!)
+        
+        print("Clicked on row " + String(describing:indexPath!.row))
+        // present some information (maybe make this into its own view some day)
+        let roster = rosters[indexPath!.row]
+        let classSize = roster.count()
+        let alert = UIAlertController(title: roster.name, message: "Class size:" + String(classSize), preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
