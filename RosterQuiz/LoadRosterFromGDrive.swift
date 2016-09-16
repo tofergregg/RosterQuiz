@@ -33,13 +33,13 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
         rosterTable.dataSource = self
         loadingFilesIndicator = UIActivityIndicatorView()
         //uiBusy.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
-        loadingFilesIndicator.color = UIColor.blackColor()
+        loadingFilesIndicator.color = UIColor.black
         loadingFilesIndicator.hidesWhenStopped = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loadingFilesIndicator)
         navigationItem.title = rosterFolder.name
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         roster.name = rosterFolder.name
         startQuery()
     }
@@ -54,20 +54,20 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
         loadingFilesIndicator.startAnimating()
         let query = GTLQueryDrive.queryForFilesList()
         
-        query.pageSize = 1000 // max number in roster
+        query?.pageSize = 1000 // max number in roster
         //query.fields = "nextPageToken, files(id, name)"
-        query.spaces = "drive"
-        query.q = "'\(rosterFolder.identifier)' in parents and trashed = false"
+        query?.spaces = "drive"
+        query?.q = "'\(rosterFolder.identifier)' in parents and trashed = false"
         //query.q = "'0BxrnKK8LdJT0QzJuTkhTb2hZNE0' in parents"
         parentController.service.executeQuery(
-            query,
+            query!,
             delegate: self,
-            didFinishSelector: #selector(LoadRosterFromGDrive.findFolderFromTicket(_:finishedWithObject:error:))
+            didFinish: #selector(LoadRosterFromGDrive.findFolderFromTicket(_:finishedWithObject:error:))
         )
     }
     
     // Parse results and display
-    func findFolderFromTicket(ticket : GTLServiceTicket,
+    func findFolderFromTicket(_ ticket : GTLServiceTicket,
                               finishedWithObject response : GTLDriveFileList,
                                                  error : NSError?) {
         
@@ -76,19 +76,19 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
             return
         }
         
-        if let files = response.files where !files.isEmpty {
+        if let files = response.files , !files.isEmpty {
             for file in files as! [GTLDriveFile] {
                 // check if the file is the csv file
                 if (file.name == rosterCSVFilename) {
                     rosterCSVId = file
                 }
-                else if (file.mimeType.containsString("image/")) {
+                else if (file.mimeType.contains("image/")) {
                     let student = Student()
                     
                     // change name to Last,First (okay b/c we will search later by id)
                     // strip out period for extension
-                    let fullname = file.name.componentsSeparatedByString(".")[0] // assuming there is an extension
-                    let name_parts = fullname.componentsSeparatedByString("_")
+                    let fullname = file.name.components(separatedBy: ".")[0] // assuming there is an extension
+                    let name_parts = fullname.components(separatedBy: "_")
                     student.last_name = name_parts[0]
                     student.first_name = name_parts[1]
                 
@@ -113,24 +113,24 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
 
 
     // table functions
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roster.count()
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("student cell", forIndexPath: indexPath)
-        let row = indexPath.row
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "student cell", for: indexPath)
+        let row = (indexPath as NSIndexPath).row
         if (roster[row].picture != nil) {
             cell.imageView!.image = roster[row].picture
         }
         else {
             cell.imageView!.image = UIImage(named:"User-100")
         }
-        cell.textLabel?.text = roster[indexPath.row].commaName()
+        cell.textLabel?.text = roster[(indexPath as NSIndexPath).row].commaName()
         return cell
     }
     
@@ -143,32 +143,32 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     
-    func downloadImages(studentNum : Int){
+    func downloadImages(_ studentNum : Int){
         if (studentNum < roster.count()) {
-            self.studentImage.hidden = false
+            self.studentImage.isHidden = false
             let url = "https://www.googleapis.com/drive/v3/files/\(roster[studentNum].google_drive_info!.identifier)?alt=media"
-            let fetcher = GTMSessionFetcher(URLString:url)
+            let fetcher = GTMSessionFetcher(urlString:url)
             fetcher.authorizer = parentController.service.authorizer
-            fetcher.beginFetchWithCompletionHandler(handleDownload(studentNum))
+            fetcher.beginFetch(completionHandler: handleDownload(studentNum))
             // download next student after delay
             
             // cannot have more than 10 requests / second, so we will do 8 for a bit of buffer room
-            let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), Int64(NSEC_PER_SEC) / 8)
-            dispatch_after(time, dispatch_get_main_queue()) {
+            //let time = DispatchTime(uptimeNanoseconds: DispatchTime.now()) + Double(Int64(NSEC_PER_SEC) / 8) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.125) {
                 self.downloadImages(studentNum + 1)
             }
         }
     }
     
-    func handleDownload(studentNum:Int) -> (NSData?, NSError?) -> Void {
-        return { (data: NSData?, error: NSError?) -> Void in
+    func handleDownload(_ studentNum:Int) -> GTMSessionFetcherCompletionHandler? {
+        return { data, error in
             // received image
             print(self.roster[studentNum].commaName())
             if ((error) != nil) {
                 self.loadingErrors += 1
             }
             if (data != nil) {
-                print(data!.length)
+                print(data!.count)
                 self.roster[studentNum].picture = UIImage(data:data!,scale:1.0)
                 self.studentImage.image = self.roster[studentNum].picture
                 self.studentImage.setNeedsDisplay()
@@ -177,7 +177,7 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
             }
             self.imageCount += 1
             if (self.imageCount == self.roster.count()) { // received all images, update with csv data
-                self.studentImage.hidden = true
+                self.studentImage.isHidden = true
                 if (self.loadingErrors > 0) {
                     self.showAlert("Errors loading roster",
                               message: "There were \(self.loadingErrors) errors loading the roster. You may want to try again later.")
@@ -185,41 +185,45 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
                 // done downloading images, load csv if it exists
                 if ((self.rosterCSVId) != nil) {
                     let url = "https://www.googleapis.com/drive/v3/files/\(self.rosterCSVId!.identifier)?alt=media"
-                    let fetcher = GTMSessionFetcher(URLString:url)
+                    let fetcher = GTMSessionFetcher(urlString:url)
                     fetcher.authorizer = self.parentController.service.authorizer
-                    fetcher.beginFetchWithCompletionHandler(self.handleCSVDownload)
+                    fetcher.beginFetch(completionHandler: self.handleCSVDownload)
                 }
                 else {
                     self.loadingFilesIndicator.stopAnimating()
-                    self.studentImage.hidden = true
+                    self.studentImage.isHidden = true
                 }
             }
         }
     }
-    
-    func handleCSVDownload(data: NSData?, error: NSError?) -> Void {
-            if let error = error {
-                showAlert("Error", message: error.localizedDescription)
-                return
-            }
-            // received csv file
-            let csv = String(data: data!, encoding:NSUTF8StringEncoding)!
-            self.loadingFilesIndicator.stopAnimating()
+    //func handleCSVDownload() -> GTMSessionFetcherCompletionHandler? {
+    //    return { data, error in
 
-            print(csv)
-            addToRoster(csv)
-        
+    func handleCSVDownload(_ data: Data?, error: Error?) -> Void {
+        //func handleCSVDownload(_ data: Data?, error: NSError?) -> Void {
+                if let error = error {
+                    self.showAlert("Error", message: error.localizedDescription)
+                    return
+                }
+                // received csv file
+                let csv = String(data: data!, encoding:String.Encoding.utf8)!
+                self.loadingFilesIndicator.stopAnimating()
+
+                print(csv)
+                self.addToRoster(csv)
+            
+        //}
     }
     
-    func addToRoster(csv : String){
+    func addToRoster(_ csv : String){
         // csv should have the following form:
         // last,first,year(e.g."Sophomore")
         // year is optional
-        let lines = csv.componentsSeparatedByString("\n")
+        let lines = csv.components(separatedBy: "\n")
         for line in lines {
             var last : String = "", first: String = ""
             var year : String = ""
-            let details = line.componentsSeparatedByString(",")
+            let details = line.components(separatedBy: ",")
             if (details.count > 1) {
                 last = details[0]
                 first = details[1]
@@ -254,19 +258,19 @@ class LoadRosterFromGDrive: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // Helper for showing an alert
-    func showAlert(title : String, message: String) {
+    func showAlert(_ title : String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: UIAlertControllerStyle.Alert
+            preferredStyle: UIAlertControllerStyle.alert
         )
         let ok = UIAlertAction(
             title: "OK",
-            style: UIAlertActionStyle.Default,
+            style: UIAlertActionStyle.default,
             handler: nil
         )
         alert.addAction(ok)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
         loadingFilesIndicator.stopAnimating()
     }
 }

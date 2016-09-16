@@ -15,16 +15,16 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var loadingFilesIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var rosterListTable: UITableView!
-    private let kKeychainItemName = "Drive API"
-    private let kClientID = "795309004462-itm898hfu3gna8rnb1mjlv2jmaj8d6jd.apps.googleusercontent.com"
-    private let folderName = "RosterQuiz_Rosters"
-    private var folderId = ""
+    fileprivate let kKeychainItemName = "Drive API"
+    fileprivate let kClientID = "795309004462-itm898hfu3gna8rnb1mjlv2jmaj8d6jd.apps.googleusercontent.com"
+    fileprivate let folderName = "RosterQuiz_Rosters"
+    fileprivate var folderId = ""
     var rosterList : [GTLDriveFile] = []
     let textCellIdentifier = "First Cell"
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
-    private let scopes = [kGTLAuthScopeDriveReadonly]
+    fileprivate let scopes = [kGTLAuthScopeDriveReadonly]
     //private let scopes = [kGTLAuthScopeDriveMetadataReadonly]
     
     
@@ -39,8 +39,8 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         rosterText.layer.cornerRadius = 5.0
         rosterText.text = ""
         */
-        if let auth = GTMOAuth2ViewControllerTouch.authForGoogleFromKeychainForName(
-            kKeychainItemName,
+        if let auth = GTMOAuth2ViewControllerTouch.authForGoogleFromKeychain(
+            forName: kKeychainItemName,
             clientID: kClientID,
             clientSecret: nil) {
             service.authorizer = auth
@@ -51,7 +51,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // When the view appears, ensure that the Drive API service is authorized
     // and perform API calls
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
        
     }
     
@@ -61,12 +61,12 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
-    @IBAction func loadRosterList(sender: UIButton) {
+    @IBAction func loadRosterList(_ sender: UIButton) {
         if let authorizer = service.authorizer,
-            canAuth = authorizer.canAuthorize where canAuth {
+            let canAuth = authorizer.canAuthorize , canAuth {
             startQuery()
         } else {
-            presentViewController(
+            present(
                 createAuthController(),
                 animated: true,
                 completion: nil
@@ -77,20 +77,20 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         // Construct a query to get names and IDs of 10 files using the Google Drive API
         loadingFilesIndicator.startAnimating()
         let query = GTLQueryDrive.queryForFilesList()
-        query.pageSize = 1000 // max number in roster
+        query?.pageSize = 1000 // max number in roster
         //query.fields = "nextPageToken, files(id, name)"
-        query.spaces = "drive"
-        query.q = "name = '\(folderName)'"
+        query?.spaces = "drive"
+        query?.q = "name = '\(folderName)'"
         //query.q = "'0BxrnKK8LdJT0TGVhOEZ1WE5tMnM' in parents"
         service.executeQuery(
-            query,
+            query!,
             delegate: self,
-            didFinishSelector: #selector(AddRosterController.findFolderFromTicket(_:finishedWithObject:error:))
+            didFinish: #selector(AddRosterController.findFolderFromTicket(_:finishedWithObject:error:))
         )
     }
     
     // Parse results and display
-    func findFolderFromTicket(ticket : GTLServiceTicket,
+    func findFolderFromTicket(_ ticket : GTLServiceTicket,
                                  finishedWithObject response : GTLDriveFileList,
                                                     error : NSError?) {
         
@@ -99,7 +99,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         
-        if let files = response.files where !files.isEmpty {
+        if let files = response.files , !files.isEmpty {
             if (files.count != 1) {
                 showAlert("Error", message:"It seems that you have more than one folder named \(folderName)")
             }
@@ -111,14 +111,14 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 // find all files
                 let query = GTLQueryDrive.queryForFilesList()
-                query.pageSize = 1000 // max number in roster
+                query?.pageSize = 1000 // max number in roster
                 //query.fields = "nextPageToken, files(id, name)"
                 //query.spaces = "drive"
-                query.q = "'\(folderId)' in parents"
+                query?.q = "'\(folderId)' in parents"
                 service.executeQuery(
-                    query,
+                    query!,
                     delegate: self,
-                    didFinishSelector: #selector(AddRosterController.findFilesFromTicket(_:finishedWithObject:error:))
+                    didFinish: #selector(AddRosterController.findFilesFromTicket(_:finishedWithObject:error:))
                 )
             }
         } else {
@@ -129,7 +129,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     // Parse results and display
-    func findFilesFromTicket(ticket : GTLServiceTicket,
+    func findFilesFromTicket(_ ticket : GTLServiceTicket,
                               finishedWithObject response : GTLDriveFileList,
                                                  error : NSError?) {
         
@@ -138,7 +138,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         
-        if let files = response.files where !files.isEmpty {
+        if let files = response.files , !files.isEmpty {
             rosterList.removeAll()
             for file in files as! [GTLDriveFile] {
                 print("\(file.name) (\(file.identifier))\n")
@@ -156,8 +156,8 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     // Creates the auth controller for authorizing access to Drive API
-    private func createAuthController() -> GTMOAuth2ViewControllerTouch {
-        let scopeString = scopes.joinWithSeparator(" ")
+    fileprivate func createAuthController() -> GTMOAuth2ViewControllerTouch {
+        let scopeString = scopes.joined(separator: " ")
         return GTMOAuth2ViewControllerTouch(
             scope: scopeString,
             clientID: kClientID,
@@ -170,7 +170,7 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Handle completion of the authorization process, and update the Drive API
     // with the new credentials.
-    func viewController(vc : UIViewController,
+    func viewController(_ vc : UIViewController,
                         finishedWithAuth authResult : GTMOAuth2Authentication, error : NSError?) {
         
         if let error = error {
@@ -180,61 +180,61 @@ class AddRosterController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         service.authorizer = authResult
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         startQuery()
     }
     
     // Helper for showing an alert
-    func showAlert(title : String, message: String) {
+    func showAlert(_ title : String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: UIAlertControllerStyle.Alert
+            preferredStyle: UIAlertControllerStyle.alert
         )
         let ok = UIAlertAction(
             title: "OK",
-            style: UIAlertActionStyle.Default,
+            style: UIAlertActionStyle.default,
             handler: nil
         )
         alert.addAction(ok)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
         loadingFilesIndicator.stopAnimating()
     }
     
-    @IBAction func cancelButton(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: {});
+    @IBAction func cancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: {});
     }
     
     // table functions
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rosterList.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         cell.textLabel?.text = rosterList[row].name
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if segue.identifier == "Show Students GDrive" {
-            let destionationVC : LoadRosterFromGDrive = segue.destinationViewController as! LoadRosterFromGDrive
+            let destionationVC : LoadRosterFromGDrive = segue.destination as! LoadRosterFromGDrive
             
             destionationVC.parentController = self
-            destionationVC.rosterFolder = rosterList[rosterListTable.indexPathForSelectedRow!.row]
+            destionationVC.rosterFolder = rosterList[(rosterListTable.indexPathForSelectedRow! as NSIndexPath).row]
         }
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         //let row = indexPath.row
         //print("Row: \(row)")

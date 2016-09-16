@@ -30,17 +30,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         rosterTableView.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if makingNewRoster {
             makingNewRoster = false; // reset
             // ask for Roster name
-            let alert = UIAlertController(title: "Add Blank Roster", message: "Please name the roster.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: addNewRoster))
-            alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            let alert = UIAlertController(title: "Add Blank Roster", message: "Please name the roster.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: addNewRoster))
+            alert.addTextField(configurationHandler: {(textField: UITextField!) in
                 textField.placeholder = "Roster name"
                 self.rosterNameTextField = textField
             })
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 
@@ -50,7 +50,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Dispose of any resources that can be recreated.
     }
     
-    func addNewRoster(action : UIAlertAction) {
+    func addNewRoster(_ action : UIAlertAction) {
         print("Creating new roster named '" + (rosterNameTextField?.text)! + "'")
         let roster = Roster(n: (rosterNameTextField?.text)!)
         rosters.append(roster)
@@ -58,12 +58,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         saveRosters()
     }
     
-    @IBAction func returnFromAddRoster(segue: UIStoryboardSegue) {
+    @IBAction func returnFromAddRoster(_ segue: UIStoryboardSegue) {
         // Here you can receive the parameter(s) from secondVC
-        if let addRoster : LoadRosterFromGDrive = segue.sourceViewController as? LoadRosterFromGDrive {
+        if let addRoster : LoadRosterFromGDrive = segue.source as? LoadRosterFromGDrive {
             rosters.append(addRoster.roster)
         }
-        else if let addRoster : LoadRosterFromWebsite = segue.sourceViewController as? LoadRosterFromWebsite {
+        else if let addRoster : LoadRosterFromWebsite = segue.source as? LoadRosterFromWebsite {
             rosters.append(addRoster.roster)
         }
         rosterTableView.reloadData()
@@ -71,7 +71,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         saveRosters()
     }
     
-    @IBAction func returnAndMakeBlankRoster(segue: UIStoryboardSegue) {
+    @IBAction func returnAndMakeBlankRoster(_ segue: UIStoryboardSegue) {
         // can't do much here because we want an alert, which must
         // happen after the view is loaded
         makingNewRoster = true;
@@ -81,11 +81,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // save in the background so we don't stop the app
         // (will this potentially cause a problem if the user stops the app in the middle
         // of a save? probably.)
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-            let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("rosters")
-            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self.rosters, toFile: ArchiveURL.path!)
-            dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+            let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+            let ArchiveURL = DocumentsDirectory.appendingPathComponent("rosters")
+            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(self.rosters, toFile: ArchiveURL.path)
+            DispatchQueue.main.async {
                 // UI updates must be on main thread
                 if (!isSuccessfulSave) {
                     print("Could not save rosters!")
@@ -95,54 +95,54 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func loadRosters() -> [Roster]? {
-        let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-        let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("rosters")
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(ArchiveURL.path!) as? [Roster]
+        let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let ArchiveURL = DocumentsDirectory.appendingPathComponent("rosters")
+        return NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL.path) as? [Roster]
     }
 
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rosters.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         cell.textLabel?.text = rosters[row].name
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
             
-            let row = indexPath.row
+            let row = (indexPath as NSIndexPath).row
             print("Row: \(row)")
             
             rosters[row].printRoster()
             
             selectedRow = row
 
-            performSegueWithIdentifier("Show Roster Segue", sender: self)
+            performSegue(withIdentifier: "Show Roster Segue", sender: self)
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath : NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath : IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.Delete
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.delete
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            rosters.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            rosters.remove(at: (indexPath as NSIndexPath).row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             saveRosters()
         }
         else {
@@ -150,9 +150,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if segue.identifier == "Show Roster Segue" {
-            let destinationVC : ShowRosterController = segue.destinationViewController as! ShowRosterController
+            let destinationVC : ShowRosterController = segue.destination as! ShowRosterController
 
             destinationVC.roster = rosters[selectedRow]
             destinationVC.parentController = self

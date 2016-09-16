@@ -29,8 +29,8 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         self.studentsTableView.allowsMultipleSelectionDuringEditing = false
         
         // set up rename button
-        let renameButton = UIBarButtonItem(title: "Rename", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(renameRoster))
-        navigationItem.setRightBarButtonItem(renameButton, animated: false)
+        let renameButton = UIBarButtonItem(title: "Rename", style: UIBarButtonItemStyle.plain, target: self, action: #selector(renameRoster))
+        navigationItem.setRightBarButton(renameButton, animated: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,31 +40,31 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func renameRoster(){
         print("renaming roster")
-        let alert = UIAlertController(title: "Rename Roster", message: "Please enter the new roster name.", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Rename", style: UIAlertActionStyle.Default, handler: newNameChosen))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
-        alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+        let alert = UIAlertController(title: "Rename Roster", message: "Please enter the new roster name.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Rename", style: UIAlertActionStyle.default, handler: newNameChosen))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+        alert.addTextField(configurationHandler: {(textField: UITextField!) in
             textField.placeholder = "Roster name"
             self.rosterNameTextField = textField
         })
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func newNameChosen(action: UIAlertAction) {
+    func newNameChosen(_ action: UIAlertAction) {
         roster.name = rosterNameTextField!.text!
         rosterTitle.title = roster.name
         parentController.saveRosters()
         parentController.rosterTableView.reloadData()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roster.students.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         if (roster.students[row].picture != nil) {
             cell.imageView!.image = roster.students[row].picture
         }
@@ -75,7 +75,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //tableView.deselectRowAtIndexPath(indexPath, animated: true)
         /*
@@ -88,31 +88,31 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath : NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath : IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return UITableViewCellEditingStyle.Delete
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.delete
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            roster.students.removeAtIndex(indexPath.row)
+            roster.students.remove(at: (indexPath as NSIndexPath).row)
             parentController.saveRosters()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "Loading Student Info" || segue.identifier == "New Student Segue") {
-            let destinationVC : StudentInfoController = segue.destinationViewController as! StudentInfoController
+            let destinationVC : StudentInfoController = segue.destination as! StudentInfoController
             
             destinationVC.parentController = self
             
             if segue.identifier == "Loading Student Info" {
-                destinationVC.student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
+                destinationVC.student = roster[((studentsTableView.indexPathForSelectedRow as NSIndexPath?)?.row)!]
                 destinationVC.newStudent = false
             }
             else if segue.identifier == "New Student Segue" {
@@ -124,23 +124,23 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         else if segue.identifier == "Quiz Segue" {
-            let destinationVC : QuizTabBarController = segue.destinationViewController as! QuizTabBarController
+            let destinationVC : QuizTabBarController = segue.destination as! QuizTabBarController
             destinationVC.roster = roster
         }
     }
     
-    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if (viewController == self) {
             if (studentsTableView.indexPathForSelectedRow != nil) {
-                let student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
+                let student = roster[((studentsTableView.indexPathForSelectedRow as NSIndexPath?)?.row)!]
                 student.printStudent()
             }
         }
     }
     
-    @IBAction func returnFromStudentInfo(segue: UIStoryboardSegue) {
+    @IBAction func returnFromStudentInfo(_ segue: UIStoryboardSegue) {
         // Here you can receive the parameter(s) from secondVC
-        let studentInfoView : StudentInfoController = segue.sourceViewController as! StudentInfoController
+        let studentInfoView : StudentInfoController = segue.source as! StudentInfoController
         var student : Student
         
         if studentInfoView.newStudent {
@@ -148,7 +148,7 @@ class ShowRosterController: UIViewController, UITableViewDelegate, UITableViewDa
             roster.addStudent(student)
         }
         else {
-            student = roster[(studentsTableView.indexPathForSelectedRow?.row)!]
+            student = roster[((studentsTableView.indexPathForSelectedRow as NSIndexPath?)?.row)!]
         }
         student.last_name = studentInfoView.lastNameText.text!
         student.first_name = studentInfoView.firstNameText.text!

@@ -18,7 +18,7 @@ class Student : NSObject, NSCoding {
     var picture    : UIImage? = nil
     var notes      : String = ""
     
-    func addDetails(last : String, first : String, yr : String = "", pic : UIImage? = nil)
+    func addDetails(_ last : String, first : String, yr : String = "", pic : UIImage? = nil)
     {
         last_name = last
         first_name = first
@@ -26,12 +26,12 @@ class Student : NSObject, NSCoding {
         picture = pic
     }
     
-    func addPicture(pic : UIImage?)
+    func addPicture(_ pic : UIImage?)
     {
         picture = pic;
     }
     
-    func addNameAndImage(last: String, first: String, img: UIImage?){
+    func addNameAndImage(_ last: String, first: String, img: UIImage?){
         last_name = last;
         first_name = first;
         picture = img;
@@ -45,22 +45,22 @@ class Student : NSObject, NSCoding {
     func commaName() -> String {
         return last_name + ", " + first_name
     }
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(google_drive_info, forKey: "google_drive_info")
-        aCoder.encodeObject(last_name, forKey: "last_name")
-        aCoder.encodeObject(first_name, forKey: "first_name")
-        aCoder.encodeObject(year, forKey: "year")
-        aCoder.encodeObject(picture, forKey: "picture")
-        aCoder.encodeObject(notes, forKey: "notes")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(google_drive_info, forKey: "google_drive_info")
+        aCoder.encode(last_name, forKey: "last_name")
+        aCoder.encode(first_name, forKey: "first_name")
+        aCoder.encode(year, forKey: "year")
+        aCoder.encode(picture, forKey: "picture")
+        aCoder.encode(notes, forKey: "notes")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let google_drive_info = aDecoder.decodeObjectForKey("google_drive_info") as! GTLDriveFile?
-        let last_name = aDecoder.decodeObjectForKey("last_name") as! String
-        let first_name = aDecoder.decodeObjectForKey("first_name") as! String
-        let year = aDecoder.decodeObjectForKey("year") as! String
-        let picture = aDecoder.decodeObjectForKey("picture") as! UIImage?
-        let notes = aDecoder.decodeObjectForKey("notes") as! String
+        let google_drive_info = aDecoder.decodeObject(forKey: "google_drive_info") as! GTLDriveFile?
+        let last_name = aDecoder.decodeObject(forKey: "last_name") as! String
+        let first_name = aDecoder.decodeObject(forKey: "first_name") as! String
+        let year = aDecoder.decodeObject(forKey: "year") as! String
+        let picture = aDecoder.decodeObject(forKey: "picture") as! UIImage?
+        let notes = aDecoder.decodeObject(forKey: "notes") as! String
         
         // Must call designated initializer.
         self.init(google_drive_info: google_drive_info, last_name: last_name,

@@ -16,12 +16,12 @@ class Roster : NSObject, NSCoding {
         self.init(name : n, students: [])!
     }
     
-    func addStudent(student : Student){
+    func addStudent(_ student : Student){
         students.append(student)
     }
     
     func sortStudents() {
-        students.sortInPlace({$0.last_name < $1.last_name})
+        students.sort(by: {$0.last_name < $1.last_name})
     }
     func count() -> Int {
         return students.count
@@ -37,16 +37,16 @@ class Roster : NSObject, NSCoding {
         }
     }
     
-    func csv_paste(pasted : String)
+    func csv_paste(_ pasted : String)
     {
         // pasted text should have the following form, separated by newlines:
         // last,first,year (year is optional).
         // /E.g.:
         // Gregg,Chris,Freshman
-        let lines = pasted.componentsSeparatedByString("\n")
+        let lines = pasted.components(separatedBy: "\n")
         for line in lines {
             let s = Student()
-            let details = line.componentsSeparatedByString(",")
+            let details = line.components(separatedBy: ",")
             
             if details.count == 2 {
                 s.addDetails(details[0], first: details[1])
@@ -69,14 +69,14 @@ class Roster : NSObject, NSCoding {
         }
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey: "name")
-        aCoder.encodeObject(students, forKey: "students")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(students, forKey: "students")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let name = aDecoder.decodeObjectForKey("name") as! String
-        let students = aDecoder.decodeObjectForKey("students") as! [Student]
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let students = aDecoder.decodeObject(forKey: "students") as! [Student]
         
         // Must call designated initializer.
         self.init(name: name, students: students)

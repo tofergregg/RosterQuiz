@@ -33,14 +33,14 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
         rosterTable.dataSource = self
         loadingFilesIndicator = UIActivityIndicatorView()
         //uiBusy.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
-        loadingFilesIndicator.color = UIColor.blackColor()
+        loadingFilesIndicator.color = UIColor.black
         loadingFilesIndicator.hidesWhenStopped = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loadingFilesIndicator)
         navigationItem.title = rosterFolder.name
-        clickToAddButton.enabled = false
+        clickToAddButton.isEnabled = false
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         roster.name = rosterFolder.name
         loadImageNames()
     }
@@ -52,33 +52,38 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
     
     func loadImageNames(){
         // load the list of images
-        let url: NSURL = NSURL(string: "https://cs.stanford.edu/~cgregg/cgi-bin/run_python.cgi?script_to_run=../rosters/cgi-bin/getImageList.cgi")!
-        let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
-        request.HTTPMethod = "POST"
+        let url: URL = URL(string: "https://cs.stanford.edu/~cgregg/cgi-bin/run_python.cgi?script_to_run=../rosters/cgi-bin/getImageList.cgi")!
+        let request:NSMutableURLRequest = NSMutableURLRequest(url:url)
+        request.httpMethod = "POST"
         let folderName = rosterFolder.name+parentController.sentinel+rosterFolder.filename
         let bodyData = "name=\(parentController.username.text!)&imgFolder=\(folderName)"
-        request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
+        request.httpBody = bodyData.data(using: String.Encoding.utf8);
+        NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main)
         {
             (response, data, error) in
             if data != nil {
-                let stringData = String(data: data!, encoding:NSUTF8StringEncoding) as String!
+                let stringData = String(data: data!, encoding:String.Encoding.utf8) as String!
                 print(stringData)
-                if stringData.hasPrefix("User name and password do not match!") {
-                    self.showAlert("Error!", message: stringData)
+                if (stringData?.hasPrefix("User name and password do not match!"))! {
+                    self.showAlert("Error!", message: stringData!)
                 }
                 else {
-                    var rosterInfos = stringData.componentsSeparatedByString("\n")
+                    var rosterInfos = stringData?.components(separatedBy: "\n")
                     // there will be an extra because of the last line
-                    rosterInfos.removeLast()
-                    for r in rosterInfos {
-                        let parts = r.componentsSeparatedByString(".jpg")
+                    rosterInfos?.removeLast()
+                    for r in rosterInfos! {
+                        let parts = r.components(separatedBy: ".jpg")
                         if parts.count == 2 {
                             self.images.append(r) // for later
-                            let nameParts = parts[0].componentsSeparatedByString("_")
+                            let nameParts = parts[0].components(separatedBy: "_")
                             let s = Student()
                             s.last_name = nameParts[0]
-                            s.first_name = nameParts[1]
+                            if (nameParts.count > 1) {
+                                s.first_name = nameParts[1]
+                            }
+                            else {
+                                s.first_name = "NOFIRSTNAME"
+                            }
                             self.roster.addStudent(s)
                         }
                     }
@@ -99,36 +104,36 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // load the actual images
-    func downloadImages(studentNum : Int){
+    func downloadImages(_ studentNum : Int){
         if (studentNum < roster.count()) {
-            self.studentImage.hidden = false
-            let url: NSURL = NSURL(string: "https://cs.stanford.edu/~cgregg/cgi-bin/run_python.cgi?script_to_run=../rosters/cgi-bin/retrieveImageByFolder.cgi")!
-            let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
-            request.HTTPMethod = "POST"
+            self.studentImage.isHidden = false
+            let url: URL = URL(string: "https://cs.stanford.edu/~cgregg/cgi-bin/run_python.cgi?script_to_run=../rosters/cgi-bin/retrieveImageByFolder.cgi")!
+            let request:NSMutableURLRequest = NSMutableURLRequest(url:url)
+            request.httpMethod = "POST"
             let folderName = rosterFolder.name+parentController.sentinel+rosterFolder.filename
             let bodyData = "name=\(parentController.username.text!)&imgFolder=\(folderName)&imgName=\(images[studentNum])"
-            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
-            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler:handleDownload(studentNum))
+            request.httpBody = bodyData.data(using: String.Encoding.utf8);
+            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main, completionHandler:handleDownload(studentNum) )
             
             // download next student after delay
             // cannot have more than 10 requests / second, so we will do 8 for a bit of buffer room
-            let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), Int64(NSEC_PER_SEC) / 8)
-            dispatch_after(time, dispatch_get_main_queue()) {
+            //let time = DispatchTime(uptimeNanoseconds: DispatchTime.now()) + Double(Int64(NSEC_PER_SEC) / 8) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.125) {
                 self.downloadImages(studentNum + 1)
             }
         }
     }
     
-    func handleDownload(studentNum:Int) -> (NSURLResponse?, NSData?, NSError?) -> Void {
-        return { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+    func handleDownload(_ studentNum:Int) -> (URLResponse?, Data?, Error?) -> Void {
+        return { (response: URLResponse?, data: Data?, error: Error?) -> Void in
             // received image
             print(self.roster[studentNum].commaName())
             if ((error) != nil) {
                 self.loadingErrors += 1
             }
             if (data != nil) {
-                print(String(data:data!, encoding:NSUTF8StringEncoding))
-                print(data!.length)
+                print(String(data:data!, encoding:String.Encoding.utf8))
+                print(data!.count)
                 self.roster[studentNum].picture = UIImage(data:data!,scale:1.0)
                 self.studentImage.image = self.roster[studentNum].picture
                 self.studentImage.setNeedsDisplay()
@@ -137,8 +142,8 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
             }
             self.imageCount += 1
             if (self.imageCount == self.roster.count()) { // received all images, update with csv data
-                self.studentImage.hidden = true
-                self.clickToAddButton.enabled = true
+                self.studentImage.isHidden = true
+                self.clickToAddButton.isEnabled = true
 
                 if (self.loadingErrors > 0) {
                     self.showAlert("Errors loading roster",
@@ -163,13 +168,13 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func handleCSVDownload(data: NSData?, error: NSError?) -> Void {
+    func handleCSVDownload(_ data: Data?, error: NSError?) -> Void {
         if let error = error {
             showAlert("Error", message: error.localizedDescription)
             return
         }
         // received csv file
-        let csv = String(data: data!, encoding:NSUTF8StringEncoding)!
+        let csv = String(data: data!, encoding:String.Encoding.utf8)!
         self.loadingFilesIndicator.stopAnimating()
         
         print(csv)
@@ -177,15 +182,15 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    func addToRoster(csv : String){
+    func addToRoster(_ csv : String){
         // csv should have the following form:
         // last,first,year(e.g."Sophomore")
         // year is optional
-        let lines = csv.componentsSeparatedByString("\n")
+        let lines = csv.components(separatedBy: "\n")
         for line in lines {
             var last : String = "", first: String = ""
             var year : String = ""
-            let details = line.componentsSeparatedByString(",")
+            let details = line.components(separatedBy: ",")
             if (details.count > 1) {
                 last = details[0]
                 if (details.count > 1) {
@@ -225,42 +230,42 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // table functions
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roster.count()
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("student cell", forIndexPath: indexPath)
-        let row = indexPath.row
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "student cell", for: indexPath)
+        let row = (indexPath as NSIndexPath).row
         if (roster[row].picture != nil) {
             cell.imageView!.image = roster[row].picture
         }
         else {
             cell.imageView!.image = UIImage(named:"User-100")
         }
-        cell.textLabel?.text = roster[indexPath.row].commaName()
+        cell.textLabel?.text = roster[(indexPath as NSIndexPath).row].commaName()
         return cell
     }
 
     
     // Helper for showing an alert
-    func showAlert(title : String, message: String) {
+    func showAlert(_ title : String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: UIAlertControllerStyle.Alert
+            preferredStyle: UIAlertControllerStyle.alert
         )
         let ok = UIAlertAction(
             title: "OK",
-            style: UIAlertActionStyle.Default,
+            style: UIAlertActionStyle.default,
             handler: nil
         )
         alert.addAction(ok)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
         loadingFilesIndicator.stopAnimating()
     }
 }

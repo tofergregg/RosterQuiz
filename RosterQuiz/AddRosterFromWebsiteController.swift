@@ -40,7 +40,7 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
     
     // When the view appears, ensure that the Drive API service is authorized
     // and perform API calls
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         alreadyLoading = false
     }
     
@@ -49,13 +49,13 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
     {
         textField.resignFirstResponder()
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if !alreadyLoading {
             if textField == userPw {
                 loadRosterList(nil)
@@ -69,7 +69,7 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
-    @IBAction func loadRosterList(sender: UIButton!) {
+    @IBAction func loadRosterList(_ sender: UIButton!) {
         // dismiss keyboard
         self.view.endEditing(true)
         alreadyLoading = true;
@@ -77,24 +77,24 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
         loadingFilesIndicator.startAnimating()
         self.rosterList = [] // reset
         self.rosterListTable.reloadData()
-        let url: NSURL = NSURL(string: "https://cs.stanford.edu/~cgregg/cgi-bin/run_python.cgi?script_to_run=../rosters/cgi-bin/list_rosters.cgi")!
-        let request:NSMutableURLRequest = NSMutableURLRequest(URL:url)
-        request.HTTPMethod = "POST"
+        let url: URL = URL(string: "https://cs.stanford.edu/~cgregg/cgi-bin/run_python.cgi?script_to_run=../rosters/cgi-bin/list_rosters.cgi")!
+        let request:NSMutableURLRequest = NSMutableURLRequest(url:url)
+        request.httpMethod = "POST"
         let bodyData = "name=\(username.text!)&pw=\(userPw.text!)"
-        request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding);
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
+        request.httpBody = bodyData.data(using: String.Encoding.utf8);
+        NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main)
         {
             (response, data, error) in
             if data != nil {
-                let stringData = String(data: data!, encoding:NSUTF8StringEncoding) as String!
+                let stringData = String(data: data!, encoding:String.Encoding.utf8) as String!
                 print(stringData)
-                if stringData.hasPrefix("User name and password do not match!") {
-                    self.showAlert("Error!", message: stringData)
+                if (stringData?.hasPrefix("User name and password do not match!"))! {
+                    self.showAlert("Error!", message: stringData!)
                 }
                 else {
-                    let rosterInfos = stringData.componentsSeparatedByString("\n")
-                    for r in rosterInfos {
-                        let parts = r.componentsSeparatedByString(self.sentinel)
+                    let rosterInfos = stringData?.components(separatedBy: "\n")
+                    for r in rosterInfos! {
+                        let parts = r.components(separatedBy: self.sentinel)
                         if parts.count == 2 {
                             let rosterInfo = RosterInfo(name:parts[0],filename:parts[1])
                             self.rosterList.append(rosterInfo)
@@ -109,55 +109,55 @@ class AddRosterFromWebsiteController: UIViewController, UITableViewDelegate, UIT
     }
     
     // Helper for showing an alert
-    func showAlert(title : String, message: String) {
+    func showAlert(_ title : String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: UIAlertControllerStyle.Alert
+            preferredStyle: UIAlertControllerStyle.alert
         )
         let ok = UIAlertAction(
             title: "OK",
-            style: UIAlertActionStyle.Default,
+            style: UIAlertActionStyle.default,
             handler: nil
         )
         alert.addAction(ok)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
         loadingFilesIndicator.stopAnimating()
     }
     
-    @IBAction func cancelButton(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: {});
+    @IBAction func cancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: {});
     }
     
     // table functions
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rosterList.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         cell.textLabel?.text = "\(rosterList[row].name) (\(rosterList[row].filename).pdf)"
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if segue.identifier == "Show Students Website" {
-            let destionationVC : LoadRosterFromWebsite = segue.destinationViewController as! LoadRosterFromWebsite
+            let destionationVC : LoadRosterFromWebsite = segue.destination as! LoadRosterFromWebsite
             
             destionationVC.parentController = self
-            destionationVC.rosterFolder = rosterList[rosterListTable.indexPathForSelectedRow!.row]
+            destionationVC.rosterFolder = rosterList[(rosterListTable.indexPathForSelectedRow! as NSIndexPath).row]
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         //let row = indexPath.row
         //print("Row: \(row)")

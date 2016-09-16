@@ -11,23 +11,24 @@ import UIKit
 
 // add a shuffle algorithm
 // from here: http://stackoverflow.com/a/24029847/561677
-extension CollectionType {
+extension Collection {
     /// Return a copy of `self` with its elements shuffled
-    func shuffle() -> [Generator.Element] {
+    func shuffle() -> [Iterator.Element] {
         var list = Array(self)
         list.shuffleInPlace()
         return list
     }
 }
 
-extension MutableCollectionType where Index == Int {
+extension MutableCollection where Index == Int {
     /// Shuffle the elements of `self` in-place.
     mutating func shuffleInPlace() {
         // empty and single-element collections don't shuffle
         if count < 2 { return }
+        let intCount : Int = count as! Int
         
-        for i in 0..<count - 1 {
-            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+        for i in 0..<intCount - 1 {
+            let j = Int(arc4random_uniform(UInt32(intCount - i))) + i
             guard i != j else { continue }
             swap(&self[i], &self[j])
         }
@@ -61,7 +62,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
                 buttonCount = roster!.count()
             }
             choiceButtons.append(button0)
-            button0.addTarget(self, action: #selector(userMadeChoice), forControlEvents: .TouchUpInside)
+            button0.addTarget(self, action: #selector(userMadeChoice), for: .touchUpInside)
             // get original button0 frame
             //var buttonFrame = button0.frame
             ////var buttonFrame = CGRectMake(8,button0.frame.origin.y,304,button0.frame.height)
@@ -85,26 +86,26 @@ class QuizController : UIViewController, UITextFieldDelegate {
                 //button.textAlignment = NSTextAlignment.Natural
                 //button.autoresizingMask = [.FlexibleRightMargin, .FlexibleBottomMargin]
                 button.translatesAutoresizingMaskIntoConstraints = false
-                button.setTitle("Name \(i)", forState: .Normal)
-                button.addTarget(self, action: #selector(userMadeChoice), forControlEvents: .TouchUpInside)
+                button.setTitle("Name \(i)", for: UIControlState())
+                button.addTarget(self, action: #selector(userMadeChoice), for: .touchUpInside)
                 //button.backgroundColor = UIColor.blueColor()
-                button.setTitleColor(button0.titleColorForState(.Normal), forState: .Normal)
+                button.setTitleColor(button0.titleColor(for: UIControlState()), for: UIControlState())
                 //button0.backgroundColor = UIColor.blueColor()
                 view.addSubview(button)
                 // center horizontally
-                var constraints = NSLayoutConstraint.constraintsWithVisualFormat(
-                    "V:[superview]-(<=1)-[button]",
-                    options: NSLayoutFormatOptions.AlignAllCenterX,
+                var constraints = NSLayoutConstraint.constraints(
+                    withVisualFormat: "V:[superview]-(<=1)-[button]",
+                    options: NSLayoutFormatOptions.alignAllCenterX,
                     metrics: nil,
                     views: ["superview":view, "button":button])
                 view.addConstraints(constraints)
-                button.frame=CGRectMake(0,buttonFrame.origin.y,100,30)
+                button.frame=CGRect(x: 0,y: buttonFrame.origin.y,width: 100,height: 30)
                 
                 // Center vertically
                 // Each button should be 6 away from the previous button
                 // But, we just align on the button already present
-                constraints = NSLayoutConstraint.constraintsWithVisualFormat(
-                    "V:[superview]-6-[button]",
+                constraints = NSLayoutConstraint.constraints(
+                    withVisualFormat: "V:[superview]-6-[button]",
                     options: [],
                     metrics: nil,
                     views: ["superview":choiceButtons[i-1], "button":button])
@@ -136,15 +137,15 @@ class QuizController : UIViewController, UITextFieldDelegate {
     }
     
     func runFreeResponseQuiz() {
-        nextLetterHint.hidden = false
+        nextLetterHint.isHidden = false
         chooseImage()
         firstNameGuess.text = ""
         correctNameLabel.text = ""
-        continueButton.hidden = true
-        firstNameGuess.enabled = true
+        continueButton.isHidden = true
+        firstNameGuess.isEnabled = true
     }
     
-    @IBAction func continueClicked(sender: UIButton!) {
+    @IBAction func continueClicked(_ sender: UIButton!) {
         runFreeResponseQuiz()
     }
     func chooseImage() {
@@ -158,7 +159,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
         studentImage.image = studentToGuess?.picture
     }
     
-    func chooseAnother(let student : Student) -> Bool {
+    func chooseAnother(_ student : Student) -> Bool {
         //while choices.contains(student) || student.first_name == studentToGuess?.first_name {
         if choices.contains(student) {
             return true // must keep choosing
@@ -200,12 +201,12 @@ class QuizController : UIViewController, UITextFieldDelegate {
             let attribStr = NSMutableAttributedString(
                 string:choices[i].first_name,
                 attributes:[:])
-            choiceButtons[i].setAttributedTitle(attribStr, forState: .Normal)
-            choiceButtons[i].enabled = true
+            choiceButtons[i].setAttributedTitle(attribStr, for: UIControlState())
+            choiceButtons[i].isEnabled = true
         }
     }
     
-    func firstDiff(s1 : String, s2 : String) -> Int {
+    func firstDiff(_ s1 : String, s2 : String) -> Int {
         // returns -1 if the strings are the same
         // returns the index of the first character if they are different
         var i = 0
@@ -224,7 +225,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
         return i
     }
     
-    func characterAtIndex(s : String, index: Int) -> Character? {
+    func characterAtIndex(_ s : String, index: Int) -> Character? {
         // returns the character at the index
         var i = 0
         for c in s.characters{
@@ -237,11 +238,11 @@ class QuizController : UIViewController, UITextFieldDelegate {
         return nil // too far!
     }
     
-    @IBAction func provideNextLetter(sender: UIButton) {
+    @IBAction func provideNextLetter(_ sender: UIButton) {
         // If there is already a partial guess, provide the next letter if it is correct so far.
         // If it is incorrect so far, delete and provide first letter
-        let upcaseGuess = firstNameGuess.text!.uppercaseString
-        let upcaseFirstName = (studentToGuess?.first_name.uppercaseString)! as String
+        let upcaseGuess = firstNameGuess.text!.uppercased()
+        let upcaseFirstName = (studentToGuess?.first_name.uppercased())! as String
         
         var fDiff = firstDiff(upcaseGuess, s2: upcaseFirstName)
         if fDiff != -1 {
@@ -252,7 +253,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
             if fDiff >= upcaseFirstName.characters.count {
                 fDiff = upcaseFirstName.characters.count - 1
             }
-            firstNameGuess.text = studentToGuess?.first_name[fn.startIndex...fn.startIndex.advancedBy(fDiff)]
+            firstNameGuess.text = studentToGuess?.first_name[fn.startIndex...fn.characters.index(fn.startIndex, offsetBy: fDiff)]
             if fDiff == upcaseFirstName.characters.count-1 {
                 userTypedName(nil)
             }
@@ -260,7 +261,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
         
     }
     
-    func userMadeChoice(sender:UIButton!){
+    func userMadeChoice(_ sender:UIButton!){
         print("Button \(sender.tag) chosen.")
         totalGuesses += 1
         // check if the choice was correct
@@ -273,10 +274,10 @@ class QuizController : UIViewController, UITextFieldDelegate {
             //sender.backgroundColor = UIColor.redColor()
             let attribStr = NSMutableAttributedString(
                 string:(sender.titleLabel?.text)!,
-                attributes:[NSStrikethroughStyleAttributeName:NSUnderlineStyle.StyleSingle.rawValue])
+                attributes:[NSStrikethroughStyleAttributeName:NSUnderlineStyle.styleSingle.rawValue])
             
-            sender.setAttributedTitle(attribStr, forState: .Normal)
-            sender.enabled = false
+            sender.setAttributedTitle(attribStr, for: UIControlState())
+            sender.isEnabled = false
             
             let scorePercent = round(Float(score) / Float(totalGuesses) * 10000) / 100
             scoreLabel.text = "Score: \(score)/\(totalGuesses)(\(scorePercent)%)"
@@ -288,12 +289,12 @@ class QuizController : UIViewController, UITextFieldDelegate {
         runMultipleChoiceQuiz()
     }
     
-    @IBAction func userTypedName(sender: UITextField!) {
+    @IBAction func userTypedName(_ sender: UITextField!) {
         print("checking...")
         // hide hint button
-        nextLetterHint.hidden = true
-        continueButton.hidden = false
-        firstNameGuess.enabled = false
+        nextLetterHint.isHidden = true
+        continueButton.isHidden = false
+        firstNameGuess.isEnabled = false
 
         totalGuesses += 1
         if (sender == nil) {
@@ -301,7 +302,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
             correctNameLabel.text = studentToGuess!.commaName()
         }
         else {
-            if (sender!.text?.uppercaseString == studentToGuess?.first_name.uppercaseString) {
+            if (sender!.text?.uppercased() == studentToGuess?.first_name.uppercased()) {
                 print("Correct!")
                 correctNameLabel.text = "Correct! \(studentToGuess!.commaName())"
                 score += 1
@@ -315,7 +316,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
         scoreLabel.text = "Score: \(score)/\(totalGuesses)(\(scorePercent)%)"
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == firstNameGuess {
             textField.resignFirstResponder()
             return false
@@ -323,7 +324,7 @@ class QuizController : UIViewController, UITextFieldDelegate {
         return true
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if restorationIdentifier == "Multiple Choice Quiz" {
             print("Multiple Choice Quiz Appeared")
         }

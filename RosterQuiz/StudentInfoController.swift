@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 extension UINavigationController {
-    public override func shouldAutorotate() -> Bool {
+    open override var shouldAutorotate : Bool {
         if (visibleViewController != nil) {
-            return visibleViewController!.shouldAutorotate()
+            return visibleViewController!.shouldAutorotate
         }
         else {
             return true;
@@ -34,7 +34,7 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var yearText: UITextField!
     
-    var viewLoaded = false
+    var viewIsLoaded = false
     var noBackAlert = false
 
     override func viewDidLoad() {
@@ -44,45 +44,45 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
             lastNameText.text = student.last_name
             firstNameText.text = student.first_name
             yearText.text = student.year
-            studentPicButton.setTitle("", forState: .Normal)
+            studentPicButton.setTitle("", for: UIControlState())
             if (student.picture != nil) {
-                studentPicButton.setImage(student.picture, forState:.Normal)
+                studentPicButton.setImage(student.picture, for:UIControlState())
             }
             else {
-                studentPicButton.setImage(UIImage(named: "User-400"), forState:.Normal)
+                studentPicButton.setImage(UIImage(named: "User-400"), for:UIControlState())
             }
             notesText.text = student.notes
         }
         notesText.layer.borderWidth = 0.5
-        notesText.layer.borderColor = UIColor.lightGrayColor().CGColor
+        notesText.layer.borderColor = UIColor.lightGray.cgColor
         notesText.layer.cornerRadius = 5.0
-        lastNameText.addTarget(self, action: #selector(StudentInfoController.nameChanged), forControlEvents: UIControlEvents.EditingChanged)
-        firstNameText.addTarget(self, action: #selector(StudentInfoController.nameChanged), forControlEvents: UIControlEvents.EditingChanged)
-        studentPicButton.imageView!.contentMode = .ScaleAspectFit
+        lastNameText.addTarget(self, action: #selector(StudentInfoController.nameChanged), for: UIControlEvents.editingChanged)
+        firstNameText.addTarget(self, action: #selector(StudentInfoController.nameChanged), for: UIControlEvents.editingChanged)
+        studentPicButton.imageView!.contentMode = .scaleAspectFit
         
         // force portrait mode
-        let value = UIInterfaceOrientation.Portrait.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         /* Did not work. See here: http://stackoverflow.com/a/2796488/561677
         // change back button
         let btn = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: #selector(StudentInfoController.backBtnClicked))
         
         self.navigationController?.navigationBar.topItem?.backBarButtonItem=btn
         */
-        let button  = UIButton(type: .Custom)
+        let button  = UIButton(type: .custom)
         if let image = UIImage(named:"backButtonImage.png") {
-            button.setImage(image, forState: .Normal)
+            button.setImage(image, for: UIControlState())
         }
         // trying to get the button as close as possible
-        button.frame = CGRectMake(0.0, 0.0, 56.0, 28.0)
-        button.addTarget(self, action: #selector(backBtnClicked), forControlEvents: .TouchUpInside)
+        button.frame = CGRect(x: 0.0, y: 0.0, width: 56.0, height: 28.0)
+        button.addTarget(self, action: #selector(backBtnClicked), for: .touchUpInside)
         let barButton = UIBarButtonItem(customView: button)
 
         // the button is too far to the right, so add some negative space...
-        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
+        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
         negativeSpacer.width = -10;
         navigationItem.setLeftBarButtonItems([negativeSpacer,barButton], animated: false)
-        viewLoaded = true;
+        viewIsLoaded = true;
         //navigationItem.backBarButtonItem = barButton
     }
     
@@ -101,11 +101,11 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
             saveAlert("Information has Changed", message: "Do you want to save?")
         }
         else {
-            self.navigationController!.popViewControllerAnimated(true);
+            self.navigationController!.popViewController(animated: true);
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         /* update: did end up creating my own button above */
         /* decided against this. There is a save button for a reason.
            If someone changes an image, it's changed forever, and there isn't
@@ -122,9 +122,9 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         super.viewWillDisappear(animated)
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
+    override func willMove(toParentViewController parent: UIViewController?) {
         /* not necessary
-        if viewLoaded && !noBackAlert {
+        if viewIsLoaded && !noBackAlert {
             print("Back button pressed");
             saveAlert("Save Changes?", message: "Do you want to save the changes?")
         }
@@ -136,13 +136,13 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
     {
         textField.resignFirstResponder()
         return true
     }
     
-    func textFieldDidBeginEditing(sender : UITextField)
+    func textFieldDidBeginEditing(_ sender : UITextField)
     {
         var offset : CGFloat = 0
         if sender == lastNameText {
@@ -161,7 +161,7 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         }
     }
     
-    func textFieldDidEndEditing(sender : UITextField)
+    func textFieldDidEndEditing(_ sender : UITextField)
     {
         var offset : CGFloat = 0
         if sender == lastNameText {
@@ -181,18 +181,18 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         }
     }
     
-    func textViewDidBeginEditing(sender : UITextView) {
+    func textViewDidBeginEditing(_ sender : UITextView) {
         //move the main view, so that the keyboard does not hide it.
         if  (self.view.frame.origin.y >= 0)
         {
             self.setViewMovedUp(true, kOFFSET_FOR_KEYBOARD: 80.0)
             
             // add done button
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(StudentInfoController.dismiss))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(StudentInfoController.newDismiss))
         }
     }
     
-    func dismiss() {
+    func newDismiss() {
         //move the main view, so that the keyboard does not hide it.
         if  (self.view.frame.origin.y < 0)
         {
@@ -204,7 +204,7 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     }
     
     //method to move the view up/down whenever the keyboard is shown/dismissed
-    func setViewMovedUp(movedUp : Bool, kOFFSET_FOR_KEYBOARD : CGFloat) {
+    func setViewMovedUp(_ movedUp : Bool, kOFFSET_FOR_KEYBOARD : CGFloat) {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
     
@@ -228,18 +228,18 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
     }
     
     // don't allow landscape mode
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
 
     }
     
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
-        return UIInterfaceOrientation.Portrait
+    override var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
+        return UIInterfaceOrientation.portrait
     }
     
-    override func shouldAutorotate() -> Bool {
-        switch UIDevice.currentDevice().orientation {
-        case .Portrait, .PortraitUpsideDown, .Unknown:
+    override var shouldAutorotate : Bool {
+        switch UIDevice.current.orientation {
+        case .portrait, .portraitUpsideDown, .unknown:
             return true
         default:
             return false
@@ -250,24 +250,24 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         navigationItem.title = lastNameText.text! + ", " + firstNameText.text!
     }
     
-    @IBAction func picClicked(sender: UIButton) {
+    @IBAction func picClicked(_ sender: UIButton) {
         let picker = UIImagePickerController()
         picker.delegate = self
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .Default, handler: {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {
             action in
-            picker.sourceType = .Camera
+            picker.sourceType = .camera
             picker.allowsEditing = true
-            self.presentViewController(picker, animated: true, completion: nil)
+            self.present(picker, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Photo Library", style: .Default, handler: {
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {
             action in
-            picker.sourceType = .PhotoLibrary
+            picker.sourceType = .photoLibrary
             picker.allowsEditing = true
-            self.presentViewController(picker, animated: true, completion: nil)
+            self.present(picker, animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     /*@IBAction func picClicked(sender: UIButton) {
@@ -277,51 +277,51 @@ class StudentInfoController : UIViewController, UIImagePickerControllerDelegate,
         presentViewController(imagePicker, animated: true, completion: nil)
     }*/
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            studentPicButton.setImage(pickedImage, forState: .Normal)
+            studentPicButton.setImage(pickedImage, for: UIControlState())
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // Helper for showing an alert
-    func saveAlert(title : String, message: String) {
+    func saveAlert(_ title : String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: UIAlertControllerStyle.Alert
+            preferredStyle: UIAlertControllerStyle.alert
         )
         let yes = UIAlertAction(
             title: "YES",
-            style: UIAlertActionStyle.Default,
+            style: UIAlertActionStyle.default,
             handler: yesSelected
         )
         let no = UIAlertAction(
             title: "NO",
-            style: UIAlertActionStyle.Destructive,
+            style: UIAlertActionStyle.destructive,
             handler: noSelected
         )
         let cancel = UIAlertAction(
             title: "CANCEL",
-            style: UIAlertActionStyle.Cancel,
+            style: UIAlertActionStyle.cancel,
             handler: nil // don't go back
         )
         alert.addAction(yes)
         alert.addAction(no)
         alert.addAction(cancel)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
-    func noSelected(action: UIAlertAction){
-        self.navigationController!.popViewControllerAnimated(true);
+    func noSelected(_ action: UIAlertAction){
+        self.navigationController!.popViewController(animated: true);
     }
     
-    func yesSelected(action: UIAlertAction){
-        self.performSegueWithIdentifier("Save on Return",sender:self)
+    func yesSelected(_ action: UIAlertAction){
+        self.performSegue(withIdentifier: "Save on Return",sender:self)
     }
 
 }
