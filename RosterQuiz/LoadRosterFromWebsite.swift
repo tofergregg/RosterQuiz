@@ -188,7 +188,12 @@ class LoadRosterFromWebsite: UIViewController, UITableViewDelegate, UITableViewD
             let details = line.componentsSeparatedByString(",")
             if (details.count > 1) {
                 last = details[0]
-                first = details[1]
+                if (details.count > 1) {
+                    first = details[1]
+                }
+                else {
+                    first = "No First Name"
+                }
                 if (details.count > 2){
                     year = details[2]
                 }
